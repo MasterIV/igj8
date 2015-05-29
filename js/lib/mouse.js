@@ -29,13 +29,12 @@ mouse.init = function() {
 		this.onmousemove( ev.changedTouches[0] );
 		this.onmousedown( ev.changedTouches[0] );
 		ev.preventDefault();
-
-	}
+	};
 
 	gameframe.ontouchmove = function( ev ) {
 		this.onmousemove( ev.changedTouches[0] );
 		ev.preventDefault();
-	}
+	};
 
 	gameframe.ontouchend = function( ev ) {
 		this.onmouseup( ev.changedTouches[0] );

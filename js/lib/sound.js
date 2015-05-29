@@ -8,14 +8,14 @@ var sound = {
 			this.sampels[file] = [];
 
 		if( this.sampels[file].length ) {
-			var sound = this.sampels[file].pop();
-			sound.play();
-			return sound;
+			var s = this.sampels[file].pop();
+			s.play();
+			return s;
 		} else {
-			var sound = new Audio( file );
-			sound.onended = function() { self.sampels[file].push( this ); };
-			sound.play();
-			return sound;
+			var s = new Audio( file );
+			s.onended = function() { self.sampels[file].push( this ); };
+			s.play();
+			return s;
 		}
 	}
 }
