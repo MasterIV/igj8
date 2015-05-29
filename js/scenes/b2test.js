@@ -24,6 +24,7 @@ function B2Test() {
 	b1.SetLinearVelocity( new Box2D.b2Vec2( 30, 0 ));
 
 	this.update = function(delta) {
+		b2.ApplyForce( new Box2D.b2Vec2( 30, 0 ), b2.GetWorldCenter());
 		world.Step(delta/1000, 10, 10);
 	};
 

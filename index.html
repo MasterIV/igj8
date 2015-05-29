@@ -29,13 +29,17 @@
 		<script type="text/javascript" src="js/entities/Box2DEntity.js"></script>
 		<script type="text/javascript" src="js/entities/TestBox.js"></script>
 
+		<script type="text/javascript" src="js/entities/Cannon.js"></script>
+
 		<script type="text/javascript">
 			function init() {
-				game.scene = new B2Test();
+				g.load(function() {
+					game.scene = new UniverseScene();
 
-				controls.init();
-				game.init();
-				game.scene = new TestScene;
+					mouse.init();
+					controls.init();
+					game.init();
+				});
 			}
 		</script>
 	</head>

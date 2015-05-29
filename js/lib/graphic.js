@@ -1,5 +1,5 @@
 var g = {
-	urls: [],
+	urls: ['img/gun.png'],
 
 	add: function( url ) {
 		this.urls.push( url );
