@@ -2,6 +2,15 @@ function TestScene() {
 	this.entities = [];
 
 	this.world = new Box2D.b2World( new Box2D.b2Vec2(0.0, -10.0) );
+
+
+	this.aabb = new Box2D.b2AABB();
+
+	var d = 0.001;
+	aabb.set_lowerBound(new b2Vec2(mousePosWorld.x - d, mousePosWorld.y - d));
+	aabb.set_upperBound(new b2Vec2(mousePosWorld.x + d, mousePosWorld.y + d));
+
+	console.log(this.aabb);
 };
 
 TestScene.prototype.update = function( delta ) {
