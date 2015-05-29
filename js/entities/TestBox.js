@@ -1,3 +1,5 @@
+
+/*
 function TestBox(x, y,xspeed,yspeed, world) {
 	this.bodyDef = new Box2D.b2BodyDef;
 	this.bodyDef.set_type(Box2D.b2_dynamicBody);
@@ -40,3 +42,4 @@ TestBox.prototype.update = function ( delta ) {
 	//this.body.ApplyForce(new Box2D.b2Vec2(300,200));
 
 }
+	*/
