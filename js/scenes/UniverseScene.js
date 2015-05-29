@@ -2,4 +2,4 @@ function UniverseScene() {
 	//TODO
 };
 
-UniverseScene.prototype = new scene;
+UniverseScene.prototype = new Scene;
