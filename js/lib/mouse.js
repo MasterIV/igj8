@@ -5,8 +5,8 @@ mouse.init = function() {
 	var gameframe = document.getElementById('gameframe');
 
 	gameframe.onmousemove = function( ev ) {
-		self.x = ev.clientX - gameframe.offsetLeft;
-		self.y = ev.clientY - gameframe.offsetTop;
+		self.x = ev.layerX;
+		self.y = ev.layerY;
 	};
 
 	gameframe.onclick = function( ev ) {

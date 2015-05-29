@@ -1,6 +1,7 @@
 var g = {
 	urls: [
-		'img/mothership.png'
+		'img/mothership.png',
+		'img/gun.png'
 	],
 
 	add: function( url ) {
