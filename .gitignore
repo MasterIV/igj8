@@ -1,3 +1,7 @@
 /nbproject
 .idea
+<<<<<<< HEAD
 js/scenes/TestScene.js
+=======
+*/js/scenes/TestScene.js
+>>>>>>> TestScene ignore
