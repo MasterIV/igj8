@@ -20,6 +20,8 @@
 		<script type="text/javascript" src="js/lib/ajax.js"></script>
 		<script type="text/javascript" src="js/ui/buttons.js"></script>
 
+		<script type="text/javascript" src="js/scenes/b2test.js"></script>
+
 		<script type="text/javascript" src="js/scenes/TestScene.js"></script>
 		<script type="text/javascript" src="js/scenes/UniverseScene.js"></script>
 
@@ -29,6 +31,8 @@
 
 		<script type="text/javascript">
 			function init() {
+				game.scene = new B2Test();
+
 				controls.init();
 				game.init();
 				game.scene = new TestScene;
