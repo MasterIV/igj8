@@ -1,5 +1,7 @@
 var g = {
-	urls: [],
+	urls: [
+		'img/mothership.png'
+	],
 
 	add: function( url ) {
 		this.urls.push( url );

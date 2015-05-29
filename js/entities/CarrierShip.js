@@ -1,4 +1,8 @@
-function TestBox(x, y,xspeed,yspeed, world) {
+function CarrierShip(x, y) {
+
+
+	this.sprite = new Sprite('img/mothership.png');
+	/*
 	this.bodyDef = new Box2D.b2BodyDef;
 	this.bodyDef.set_type(Box2D.b2_dynamicBody);
 	this.bodyDef.set_position(new Box2D.b2Vec2(x,y));
@@ -24,18 +28,18 @@ function TestBox(x, y,xspeed,yspeed, world) {
 
 
 	this.fixture = this.body.CreateFixture(this.fixDef);
+	*/
 }
 
-TestBox.prototype = new Box2DEntity;
+CarrierShip.prototype = new Entity;
 
 
-TestBox.prototype.draw = function ( ctx ) {
+CarrierShip.prototype.draw = function ( ctx ) {
 
-	ctx.fillStyle = 'black';
-	ctx.fillRect(this.body.GetWorldCenter().get_x(), this.body.GetWorldCenter().get_y(), 10,10)
+	this.sprite.center(ctx, 100,100);
 }
 
-TestBox.prototype.update = function ( delta ) {
+CarrierShip.prototype.update = function ( delta ) {
 	//...
 	//this.body.ApplyForce(new Box2D.b2Vec2(300,200));
 
