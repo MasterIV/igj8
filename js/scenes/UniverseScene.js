@@ -1,10 +1,16 @@
 function UniverseScene() {
-	var world =  new Box2D.b2World(new Box2D.b2Vec2( 0, 0 ), true);
+	var worldAABB = new b2AABB();
+	worldAABB.minVertex.Set(0, 0);
+	worldAABB.maxVertex.Set(1280, 720);
+
+	var world =  new b2World(worldAABB, new b2Vec2( 0, 0 ), true);
+
+
 	var bullets = [];
 
 	this.entities = [
 		new Cannon( 0, 360 ),
-		{update: function(delta) { world.Step(delta/1000, 3, 2 );}}
+		{update: function(delta) { world.Step(delta/1000, 10, 10 );}}
 	];
 
 	this.fire = function( origin ) {
