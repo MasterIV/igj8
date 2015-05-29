@@ -73,4 +73,4 @@ SpriteButton.prototype.click = function( pos ) {
 		if( this.sound ) sound.play(this.sound);
 		this.callback();
 	}
-}
+};
