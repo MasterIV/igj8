@@ -1,4 +1,4 @@
-function CarrierShip(x, y, world, speed, definition, hp) {
+function CarrierShip(x, y, world, speed, definition) {
 	this.world = world;
 	this.sprite = new AnimationSprite(definition.sprite, 5);
 	this.killAnimation = null;
