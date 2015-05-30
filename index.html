@@ -102,6 +102,7 @@
 		<script type="text/javascript" src="js/ui/upgradebar.js"></script>
 		<script type="text/javascript" src="js/ui/upgrade.js"></script>
 		<script type="text/javascript" src="js/ui/levelcomplete.js"></script>
+		<script type="text/javascript" src="js/ui/weapons.js"></script>
 
 		<script type="text/javascript" src="js/scenes/b2test.js"></script>
 
@@ -133,6 +134,7 @@
 					scenes.loose = new LooseScene();
 					document.getElementById('loading').style.display = 'none';
 					game.scene = new UniverseScene(levels.level1);
+					//game.scene = new BuyScene();
 
 					mouse.init();
 					controls.init();

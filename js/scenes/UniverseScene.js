@@ -9,6 +9,7 @@ function UniverseScene(level) {
 
 	var world =  new b2World(worldAABB, new b2Vec2( 0, 0 ), true);
 	var cannon = new Cannon( 0, 360 );
+	var ui = new WeaponUI( cannon );
 
 	var bullets =  [];
 	var anomalies = [];
@@ -24,12 +25,8 @@ function UniverseScene(level) {
 	this.entities.push(this.hpBar);
 	this.entities.push(new debugBox2d(world));
 
-	var uiTop = new SpriteObj('img/main_UI_weapons.png', 0, 0);
-	var uiBottom = new SpriteObj('img/main_UI_anomalies.png', 0, 540);
-
-
-	this.fire = function( origin ) {
-		var bullet = new Bullet( world, origin, mouse.dif( origin ));
+	this.fire = function( origin, rocket ) {
+		var bullet = new Bullet( world, origin, mouse.dif( origin ), rocket );
 		bullets.push( bullet );
 		this.entities.push( bullet );
 		sound.play('sounds/weapon_shot/pulse_cannon_single.ogg');
@@ -55,8 +52,7 @@ function UniverseScene(level) {
 	this.drawEntities = this.draw;
 	this.draw = function(ctx) {
 		this.drawEntities(ctx);
-		uiTop.draw(ctx);
-		uiBottom.draw(ctx);
+		ui.draw(ctx);
 	};
 
 	this.updateEntities = this.update;
@@ -64,7 +60,7 @@ function UniverseScene(level) {
 		this.spawnTime += delta;
 		if (this.level.ships.length > this.nextShip) {
 			if (this.spawnTime >= this.level.ships[this.nextShip].entry) {
-				var ship = new CarrierShip(1279, this.level.ships[this.nextShip].y, world, this.level.ships[this.nextShip].speed, this.level.ships[this.nextShip].type);
+				var ship = new CarrierShip(1279, this.level.ships[this.nextShip].y - 125, world, this.level.ships[this.nextShip].speed, this.level.ships[this.nextShip].type, this.level.ships[this.nextShip]);
 				this.ships.push(ship);
 				this.entities.push(ship);
 				this.nextShip++;
@@ -142,8 +138,14 @@ function UniverseScene(level) {
 	};
 
 	this.down = function(key) {
-		if( key == 'space' ) {
-			cannon.weapon = cannon.weapon ? 0 : 1;
+		if( cannon.weapon == 'laser' || cannon.weapon == 'rocket' )
+			cannon.lastWeapon = cannon.weapon;
+
+		switch( key ) {
+			case 1: cannon.weapon = 'laser'; break;
+			case 2: cannon.weapon = 'rocket'; break;
+			case 3: cannon.weapon = 'pull'; break;
+			case 4: cannon.weapon = 'push'; break;
 		}
 	};
 

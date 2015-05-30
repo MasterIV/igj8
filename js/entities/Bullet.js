@@ -1,4 +1,4 @@
-function Bullet( world, position, direction ) {
+function Bullet( world, position, direction, rocket ) {
 	var velocity = new b2Vec2( direction.x, direction.y );
 	velocity.Normalize();
 
@@ -8,14 +8,18 @@ function Bullet( world, position, direction ) {
 	velocity.Multiply(this.speed);
 	this.body.SetLinearVelocity(velocity);
 
-	var sprite = new AnimationSprite('img/_normalShot.png', 16);
+	var f = rocket ? 5 : 16;
+	var sprite = rocket ? new AnimationSprite('img/_rocketShot.png', f) : new AnimationSprite('img/_normalShot.png', f);
 	var counter = new Framecounter(50);
+
 
 	this.damage = getNormalDamage();
 
 	this.draw = function( ctx ) {
 		var pos = this.body.GetCenterPosition();
-		sprite.center( ctx, pos.x, pos.y, counter.frame%16 );
+		var vel = this.body.GetLinearVelocity();
+		var angle = Math.atan2( vel.x, vel.y ) * -1 + Math.PI;
+		sprite.rotateCenter( ctx, pos.x, pos.y, counter.frame%f, angle );
 	};
 
 	this.update = function( delta ) {

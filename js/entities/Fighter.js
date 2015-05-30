@@ -2,7 +2,7 @@ function Fighter(x, y, world, definition) {
 	this.world = world;
 	this.sprite = new Sprite(definition.sprite);
 	this.killAnimation = null;
-	this.killAnimationDuration = 1000;
+	this.killAnimationDuration = 750;
 	this.killAnimationTime = 0;
 	this.definition = definition;
 
@@ -79,5 +79,5 @@ Fighter.prototype.hit = function (  ) {
 };
 
 Fighter.prototype.destroy = function (  ) {
-	this.killAnimation = new AnimationSprite('img/_fighterBurning.png', 20);
+	this.killAnimation = new AnimationSprite('img/_fighterBurning.png', 15);
 };

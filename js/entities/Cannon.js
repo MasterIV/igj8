@@ -1,9 +1,10 @@
 function Cannon( x, y ) {
 	this.position = new V2(x, y);
 	this.rotation = 0;
-	this.cooldown = 0;
-	this.weapon = 0;
+	this.cooldown = {pull: 0, push: 0, laser: 0, rocket: 0};
+	this.weapon = 'laser';
 	this.shooting = false;
+	this.lastWeapon = 'laser';
 }
 
 Cannon.prototype.draw = function ( ctx ) {
@@ -17,17 +18,23 @@ Cannon.prototype.draw = function ( ctx ) {
 
 Cannon.prototype.update = function ( delta ) {
 	this.rotation = Math.atan2( this.position.x - mouse.x, this.position.y - mouse.y) * - 1;
-	if( this.cooldown > 0 ) {
-		this.cooldown -= delta;
-	} else if( this.shooting ) {
+
+	if( this.cooldown.laser > 0 )
+		this.cooldown.laser -= delta;
+	if( this.cooldown.rocket > 0 )
+		this.cooldown.rocket -= delta;
+	if( this.cooldown.pull > 0 )
+		this.cooldown.pull -= delta;
+	if( this.cooldown.push > 0 )
+		this.cooldown.push -= delta;
+
+	if( this.cooldown[this.weapon] <= 0 && this.shooting ) {
+		this.cooldown[this.weapon] = this.getCooldown( this.weapon );
 		switch( this.weapon ) {
-			case 1:
-				this.cooldown = this.getSuckingCooldown();
-				game.scene.anomaly( 100, Math.random()>0.5?1000:-1000 );
-				break;
-			default:
-				this.cooldown = this.getNormalCooldown();
-				game.scene.fire( this.position );
+			case 'rocket': game.scene.fire( this.position, true ); break;
+			case 'pull': game.scene.anomaly( 100, 1000 ); this.weapon = this.lastWeapon; break;
+			case 'push': game.scene.anomaly( 100, -1000 ); this.weapon = this.lastWeapon; break;
+			default: game.scene.fire( this.position );
 		}
 	}
 };
@@ -40,14 +47,11 @@ Cannon.prototype.mouseup = function() {
 	this.shooting = false;
 };
 
-Cannon.prototype.getNormalCooldown = function () {
-	return 200;
-	// - 150 for every upgrade point
-	return 1000 - upgrades.normal[UPGR_FRATE] * 150;
-};
-
-Cannon.prototype.getSuckingCooldown = function () {
-	// Regular cooldown 2000ms
-	// - 300 for every upgrade point
-	return 2000 - upgrades.normal[UPGR_FRATE] * 300;
+Cannon.prototype.getCooldown = function ( w ) {
+	switch( w ) {
+		case 'pull': return 2000 - upgrades.normal[UPGR_FRATE] * 300;
+		case 'push': return 2000 - upgrades.normal[UPGR_FRATE] * 300;
+		case 'rocket': return 2000 - upgrades.normal[UPGR_FRATE] * 300;
+		default: return 200; // return 1000 - upgrades.normal[UPGR_FRATE] * 150;
+	}
 };
