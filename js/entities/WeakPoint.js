@@ -1,8 +1,9 @@
-function WeakPoint(x, y, carrier, world, definition) {
+function WeakPoint(x, y, rotation, carrier, world, definition) {
 	this.carrier = carrier;
 	this.world = world;
 	this.hp = definition.hp;
 	this.definition = definition;
+	this.rotation = rotation;
 
 	this.sprite = new AnimationSprite(definition.sprite, 11);
 	this.frameCounter = 0;
@@ -10,11 +11,11 @@ function WeakPoint(x, y, carrier, world, definition) {
 	this.bodyDef = new b2BodyDef();
 	this.bodyDef.position.Set(x,y);
 	this.bodyDef.preventRotation = true;
-	//this.bodyDef.rotation = definition.angle*(2*Math.PI)/360;
 	this.bodyDef.AddShape(WeakPoint.prototype.polygonShape);
 
 
 	this.body = world.CreateBody(this.bodyDef);
+	this.body.SetCenterPosition(this.body.GetCenterPosition(),rotation*(2*Math.PI)/360);
 
 	var jointDef = new b2RevoluteJointDef();
 	jointDef.anchorPoint.Set(x+15, y+15);
@@ -45,9 +46,8 @@ WeakPoint.prototype.draw = function ( ctx ) {
 		frame = 10;
 	}
 
-
-	if( this.sprite )
-		this.sprite.center(ctx, this.body.GetCenterPosition().x,this.body.GetCenterPosition().y, frame);
+	this.sprite.rotatecenter(ctx, this.body.GetCenterPosition().x,this.body.GetCenterPosition().y, frame, this.body.GetRotation(),0,0);
+	if( this.sprite );
 }
 
 WeakPoint.prototype.update = function ( delta ) {
