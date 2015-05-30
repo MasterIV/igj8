@@ -44,8 +44,5 @@ FighterTopShield.prototype.update = function ( delta ) {
 };
 
 FighterTopShield.prototype.hit = function (  ) {
-	var self=this;
-	setTimeout(function () {
-		self.fighter.body.SetLinearVelocity(new b2Vec2(-80,-25))
-	},1000);
+
 };

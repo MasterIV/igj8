@@ -167,20 +167,24 @@ CarrierShip.prototype.update = function ( delta ) {
 
 
 
-	var targetSpeed = this.startSpeed * (this.x < this.definition.endXPosition?0:1)
-	if (targetSpeed < 0) targetSpeed = 0;
+	var targetSpeed = this.startSpeed * (this.x < this.definition.endXPosition?0.0001:1)
+	if (targetSpeed < 0) targetSpeed = 0.01;
 	if (targetSpeed < 0.8) this.startDestroyerShot();
-	var diff = (this.y - this.startY);
+	//if (this.destroyerShotAnimation != null) targetSpeed=-100;
+
+	var yDiff = (this.y - this.startY);
 	var impulse = new b2Vec2( -targetSpeed, 0 );
-	if (diff > 10) {
+	if (yDiff > 10) {
 		impulse = new b2Vec2( -targetSpeed, -1 );
-	} else if (diff < -10){
+	} else if (yDiff < -10){
 		impulse = new b2Vec2( -targetSpeed, 1 );
 	}
 
-
-
+	console.log(impulse);
 	this.body.SetLinearVelocity( impulse );
+
+
+
 
 	if (!hp) this.destroy();
 };
