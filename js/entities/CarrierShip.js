@@ -141,8 +141,6 @@ CarrierShip.prototype.update = function ( delta ) {
 			arrayRemove( game.scene.entities, this);
 			arrayRemove( game.scene.ships, this);
 
-			arrayRemove( game.scene.entities, this.destroyerShotChargeAnimation);
-			arrayRemove( game.scene.entities, this.destroyerShotAnimation);
 		}
 	} else {
 		var hp = 0;
@@ -209,6 +207,9 @@ CarrierShip.prototype.destroy = function (  ) {
 	this.body.SetLinearVelocity( new b2Vec2( -2, 0 ));
 	this.body.SetAngularVelocity( Math.random() * 0.1 - 0.05 );
 	sound.play('sounds/ship_destroy/mothership_destroyed_long.ogg');
+
+	arrayRemove( game.scene.entities, this.destroyerShotChargeAnimation);
+	arrayRemove( game.scene.entities, this.destroyerShotAnimation);
 };
 
 CarrierShip.prototype.startDestroyerShot = function (  ) {
