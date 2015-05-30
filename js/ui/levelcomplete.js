@@ -1,5 +1,5 @@
 function LevelComplete() {
-	this.img = g['img/shop_button_small.png'];
+	this.img = g['img/win.png'];
 	this.width = this.img.width;
 	this.height = this.img.height;
 	this.lifetime = 0;

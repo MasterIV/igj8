@@ -19,6 +19,8 @@ var game = {
 	buffer: null,
 	bufferCtx: null,
 
+	level: -1,
+
 	init: function() {
 		this.display = document.getElementById('gameframe');
 		this.displayCtx = this.display.getContext('2d');
@@ -70,5 +72,10 @@ var game = {
 		this.displayCtx.fillStyle = 'white';
 		this.displayCtx.font = '15px monospace';
 		this.displayCtx.fillText( this.fps, 50, 50 );
+	},
+
+	nextLevel: function() {
+		this.level++;
+		this.scene = new UniverseScene(levels['level' + this.level]);
 	}
 }
