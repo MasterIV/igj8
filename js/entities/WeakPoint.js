@@ -30,7 +30,8 @@ WeakPoint.prototype.polygonShape.density = 1.0;
 WeakPoint.prototype.polygonShape.radius = 20;
 WeakPoint.prototype.polygonShape.restitution = 1.0;
 WeakPoint.prototype.polygonShape.friction = 0;
-
+WeakPoint.prototype.polygonShape.categoryBits = 0x0004;
+WeakPoint.prototype.polygonShape.maskBits = 0x0002;
 
 WeakPoint.prototype.draw = function ( ctx ) {
 	this.sprite.center(ctx, this.body.GetCenterPosition().x,this.body.GetCenterPosition().y, ((this.frameCounter/100)|0)%5);

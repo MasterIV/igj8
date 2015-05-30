@@ -29,6 +29,8 @@ function Bullet( world, position, direction ) {
 Bullet.prototype.shape = new b2CircleDef();
 Bullet.prototype.shape .density = 0.1;
 Bullet.prototype.shape .radius = 10;
+Bullet.prototype.shape.categoryBits = 0x0002;
+Bullet.prototype.shape.maskBits = 0x0004;
 
 Bullet.prototype.bodyDef = new b2BodyDef();
 Bullet.prototype.bodyDef.AddShape(Bullet.prototype.shape);

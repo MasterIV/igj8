@@ -10,7 +10,7 @@
 
 	}
 	
-		fighter2: {
+	fighter2: {
 		title: 'Example',
 		description: 'Lorem Ipsum',
 		sprite:'img/fighter2.png',
@@ -18,6 +18,27 @@
 		polygon: [
 			[{x:36,y:6},{x:23,y:20},{x:1,y:20},{x:1,y:16},{x:18,y:6}],
 			[{x:23,y:20}, {x:36,y:6}, {x:42,y:1}, {x:58,y:1}, {x:57,y:21}, {x:47,y:29}, {x:26,y:24}]
-		],	
+		],
+		
+		
+	fighter3: {
+		title: 'Example',
+		description: 'Lorem Ipsum',
+		sprite:'img/fighter3.png',
+		offset:{x:-25,y:-5},
+		polygon: [
+			[{x:24,y:7},{x:30,y:20},{x:15,y:23},{x:9,y:23},{x:9,y:16},{x:16,y:8}],
+			[{x:24,y:7}, {x:35,y:0}, {x:39,y:0}, {x:48,y:2}, {x:48,y:8}, {x:45,y:23}, {x:40,y:27}, {x:30,y:27}]
+		],
+		
+	fighter4: {
+		title: 'Example',
+		description: 'Lorem Ipsum',
+		sprite:'img/fighter4.png',
+		offset:{x:-25,y:-5},
+		polygon: [
+			[{x:38,y:13},{x:48,y:27},{x:10,y:27},{x:3,y:19},{x:3,y:14},{x:5,y:9},{x:10,y:4},{x:19,y:3}],
+			[{x:48,y:27}, {x:38,y:13}, {x:52,y:2}, {x:56,y:3}, {x:57,y:23}]
+		],
 
 	}

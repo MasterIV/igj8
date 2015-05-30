@@ -118,6 +118,7 @@
 		<script type="text/javascript">
 			function init() {
 				g.load(function() {
+					document.getElementById('loading').style.display = 'none';
 					game.scene = new UniverseScene();
 
 					mouse.init();
@@ -130,5 +131,6 @@
 
 	<body onload="init();">
 		<canvas id="gameframe" width="1280" height="720"></canvas>
+		<img src="img/loading.gif" id="loading">
 	</body>
 </html>
