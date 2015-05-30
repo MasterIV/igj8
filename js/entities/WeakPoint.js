@@ -1,4 +1,6 @@
 function WeakPoint(x, y, carrier, world) {
+	this.carrier = carrier;
+	this.world = world;
 
 	this.sprite = new AnimationSprite('img/hitpoint1.png', 5);
 	this.frameCounter = 0;
@@ -45,4 +47,6 @@ WeakPoint.prototype.update = function ( delta ) {
 
 WeakPoint.prototype.hit = function () {
 	console.log('weakpoint hit');
+
+	this.carrier.entities.push(new Fighter(this.body.GetCenterPosition().x,this.body.GetCenterPosition().y,this.world,fighter.ship1));
 }

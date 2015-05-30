@@ -8,6 +8,9 @@ var carrier = {
 		],
 		weak_points: [
 				{x:100,y:-30}
+		],
+		hangar_positions: [
+			{x:0,y:0}
 		]
 
 
@@ -27,6 +30,9 @@ var carrier = {
 		],
 		weak_points: [
 				{x:137,y:96-20},
+		],
+		hangar_positions: [
+			{x:0,y:0}
 		]
 
 
@@ -44,6 +50,9 @@ var carrier = {
 		],
 		weak_points: [
 				{x:10,y:10},
+		],
+		hangar_positions: [
+			{x:0,y:0}
 		]
 
 
@@ -71,7 +80,11 @@ var carrier = {
 				{x:326,y:217},
 				{x:265,y:239},
 				{x:93,y:230}
+		],
+		hangar_positions: [
+			{x:0,y:0}
 		]
+
 
 
 	}
