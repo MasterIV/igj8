@@ -119,7 +119,7 @@ CarrierShip.prototype.update = function ( delta ) {
 	for (var i = 0; i < 3; i++) {
 		if (this.spawnType[i] == 0) continue;
 		this.lastSpawn[i] += delta;
-		if (this.lastSpawn[i] >= this.spawnSpeed[i]) {
+		if (this.lastSpawn[i] >= this.spawnRate[i]) {
 			this.spawnFighter(i);
 			this.lastSpawn[i] = 0;
 		}
