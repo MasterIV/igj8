@@ -13,6 +13,7 @@ function Fighter(x, y, world, definition) {
 	this.body = world.CreateBody(this.bodyDef);
 
 
+
 }
 
 Fighter.prototype = new Entity;
@@ -23,8 +24,10 @@ Fighter.prototype.polygonShape.density = 1.0;
 Fighter.prototype.polygonShape.radius = 20;
 Fighter.prototype.polygonShape.restitution = 1.0;
 Fighter.prototype.polygonShape.friction = 0;
+Fighter.prototype.polygonShape.categoryBits = 0x0004;
+Fighter.prototype.polygonShape.maskBits = 0x0002;
 
-
+console.log(Fighter.prototype.polygonShape);
 
 Fighter.prototype.draw = function ( ctx ) {
 	this.sprite.center(ctx, this.body.GetCenterPosition().x + this.definition.offset.x,this.body.GetCenterPosition().y+ this.definition.offset.y);
