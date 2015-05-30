@@ -73,16 +73,21 @@ function UniverseScene() {
 				for(var c = 0; c < self.ships.length; c++) {
 					var ship = self.ships[c];
 
-					console.log(ship,c,self.ships);
-
 					if (contactList.contact.GetShape1().GetBody() == ship.body ||
 						contactList.contact.GetShape2().GetBody() == ship.body) {
+
+						game.scene.entities.push(new Animation('img/_shotCollision.png',16,b.body.GetCenterPosition().x,b.body.GetCenterPosition().y,500));
+						arrayRemove( bullets, b );
+						arrayRemove( self.entities, b );
+						world.DestroyBody(b.body);
+
 					}
 
 					for(var i=0;i<ship.entities.length;i++) {
 						if (contactList.contact.GetShape1().GetBody() == ship.entities[i].body ||
 							contactList.contact.GetShape2().GetBody() == ship.entities[i].body) {
 							ship.entities[i].hit(b.damage);
+
 						}
 					}
 
