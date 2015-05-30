@@ -19,14 +19,17 @@ function BuyScene() {
 					  }, 'sounds/menu/button_clicked.mp3'),
 					  new Button('img/shop_button_big.png', 'img/shop_button_big_highlight.png', 76, 468, function() {
 						  game.scene.changeShop(4);
+					  }, 'sounds/menu/button_clicked.mp3'),
+					  new Button('img/shop_button_small.png', 'img/shop_button_small_highlight.png', 995, 613, function() {
+						  game.nextLevel();
 					  }, 'sounds/menu/button_clicked.mp3')];
 	this.shop = 0;
 	this.entities[0].visible = true;
 
 	this.changeShop = function( shop ) {
-	this.entities[this.shop].visible = false;
-	this.entities[shop].visible = true;
-	this.shop = shop;
+		this.entities[this.shop].visible = false;
+		this.entities[shop].visible = true;
+		this.shop = shop;
 	};
 };
 

@@ -133,8 +133,9 @@
 				g.load(function() {
 					scenes.loose = new LooseScene();
 					document.getElementById('loading').style.display = 'none';
-					game.scene = new UniverseScene(levels.example);
+					//game.scene = new UniverseScene(levels.level1);
 					//game.scene = new BuyScene();
+					game.nextLevel();
 
 					mouse.init();
 					controls.init();
