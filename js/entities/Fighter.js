@@ -16,6 +16,16 @@ function Fighter(x, y, world, definition) {
 
 	this.x = x;
 	this.y = y;
+
+	this.entities = [];
+
+	//if (Math.random() > 0.5) {
+		this.upgrade = new FighterTopShield(this, world);
+	//} else {
+	//	this.upgrade = new FighterTopShield(this, world);
+	//}
+
+	this.entities.push(this.upgrade);
 }
 
 Fighter.prototype.polygonShape = new b2PolyDef();
@@ -34,6 +44,10 @@ Fighter.prototype.draw = function ( ctx ) {
 	if (this.killAnimation != null) {
 		this.killAnimation.center(ctx, this.x, this.y, ((this.killAnimationTime/this.killAnimationDuration)*20)|0)
 	}
+
+	for( var i = 0; i < this.entities.length; i++ )
+		if( this.entities[i].draw )
+			this.entities[i].draw( ctx );
 };
 
 Fighter.prototype.update = function ( delta ) {
@@ -54,6 +68,10 @@ Fighter.prototype.update = function ( delta ) {
 		arrayRemove( game.scene.entities, this);
 		this.world.DestroyBody(this.body);
 	}
+
+	for( var i = 0; i < this.entities.length; i++ )
+		if( this.entities[i].update )
+			this.entities[i].update( delta );
 };
 
 Fighter.prototype.hit = function (  ) {
