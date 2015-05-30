@@ -14,8 +14,8 @@ var levels = {
 				hit4: 0, // rot
 				hit5: 0, // fortified
 				fightertype: [1,1,1], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
-				fighterspeed: [15,0,5], // Fighter 1: schnell, Fighter 3: langsam.
-				fighterspawn: [4000,0,15000], // ms
+				fighterspeed: [15,15,5], // Fighter 1: schnell, Fighter 3: langsam.
+				fighterspawn: [4000,4000,15000], // ms
 				hangarspawn: [1,0,0] // in welchem Hangar? 0 / 1 / 2(random)
 			},
 			{ // second

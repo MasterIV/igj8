@@ -24,7 +24,7 @@ function Fighter(x, y, world, definition, speed, type) {
 	if (this.type == 1) {
 		this.upgrade = new FighterTopShield(this, world);
 		this.entities.push(this.upgrade);
-	} else if (this.type == 1) {
+	} else if (this.type == 2) {
 		this.upgrade = new FighterBottomShield(this, world);
 		this.entities.push(this.upgrade);
 	}
