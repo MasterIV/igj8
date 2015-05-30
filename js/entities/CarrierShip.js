@@ -141,6 +141,9 @@ CarrierShip.prototype.update = function ( delta ) {
 			this.sprite = null;
 			arrayRemove( game.scene.entities, this);
 			arrayRemove( game.scene.ships, this);
+
+			arrayRemove( game.scene.entities, this.destroyerShotChargeAnimation);
+			arrayRemove( game.scene.entities, this.destroyerShotAnimation);
 		}
 	} else {
 		var hp = 0;
@@ -179,8 +182,6 @@ CarrierShip.prototype.update = function ( delta ) {
 	} else if (yDiff < -10){
 		impulse = new b2Vec2( -targetSpeed, 1 );
 	}
-
-	console.log(impulse);
 	this.body.SetLinearVelocity( impulse );
 
 
