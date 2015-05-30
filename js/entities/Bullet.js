@@ -13,7 +13,7 @@ function Bullet( world, position, direction, rocket ) {
 	var counter = new Framecounter(50);
 
 
-	this.damage = getNormalDamage();
+	this.damage = rocket ? getNormalDamage() : getNormalDamage();
 
 	this.draw = function( ctx ) {
 		var pos = this.body.GetCenterPosition();
@@ -39,5 +39,5 @@ Bullet.prototype.shape.maskBits = 0x0024;
 Bullet.prototype.bodyDef = new b2BodyDef();
 Bullet.prototype.bodyDef.AddShape(Bullet.prototype.shape);
 
-Bullet.prototype.speed = 200;
+Bullet.prototype.speed = 600;
 

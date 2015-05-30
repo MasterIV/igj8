@@ -19,14 +19,9 @@ Cannon.prototype.draw = function ( ctx ) {
 Cannon.prototype.update = function ( delta ) {
 	this.rotation = Math.atan2( this.position.x - mouse.x, this.position.y - mouse.y) * - 1;
 
-	if( this.cooldown.laser > 0 )
-		this.cooldown.laser -= delta;
-	if( this.cooldown.rocket > 0 )
-		this.cooldown.rocket -= delta;
-	if( this.cooldown.pull > 0 )
-		this.cooldown.pull -= delta;
-	if( this.cooldown.push > 0 )
-		this.cooldown.push -= delta;
+	for( var w in this.cooldown )
+		if( this.cooldown[w] > 0 )
+			this.cooldown[w] -= delta;
 
 	if( this.cooldown[this.weapon] <= 0 && this.shooting ) {
 		this.cooldown[this.weapon] = this.getCooldown( this.weapon );
