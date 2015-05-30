@@ -1,4 +1,4 @@
-function CarrierShip(x, y, world, definition) {
+function CarrierShip(x, y, world, speed, definition) {
 
 	this.sprite = new Sprite(definition.sprite);
 	this.definition = definition;
@@ -32,7 +32,7 @@ function CarrierShip(x, y, world, definition) {
 
 
 	this.body = world.CreateBody(this.bodyDef);
-	this.body.SetLinearVelocity( new b2Vec2( -50, 0 ));
+	this.body.SetLinearVelocity( new b2Vec2( -speed, 0 ));
 
 	this.entities = [];
 	for(var i =0;i<definition.weak_points.length;i++) {

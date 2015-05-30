@@ -11,6 +11,10 @@ function UniverseScene() {
 
 	this.entities = [cannon];
 
+	this.entities.push(new CarrierShip(800,300, world, 10, carrier.ship1));
+	this.entities.push(new debugBox2d(world));
+
+
 	this.fire = function( origin ) {
 		var bullet = new Bullet( world, origin, mouse.dif( origin ));
 		bullets.push( bullet );
