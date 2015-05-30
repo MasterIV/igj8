@@ -15,7 +15,8 @@ function UniverseScene() {
 	this.ships = [];
 
 	this.ships.push(new CarrierShip(800,300, world, 10, carrier.ship1));
-	this.ships.push(new CarrierShip(1000,100, world, 10, carrier.ship2));
+	this.ships.push(new CarrierShip(1000,50, world, 10, carrier.ship2));
+	this.ships.push(new CarrierShip(1300,200, world, 10, carrier.ship3));
 	for(var i=0;i<this.ships.length;i++) {
 		this.entities.push(this.ships[i]);
 	}
