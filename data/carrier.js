@@ -38,8 +38,6 @@ var carrier = {
 			{x:104,y:170},
 			{x:192,y:86}
 		],
-		base_hp: 40
-
 	},
 	ship1: {
 		title: 'needsName',
@@ -63,8 +61,6 @@ var carrier = {
 			{x:104,y:170},
 			{x:192,y:86}
 		],
-		base_hp: 40
-
 	},
 	ship2: {
 		title: 'Example',
@@ -79,14 +75,13 @@ var carrier = {
 			[{x:279,y:163}, {x:279,y:218}, {x:226,y:247}, {x:200,y:246}, {x:199,y:225}]
 		],
 		weak_points: [
-				{x:10,y:10,rotate:0},
+				{x:166,y:56,rotate:0}, {x:74,y:81,rotate:320}, {x:296,y:10,rotate:0},
+				{x:61,y:194,rotate:180}, {x:140,y:214,rotate:190}, {x:315,y:228,rotate:180}
 		],
 		hangar_positions: [
-			{x:0,y:0}
+			{x:269,y:14},
+			{x:178,y:221}
 		],
-		base_hp: 40
-
-
 	},
 	
 	ship3: {
