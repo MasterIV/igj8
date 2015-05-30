@@ -14,10 +14,12 @@ function UniverseScene() {
 	this.entities = [cannon];
 	this.ships = [];
 
-	this.carrier = new CarrierShip(800,300, world, 10, carrier.ship1);
-	this.ships.push(this.carrier);
+	this.ships.push(new CarrierShip(800,300, world, 10, carrier.ship1));
+	this.ships.push(new CarrierShip(1000,100, world, 10, carrier.ship2));
+	for(var i=0;i<this.ships.length;i++) {
+		this.entities.push(this.ships[i]);
+	}
 
-	this.entities.push(this.carrier);
 	this.entities.push(new debugBox2d(world));
 
 
@@ -53,22 +55,22 @@ function UniverseScene() {
 
 			var contactList = b.body.GetContactList();
 			while (contactList && contactList.contact) {
-				if (contactList.contact.GetShape1().GetBody() == self.carrier.body ||
-					contactList.contact.GetShape2().GetBody() == self.carrier.body) {
+				for(var c = 0; c < self.ships.length; c++) {
+					var ship = self.ships[c];
 
-					console.log('hit ship');
-				}
+					console.log(ship,c,self.ships);
 
-				for(var i=0;i<self.carrier.entities.length;i++) {
-					console.log(contactList.contact.GetShape1());
-					console.log(contactList.contact.GetShape2());
-					if (contactList.contact.GetShape1().GetBody() == self.carrier.entities[i].body ||
-						contactList.contact.GetShape2().GetBody() == self.carrier.entities[i].body) {
+					if (contactList.contact.GetShape1().GetBody() == ship.body ||
+						contactList.contact.GetShape2().GetBody() == ship.body) {
+					}
 
-						console.log('hit weak point');
+					for(var i=0;i<ship.entities.length;i++) {
+						if (contactList.contact.GetShape1().GetBody() == ship.entities[i].body ||
+							contactList.contact.GetShape2().GetBody() == ship.entities[i].body) {
+							ship.entities[i].hit();
+						}
 					}
 				}
-
 
 				contactList = contactList.next;
 			}

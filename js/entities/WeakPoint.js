@@ -1,7 +1,11 @@
 function WeakPoint(x, y, carrier, world) {
 
+	this.sprite = new AnimationSprite('img/hitpoint1.png', 5);
+	this.frameCounter = 0;
+
 	this.bodyDef = new b2BodyDef();
 	this.bodyDef.position.Set(x,y);
+	this.bodyDef.preventRotation = true;
 	this.bodyDef.AddShape(WeakPoint.prototype.polygonShape);
 
 
@@ -29,12 +33,16 @@ WeakPoint.prototype.polygonShape.friction = 0;
 
 
 WeakPoint.prototype.draw = function ( ctx ) {
-	ctx.fillStyle = 'red';
-	ctx.fillRect( this.body.GetCenterPosition().x,this.body.GetCenterPosition().y,30,30);
+	this.sprite.center(ctx, this.body.GetCenterPosition().x,this.body.GetCenterPosition().y, ((this.frameCounter/100)|0)%5);
 }
 
 WeakPoint.prototype.update = function ( delta ) {
 	//...
 	//this.body.ApplyForce(new b2Vec2(300,200));
+	this.frameCounter += delta;
 
+}
+
+WeakPoint.prototype.hit = function () {
+	console.log('weakpoint hit');
 }
