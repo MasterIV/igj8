@@ -21,6 +21,28 @@
 		],
 		
 	}
+	
+	weak_points: [
+				{x:78,y:30,rotate:0},
+				{x:0,y:120,rotate:270},
+				{x:86,y:210,rotate:180},
+				{x:211,y:247,rotate:180},
+				{x:338,y:210,rotate:210},
+				{x:210,y:5,rotate:0},
+				{x:322,y:32,rotate:290},
+				{x:356,y:43,rotate:160}
+				
+				weak_points: [
+				{x:79,y:126,rotate:330},
+				{x:49,y:238,rotate:180},
+				{x:207,y:237,rotate:170},
+				{x:281,y:230,rotate:170},
+				{x:360,y:218,rotate:180},
+				{x:359,y:162,rotate:20},
+				{x:313,y:215,rotate:90},
+				{x:312,y:53,rotate:0},
+				{x:283,y:10,rotate:20},
+				{x:145,y:8,rotate:0}
 			
 	fighter3: {
 		title: 'Example',
@@ -28,7 +50,8 @@
 		sprite:'img/fighter3.png',
 		offset:{x:-25,y:-5},
 		polygon: [
-			[{x:24,y:7},{x:30,y:20},{x:15,y:23},{x:9,y:23},{x:9,y:16},{x:16,y:8}],
+			[{x:24,y:7},
+			{x:30,y:20},{x:15,y:23},{x:9,y:23},{x:9,y:16},{x:16,y:8}],
 			[{x:24,y:7}, {x:35,y:0}, {x:39,y:0}, {x:48,y:2}, {x:48,y:8}, {x:45,y:23}, {x:40,y:27}, {x:30,y:27}]
 		],
 	
