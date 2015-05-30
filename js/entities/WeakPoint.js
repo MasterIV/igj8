@@ -46,6 +46,8 @@ WeakPoint.prototype.update = function ( delta ) {
 
 WeakPoint.prototype.hit = function ( damage ) {
 	this.hp -= damage;
-	if (this.hp <= 0)
-		
+
+	if (this.hp <= 0) {
+		this.world.DestroyBody(this.body);
+	}
 }

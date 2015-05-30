@@ -39,7 +39,7 @@ function CarrierShip(x, y, world, speed, definition, hp) {
 
 	this.entities = [];
 	for(var i =0;i<definition.weak_points.length && i<3;i++) {
-		var weakPoint = new WeakPoint(definition.weak_points[i].x + x,definition.weak_points[i].y + y, this, world, hp);
+		var weakPoint = new WeakPoint(definition.weak_points[i].x + x,definition.weak_points[i].y + y, this, world, definition.base_hp);
 		this.entities.push(weakPoint);
 	}
 
