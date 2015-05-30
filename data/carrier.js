@@ -203,7 +203,7 @@ var carrier = {
 			{x:326,y:30},
 			{x:31,y:213}
 		]
-	}
+	},
 	ship6: {
 		title: 'needsName',
 		description: 'needsDescription',
