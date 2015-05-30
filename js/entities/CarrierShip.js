@@ -53,10 +53,13 @@ CarrierShip.prototype = new Entity;
 
 CarrierShip.prototype.draw = function ( ctx ) {
 	var frame = 0;
-	if (this.killAnimation != null)
+	if (this.killAnimation != null) {
 		if (this.killAnimationTime >= 2500)
 			frame = ((this.killAnimationTime - 2500) / 500) | 0;
-	this.sprite.center(ctx, this.body.GetCenterPosition().x + this.definition.offset.x,this.body.GetCenterPosition().y+ this.definition.offset.y, frame);
+		this.sprite.rotatecenter(ctx, this.body.GetCenterPosition().x + this.definition.offset.x,this.body.GetCenterPosition().y+ this.definition.offset.y, frame, this.body.GetRotation(), this.definition.offset.x, this.definition.offset.y);
+	} else {
+		this.sprite.center(ctx, this.body.GetCenterPosition().x + this.definition.offset.x,this.body.GetCenterPosition().y+ this.definition.offset.y, frame);
+	}
 
 	for( var i = 0; i < this.entities.length; i++ )
 		if( this.entities[i].draw )
@@ -111,5 +114,8 @@ CarrierShip.prototype.spawnFighter = function (  ) {
 }
 
 CarrierShip.prototype.destroy = function (  ) {
+	if (this.killAnimation != null) return;
 	this.killAnimation = true;
+	this.body.SetLinearVelocity( new b2Vec2( -2, 0 ));
+	this.body.SetAngularVelocity( Math.random() * 0.1 - 0.05 );
 }

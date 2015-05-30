@@ -30,3 +30,12 @@ AnimationSprite.prototype.draw = function( ctx, x, y, f ) {
 AnimationSprite.prototype.center = function( ctx, x, y, f ) {
 	ctx.drawImage( this.img, f*this.w, 0, this.w, this.h, x-this.w/2, y-this.h/2, this.w, this.h );
 };
+
+AnimationSprite.prototype.rotatecenter = function( ctx, x, y, f, angle, ox, oy ) { // angle in rad
+	ctx.save();
+	ctx.translate(x, y);
+	ctx.translate(this.w/2+ox, this.h/2+ox);
+	ctx.rotate(angle/2);
+	ctx.drawImage( this.img, f*this.w, 0, this.w, this.h, -this.w-ox, -this.h-oy, this.w, this.h );
+	ctx.restore();
+};
