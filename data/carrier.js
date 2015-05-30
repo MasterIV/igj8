@@ -49,7 +49,7 @@ var carrier = {
 		]
 
 
-	}
+	},
 	
 	ship3: {
 		title: 'Example',
