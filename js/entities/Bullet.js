@@ -14,6 +14,13 @@ Bullet.prototype.draw = function( ctx ) {
 	ctx.drawImage( g['img/shot.png'], pos.x-11, pos.y-11 );
 };
 
+
+Bullet.prototype.update = function( delta ) {
+
+};
+
+
+
 Bullet.prototype.shape = new b2CircleDef();
 Bullet.prototype.shape .density = 0.1;
 Bullet.prototype.shape .radius = 10;

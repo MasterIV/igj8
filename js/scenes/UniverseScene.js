@@ -1,4 +1,6 @@
 function UniverseScene() {
+	var self = this;
+
 	var worldAABB = new b2AABB();
 	worldAABB.minVertex.Set(0, 0);
 	worldAABB.maxVertex.Set(1280, 720);
@@ -10,8 +12,12 @@ function UniverseScene() {
 	var anomalies = [];
 
 	this.entities = [cannon];
+	this.ships = [];
 
-	this.entities.push(new CarrierShip(800,300, world, 10, carrier.ship1));
+	this.carrier = new CarrierShip(800,300, world, 10, carrier.ship1);
+	this.ships.push(this.carrier);
+
+	this.entities.push(this.carrier);
 	this.entities.push(new debugBox2d(world));
 
 
@@ -44,10 +50,33 @@ function UniverseScene() {
 					b.body.ApplyForce( force, bullet_position );
 				}
 			});
+
+			var contactList = b.body.GetContactList();
+			while (contactList && contactList.contact) {
+				if (contactList.contact.GetShape1().GetBody() == self.carrier.body ||
+					contactList.contact.GetShape2().GetBody() == self.carrier.body) {
+
+					console.log('hit ship');
+				}
+
+				for(var i=0;i<self.carrier.entities.length;i++) {
+					console.log(contactList.contact.GetShape1());
+					console.log(contactList.contact.GetShape2());
+					if (contactList.contact.GetShape1().GetBody() == self.carrier.entities[i].body ||
+						contactList.contact.GetShape2().GetBody() == self.carrier.entities[i].body) {
+
+						console.log('hit weak point');
+					}
+				}
+
+
+				contactList = contactList.next;
+			}
+
 		});
 
 		world.Step(delta/1000, 10, 10 );
-		this.updateEntities(delta);
+		this.updateEntities(delta, world);
 	};
 
 
