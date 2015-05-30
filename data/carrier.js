@@ -54,8 +54,12 @@ var carrier = {
 			[{x:278,y:101},{x:315,y:88},{x:342,y:84},{x:367,y:95},{x:386,y:131},{x:382,y:155},{x:370,y:179},{x:348,y:196},{x:325,y:202},{x:292,y:181}]
 		],
 		weak_points: [
-			{x:160,y:96,rotate:0}, {x:91,y:94,rotate:0}, {x:321,y:87,rotate:340},				
-			{x:236,y:168,rotate:180}, {x:96,y:175,rotate:180}, {x:304,y:191,rotate:210}	
+			{x:160,y:96,rotate:0}, 
+			{x:91,y:94,rotate:0}, 
+			{x:321,y:87,rotate:340},			
+			{x:236,y:168,rotate:180}, 
+			{x:96,y:175,rotate:180}, 
+			{x:304,y:191,rotate:210}	
 		],
 		hangar_positions: [
 			{x:104,y:170},
@@ -75,8 +79,12 @@ var carrier = {
 			[{x:279,y:163}, {x:279,y:218}, {x:226,y:247}, {x:200,y:246}, {x:199,y:225}]
 		],
 		weak_points: [
-				{x:166,y:56,rotate:0}, {x:74,y:81,rotate:320}, {x:296,y:10,rotate:0},
-				{x:61,y:194,rotate:180}, {x:140,y:214,rotate:190}, {x:315,y:228,rotate:180}
+				{x:166,y:56,rotate:0}, 
+				{x:74,y:81,rotate:320}, 
+				{x:296,y:10,rotate:0},
+				{x:61,y:194,rotate:180}, 
+				{x:140,y:214,rotate:190}, 
+				{x:315,y:228,rotate:180}
 		],
 		hangar_positions: [
 			{x:269,y:14},
@@ -155,8 +163,14 @@ var carrier = {
 		],	
 			
 		weak_points: [
-				{x:10,y:10,rotate:0},
-				{x:10,y:20,rotate:0}
+				{x:55,y:204,rotate:170},
+				{x:197,y:227,rotate:160},
+				{x:312,y:183,rotate:160},
+				{x:390,y:138,rotate:75},
+				{x:360,y:70,rotate:75},
+				{x:282,y:72,rotate:20},
+				{x:186,y:68,rotate:0},
+				{x:85,y:73,rotate:320}
 		],
 		hangar_positions: [
 			{x:0,y:0}
