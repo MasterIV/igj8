@@ -15,10 +15,11 @@ Bullet.prototype.draw = function( ctx ) {
 };
 
 Bullet.prototype.shape = new b2CircleDef();
-Bullet.prototype.shape .density = 1.0;
-Bullet.prototype.shape .radius = 20;
-Bullet.prototype.shape .restitution = 1.0;
-Bullet.prototype.shape .friction = 0;
+Bullet.prototype.shape .density = 0.1;
+Bullet.prototype.shape .radius = 10;
+//Bullet.prototype.shape .restitution = 1.0;
+//Bullet.prototype.shape .mass = 10.0;
+//Bullet.prototype.shape .friction = 0;
 
 Bullet.prototype.bodyDef = new b2BodyDef();
 Bullet.prototype.bodyDef.AddShape(Bullet.prototype.shape);
