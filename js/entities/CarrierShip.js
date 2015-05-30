@@ -117,7 +117,7 @@ CarrierShip.prototype.update = function ( delta ) {
 	}
 
 	for (var i = 0; i < 3; i++) {
-		if (this.spawnType[i] == 0)c continue;
+		if (this.spawnType[i] == 0) continue;
 		this.lastSpawn[i] += delta;
 		if (this.lastSpawn[i] >= this.spawnSpeed[i]) {
 			this.spawnFighter(i);
@@ -129,7 +129,7 @@ CarrierShip.prototype.update = function ( delta ) {
 };
 
 CarrierShip.prototype.spawnFighter = function ( type ) {
-	var spawnPosition = this.definition.hangar_positions[this.definition.hangar_positions[this.spawnHangar[i]]];
+	var spawnPosition = this.definition.hangar_positions[this.spawnHangar[type]];
 	var newFighter = new Fighter(spawnPosition.x + this.body.GetCenterPosition().x - 200,spawnPosition.y+ this.body.GetCenterPosition().y - 125,this.world,this.definition.fighter)
 	game.scene.entities.push(newFighter);
 
