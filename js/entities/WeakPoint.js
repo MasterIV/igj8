@@ -1,9 +1,11 @@
-function WeakPoint(x, y, carrier, world, hp) {
+function WeakPoint(x, y, rotation, carrier, world, definition) {
 	this.carrier = carrier;
 	this.world = world;
-	this.hp = hp;
+	this.hp = definition.hp;
+	this.definition = definition;
+	this.rotation = rotation;
 
-	this.sprite = new AnimationSprite('img/hitpoint1.png', 5);
+	this.sprite = new AnimationSprite(definition.sprite, 11);
 	this.frameCounter = 0;
 
 	this.bodyDef = new b2BodyDef();
@@ -13,6 +15,7 @@ function WeakPoint(x, y, carrier, world, hp) {
 
 
 	this.body = world.CreateBody(this.bodyDef);
+	this.body.SetCenterPosition(this.body.GetCenterPosition(),rotation*(2*Math.PI)/360);
 
 	var jointDef = new b2RevoluteJointDef();
 	jointDef.anchorPoint.Set(x+15, y+15);
@@ -34,24 +37,33 @@ WeakPoint.prototype.polygonShape.categoryBits = 0x0004;
 WeakPoint.prototype.polygonShape.maskBits = 0x0002;
 
 WeakPoint.prototype.draw = function ( ctx ) {
-	if( this.sprite )
-		this.sprite.center(ctx, this.body.GetCenterPosition().x,this.body.GetCenterPosition().y, ((this.frameCounter/100)|0)%5);
-}
+	var frame = 0;
+	if (this.hp == this.definition.hp) {
+		frame = ((this.frameCounter/100)|0)%5;
+	} else if (this.hp > 0) {
+		frame = 5 + ((this.frameCounter/100)|0)%5;
+	} else {
+		frame = 10;
+	}
+
+	this.sprite.rotateCenter(ctx, this.body.GetCenterPosition().x, this.body.GetCenterPosition().y, frame, this.body.GetRotation());
+};
 
 WeakPoint.prototype.update = function ( delta ) {
 	this.frameCounter += delta;
-}
+};
 
 WeakPoint.prototype.hit = function ( damage ) {
+	if ( this.hp == 0) return;
 	this.hp -= damage;
 
 	if (this.hp <= 0) {
 		game.scene.entities.push( new Animation( 'img/_weakspotDestroyed.png', 40, this.body.GetCenterPosition().x, this.body.GetCenterPosition().y, 1000 ) );
-		this.world.DestroyBody(this.body);
-		this.sprite = null;
+
+		this.hp = 0;
 	}
-}
+};
 
 WeakPoint.prototype.alive = function() {
 	return this.hp > 0;
-}
+};

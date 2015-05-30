@@ -1,5 +1,7 @@
-function UniverseScene() {
+function UniverseScene(level) {
 	var self = this;
+
+	this.hp = 10;
 
 	var worldAABB = new b2AABB();
 	worldAABB.minVertex.Set(0 - 1000, 0 - 1000);
@@ -7,28 +9,27 @@ function UniverseScene() {
 
 	var world =  new b2World(worldAABB, new b2Vec2( 0, 0 ), true);
 	var cannon = new Cannon( 0, 360 );
+	var ui = new WeaponUI( cannon );
 
 	var bullets =  [];
 	var anomalies = [];
 
 	this.entities = [cannon];
 	this.ships = [];
+	this.level = level;
+	this.spawnTime = 0;
+	this.nextShip = 0;
 
-	this.ships.push(new CarrierShip(800,300, world, 10, carrier.ship1));
-	this.ships.push(new CarrierShip(1000,50, world, 10, carrier.ship2));
-	//this.ships.push(new CarrierShip(1200,200, world, 50, carrier.ship3));
-	for(var i=0;i<this.ships.length;i++) {
-		this.entities.push(this.ships[i]);
-	}
-
-
+	this.hpBar = new HpBar();
+	this.hpBar.setHp(this.hp);
+	this.entities.push(this.hpBar);
 	this.entities.push(new debugBox2d(world));
-
 
 	this.fire = function( origin ) {
 		var bullet = new Bullet( world, origin, mouse.dif( origin ));
 		bullets.push( bullet );
 		this.entities.push( bullet );
+		sound.play('sounds/weapon_shot/pulse_cannon_single.ogg');
 	};
 
 	this.removeBullet = function( b ) {
@@ -48,13 +49,32 @@ function UniverseScene() {
 		this.entities.push( sphere );
 	};
 
-
+	this.drawEntities = this.draw;
+	this.draw = function(ctx) {
+		this.drawEntities(ctx);
+		ui.draw(ctx);
+	};
 
 	this.updateEntities = this.update;
 	this.update = function(delta) {
+		this.spawnTime += delta;
+		if (this.level.ships.length > this.nextShip) {
+			if (this.spawnTime >= this.level.ships[this.nextShip].entry) {
+				var ship = new CarrierShip(1279, this.level.ships[this.nextShip].y, world, this.level.ships[this.nextShip].speed, this.level.ships[this.nextShip].type);
+				this.ships.push(ship);
+				this.entities.push(ship);
+				this.nextShip++;
+			}
+		} else {
+			if (this.ships.length == 0) {
+				this.entities.push( new LevelComplete(640, 360) );
+			}
+		}
+
 		bullets.each( function( b ) {
 			var bullet_position = b.body.GetCenterPosition();
 
+			// Gravitation Influence
 			anomalies.each( function(a) {
 				var anomaly_position = a.GetCenterPosition();
 
@@ -80,29 +100,34 @@ function UniverseScene() {
 						arrayRemove( bullets, b );
 						arrayRemove( self.entities, b );
 						world.DestroyBody(b.body);
-
 					}
 
 					for(var i=0;i<ship.entities.length;i++) {
 						if (contactList.contact.GetShape1().GetBody() == ship.entities[i].body ||
 							contactList.contact.GetShape2().GetBody() == ship.entities[i].body) {
 							ship.entities[i].hit(b.damage);
-
+							game.scene.entities.push(new Animation('img/_shotCollision.png',16,b.body.GetCenterPosition().x,b.body.GetCenterPosition().y,500));
+							arrayRemove( bullets, b );
+							arrayRemove( self.entities, b );
+							world.DestroyBody(b.body);
 						}
 					}
 					// Verzögertes Entfernen der Weakpoints, wenn sie zerstört wurden
 					if (ship.destroyWeakpoints)
 						ship.destroyWeakpoints();
-
-					for(var i=0;i<game.scene.entities.length;i++) {
-						if (typeof game.scene.entities[i].hit != 'undefined')
-							if (contactList.contact.GetShape1().GetBody() == game.scene.entities[i].body ||
-								contactList.contact.GetShape2().GetBody() == game.scene.entities[i].body) {
-								game.scene.entities[i].hit();
-							}
-					}
 				}
 
+				for(var i=0;i<game.scene.entities.length;i++) {
+					if (typeof game.scene.entities[i].hit != 'undefined')
+						if (contactList.contact.GetShape1().GetBody() == game.scene.entities[i].body |
+							contactList.contact.GetShape2().GetBody() == game.scene.entities[i].body) {
+							game.scene.entities[i].hit();
+							game.scene.entities.push(new Animation('img/_shotCollision.png',16,b.body.GetCenterPosition().x,b.body.GetCenterPosition().y,500));
+							arrayRemove( bullets, b );
+							arrayRemove( self.entities, b );
+							world.DestroyBody(b.body);
+						}
+				}
 				contactList = contactList.next;
 			}
 
@@ -112,10 +137,15 @@ function UniverseScene() {
 		this.updateEntities(delta, world);
 	};
 
-
 	this.down = function(key) {
-		if( key == 'space' ) {
-			cannon.weapon = cannon.weapon ? 0 : 1;
+		if( cannon.weapon == 'laser' || cannon.weapon == 'rocket' )
+			cannon.lastWeapon = cannon.weapon;
+
+		switch( key ) {
+			case 1: cannon.weapon = 'laser'; break;
+			case 2: cannon.weapon = 'rocket'; break;
+			case 3: cannon.weapon = 'pull'; break;
+			case 4: cannon.weapon = 'push'; break;
 		}
 	};
 

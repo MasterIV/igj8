@@ -1,6 +1,12 @@
 function Anomaly(x, y, r, g) {
 	this.radius = r;
-	var sprite = new AnimationSprite('img/_pullAnomaly.png', 25);
+
+	if (g > 0) {
+		var sprite = new AnimationSprite('img/_pullAnomaly.png', 25);
+	} else {
+		var sprite = new AnimationSprite('img/_repulseAnomaly.png', 25);
+	}
+
 	var counter = new Framecounter(50);
 
 	this.getForce = function( distance ) {
