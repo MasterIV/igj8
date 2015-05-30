@@ -23,6 +23,7 @@ var g = {
 		'img/_pullAnomaly.png',
 		'img/_repulseAnomaly.png',
 		'img/_weakspotDestroyed.png',
+		'img/_mothershipDestroyed.png',
 	],
 
 	add: function( url ) {
