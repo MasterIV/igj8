@@ -1,9 +1,10 @@
-function WeakPoint(x, y, carrier, world, hp) {
+function WeakPoint(x, y, carrier, world, definition) {
 	this.carrier = carrier;
 	this.world = world;
-	this.hp = hp;
+	this.hp = definition.hp;
+	this.definition = definition;
 
-	this.sprite = new AnimationSprite('img/hitpoint1.png', 5);
+	this.sprite = new AnimationSprite(definition.sprite, 11);
 	this.frameCounter = 0;
 
 	this.bodyDef = new b2BodyDef();

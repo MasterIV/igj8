@@ -99,20 +99,19 @@ function UniverseScene() {
 					// Verzögertes Entfernen der Weakpoints, wenn sie zerstört wurden
 					if (ship.destroyWeakpoints)
 						ship.destroyWeakpoints();
-
-					for(var i=0;i<game.scene.entities.length;i++) {
-						if (typeof game.scene.entities[i].hit != 'undefined')
-							if (contactList.contact.GetShape1().GetBody() == game.scene.entities[i].body |
-								contactList.contact.GetShape2().GetBody() == game.scene.entities[i].body) {
-								game.scene.entities[i].hit();
-								game.scene.entities.push(new Animation('img/_shotCollision.png',16,b.body.GetCenterPosition().x,b.body.GetCenterPosition().y,500));
-								arrayRemove( bullets, b );
-								arrayRemove( self.entities, b );
-								world.DestroyBody(b.body);
-							}
-					}
 				}
 
+				for(var i=0;i<game.scene.entities.length;i++) {
+					if (typeof game.scene.entities[i].hit != 'undefined')
+						if (contactList.contact.GetShape1().GetBody() == game.scene.entities[i].body |
+							contactList.contact.GetShape2().GetBody() == game.scene.entities[i].body) {
+							game.scene.entities[i].hit();
+							game.scene.entities.push(new Animation('img/_shotCollision.png',16,b.body.GetCenterPosition().x,b.body.GetCenterPosition().y,500));
+							arrayRemove( bullets, b );
+							arrayRemove( self.entities, b );
+							world.DestroyBody(b.body);
+						}
+				}
 				contactList = contactList.next;
 			}
 
