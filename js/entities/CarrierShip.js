@@ -64,6 +64,9 @@ CarrierShip.prototype.update = function ( delta ) {
 }
 
 CarrierShip.prototype.spawnFighter = function (  ) {
-	this.entities.push(new Fighter(this.body.GetCenterPosition().x,this.body.GetCenterPosition().y,this.world,this.definition.fighter));
+
+	var spawnPosition = this.definition.hangar_positions[(Math.random()*this.definition.hangar_positions.length)|0];
+
+	this.entities.push(new Fighter(spawnPosition.x + this.body.GetCenterPosition().x - 200,spawnPosition.y+ this.body.GetCenterPosition().y - 125,this.world,this.definition.fighter));
 
 }
