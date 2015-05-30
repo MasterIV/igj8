@@ -13,6 +13,8 @@ var g = {
 		'img/_fighterBurning.png',
 		'img/_fighterDestroyed.png',
 		'img/_fighterSpawn.png',
+		'img/_destroyerCharge.png',
+		'img/_destroyerShot_16fps.png',
 		'img/gun.png',
 		'img/gun_overlay.png',
 		'img/shot.png',

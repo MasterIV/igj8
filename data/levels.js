@@ -5,9 +5,9 @@ var levels = {
 		ships: [
 			{ // first
 				type: carrier.ship1, // ship1 - 4
-				entry: 2500, // ms
-				y: 0, // 0-720
-				speed: 10, // 10 = langsam
+				entry: 0, // ms
+				y: 300, // 0-720
+				speed: 400, // 10 = langsam
 				hit1: 1, // blau
 				hit2: 0, // grün
 				hit3: 0, // gelb
