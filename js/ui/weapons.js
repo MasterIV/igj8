@@ -6,9 +6,9 @@ function WeaponUI( cannon ) {
 	function getY( w ) {
 		switch(w) {
 			case 'rocket': return 94;
-			case 'pull': y = 543; break;
-			case 'push': y = 634; break;
-			default: y = 4;
+			case 'pull': return 543;
+			case 'push': return 634;
+			default: return 4;
 		}
 	}
 
@@ -21,7 +21,7 @@ function WeaponUI( cannon ) {
 				var y = getY(w);
 				var h = 82 * cannon.cooldown[w] / cannon.getCooldown(w);
 
-				ctx.fillStyle = 'rgba(0,0,255,.4)';
+				ctx.fillStyle = 'rgba(0,204,255,.4)';
 				ctx.fillRect(0, y+82-h, 82, h);
 			}
 
