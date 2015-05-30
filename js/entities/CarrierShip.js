@@ -35,7 +35,7 @@ function CarrierShip(x, y, world, speed, definition) {
 	this.body.SetLinearVelocity( new b2Vec2( -speed, 0 ));
 
 	this.entities = [];
-	for(var i =0;i<definition.weak_points.length;i++) {
+	for(var i =0;i<definition.weak_points.length && i<3;i++) {
 		var weakPoint = new WeakPoint(definition.weak_points[i].x + x,definition.weak_points[i].y + y, this, world);
 		this.entities.push(weakPoint);
 	}
@@ -56,8 +56,6 @@ CarrierShip.prototype.draw = function ( ctx ) {
 }
 
 CarrierShip.prototype.update = function ( delta ) {
-	//...
-	//this.body.ApplyForce(new b2Vec2(300,200));
 	for( var i = 0; i < this.entities.length; i++ )
 		if( this.entities[i].update )
 			this.entities[i].update( delta );

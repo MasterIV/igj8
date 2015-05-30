@@ -32,3 +32,6 @@ Fighter.prototype.draw = function ( ctx ) {
 
 Fighter.prototype.update = function ( delta ) {
 }
+
+Fighter.prototype.hit = function (  ) {
+}
