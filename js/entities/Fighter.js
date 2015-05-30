@@ -21,10 +21,10 @@ function Fighter(x, y, world, definition, speed, type) {
 
 	this.entities = [];
 
-	if (this.type == 1)
+	if (this.type == 1) {
 		this.upgrade = new FighterTopShield(this, world);
-
-	this.entities.push(this.upgrade);
+		this.entities.push(this.upgrade);
+	}
 }
 
 Fighter.prototype.polygonShape = new b2PolyDef();
