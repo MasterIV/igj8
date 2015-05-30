@@ -1,26 +1,21 @@
 function Anomaly(x, y, r, g) {
 	this.radius = r;
+	var sprite = new AnimationSprite('img/_pullAnomaly.png', 25);
+	var counter = new Framecounter(50);
 
 	this.getForce = function( distance ) {
-		var force = (g * 1000) / Math.pow(distance.Length(), 2);
+		var force = (g * 2000) / Math.pow(distance.Length(), 2);
 		var vec = distance.Negative();
 		vec.Multiply(force);
 		return vec;
 	};
 
+	this.update = function(delta) {
+		counter.update(delta);
+	};
+
 	this.draw = function(ctx) {
-		ctx.beginPath();
-		ctx.arc(x, y, r, 0, 2 * Math.PI, false);
-
-		ctx.fillStyle = 'rgba(0,0,255,.3)';
-		ctx.fill();
-
-		ctx.strokeStyle = 'rgba(0,0,255,.6)';
-		ctx.stroke();
-
-		ctx.beginPath();
-		ctx.arc(x, y, 5, 0, 2 * Math.PI, false);
-		ctx.stroke();
+		sprite.center(ctx, x, y, counter.frame % 25);
 	};
 
 	this.GetCenterPosition = function() {

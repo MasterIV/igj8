@@ -9,6 +9,12 @@ var g = {
 		'img/bg.png',
 		'img/buyscene_bg.png',
 		'img/hitpoint1.png',
+		'img/hp_spritesheet.png',
+		'img/background1.jpg',
+		'img/background2.jpg',
+		'img/_normalShot.png',
+		'img/_pullAnomaly.png',
+		'img/_repulseAnomaly.png',
 	],
 
 	add: function( url ) {
