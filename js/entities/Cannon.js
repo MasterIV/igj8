@@ -27,8 +27,16 @@ Cannon.prototype.update = function ( delta ) {
 		this.cooldown[this.weapon] = this.getCooldown( this.weapon );
 		switch( this.weapon ) {
 			case 'rocket': game.scene.fire( this.position, true ); break;
-			case 'pull': game.scene.anomaly( 100, 1000 ); this.weapon = this.lastWeapon; break;
-			case 'push': game.scene.anomaly( 100, -1000 ); this.weapon = this.lastWeapon; break;
+			case 'pull':
+				game.scene.anomaly( 100, 1000 );
+				this.weapon = this.lastWeapon;
+				this.shooting = false;
+				break;
+			case 'push':
+				game.scene.anomaly( 100, -1000 );
+				this.weapon = this.lastWeapon;
+				this.shooting = false;
+				break;
 			default: game.scene.fire( this.position );
 		}
 	}

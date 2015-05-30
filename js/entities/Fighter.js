@@ -24,6 +24,9 @@ function Fighter(x, y, world, definition, speed, type) {
 	if (this.type == 1) {
 		this.upgrade = new FighterTopShield(this, world);
 		this.entities.push(this.upgrade);
+	} else if (this.type == 2) {
+		this.upgrade = new FighterBottomShield(this, world);
+		this.entities.push(this.upgrade);
 	}
 }
 
@@ -65,7 +68,9 @@ Fighter.prototype.update = function ( delta ) {
 		game.scene.entities.push(new Animation('img/_fighterDestroyed.png', 16, this.x, this.y, 1000))
 
 		arrayRemove( game.scene.entities, this);
+		arrayRemove( game.scene.entities, this.upgrade);
 		this.world.DestroyBody(this.body);
+		this.world.DestroyBody(this.upgrade.body);
 	}
 
 	for( var i = 0; i < this.entities.length; i++ )
