@@ -64,7 +64,7 @@ CarrierShip.prototype.draw = function ( ctx ) {
 	for( var i = 0; i < this.entities.length; i++ )
 		if( this.entities[i].draw )
 			this.entities[i].draw( ctx );
-}
+};
 
 CarrierShip.prototype.update = function ( delta ) {
 	if (this.killAnimation != null) {
@@ -111,7 +111,7 @@ CarrierShip.prototype.update = function ( delta ) {
 	}
 
 	if (!hp) this.destroy();
-}
+};
 
 CarrierShip.prototype.spawnFighter = function (  ) {
 	var spawnPosition = this.definition.hangar_positions[(Math.random()*this.definition.hangar_positions.length)|0];
@@ -120,11 +120,11 @@ CarrierShip.prototype.spawnFighter = function (  ) {
 
 	var spawnAnimation = new Animation('img/_fighterSpawn.png',8,spawnPosition.x + this.body.GetCenterPosition().x - 200 - 5,spawnPosition.y+ this.body.GetCenterPosition().y - 125 +10,500);
 	game.scene.entities.push(spawnAnimation);
-}
+};
 
 CarrierShip.prototype.destroy = function (  ) {
 	if (this.killAnimation != null) return;
 	this.killAnimation = true;
 	this.body.SetLinearVelocity( new b2Vec2( -2, 0 ));
 	this.body.SetAngularVelocity( Math.random() * 0.1 - 0.05 );
-}
+};

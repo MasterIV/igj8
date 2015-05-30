@@ -44,9 +44,10 @@ Cannon.prototype.getNormalCooldown = function () {
 	return 200;
 	// - 150 for every upgrade point
 	return 1000 - upgrades.normal[UPGR_FRATE] * 150;
-}
+};
+
 Cannon.prototype.getSuckingCooldown = function () {
 	// Regular cooldown 2000ms
 	// - 300 for every upgrade point
 	return 2000 - upgrades.normal[UPGR_FRATE] * 300;
-}
+};
