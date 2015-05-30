@@ -1,0 +1,23 @@
+	fighter1: {
+		title: 'Example',
+		description: 'Lorem Ipsum',
+		sprite:'img/fighter1.png',
+		offset:{x:-25,y:-5},
+		polygon: [
+			[{x:1,y:20},{x:5,y:10},{x:24,y:10},{x:31,y:11},{x:19,y:20}],
+			[{x:31,y:11}, {x:34,y:3}, {x:44,y:0}, {x:52,y:0}, {x:57,y:5}, {x:56,y:12}, {x:37,y:26}, {x:29,y:26}, {x:19,y:20}]
+		],	
+
+	}
+	
+		fighter2: {
+		title: 'Example',
+		description: 'Lorem Ipsum',
+		sprite:'img/fighter2.png',
+		offset:{x:-25,y:-5},
+		polygon: [
+			[{x:36,y:6},{x:23,y:20},{x:1,y:20},{x:1,y:16},{x:18,y:6}],
+			[{x:23,y:20}, {x:36,y:6}, {x:42,y:1}, {x:58,y:1}, {x:57,y:21}, {x:47,y:29}, {x:26,y:24}]
+		],	
+
+	}
