@@ -1,5 +1,6 @@
 function Anomaly(x, y, r, g) {
 	this.radius = r;
+
 	if (g > 0) {
 		var sprite = new AnimationSprite('img/_pullAnomaly.png', 25);
 	} else {

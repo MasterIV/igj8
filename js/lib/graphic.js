@@ -31,6 +31,7 @@ var g = {
 		'img/shop_button_small.png',
 		'img/main_UI_weapons.png',
 		'img/main_UI_anomalies.png',
+		'img/skill_selected.png',
 	],
 
 	add: function( url ) {

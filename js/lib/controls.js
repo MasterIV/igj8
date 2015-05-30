@@ -21,6 +21,11 @@ var controls = {
 			case 40: case 83: this.emit( type, 'down' ); break;
 			case 37: case 65: this.emit( type, 'left' ); break;
 			case 39: case 68: this.emit( type, 'right' ); break;
+
+			case 49: this.emit( type, 1 ); break;
+			case 50: this.emit( type, 2 ); break;
+			case 51: this.emit( type, 3 ); break;
+			case 52: this.emit( type, 4 ); break;
 		}
 
 		return false;
