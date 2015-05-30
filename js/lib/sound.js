@@ -1,5 +1,5 @@
 var sound = {
-	sampels: [],
+	sampels: ['sounds/menu/button_clicked.mp3'],
 
 	play: function( file ) {
 		var self = this;

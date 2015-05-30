@@ -1,19 +1,8 @@
 /* buy scene upgrade gui */
 
-function Upgrade() {
-	this.width = 500;
-	this.height = 240;
-
-	this.outline = '#aaaaaa';
-	this.linewidth = 5;
-	this.extra = 15; // Space between Name and Upgrades
-
-	this.paddingleft = 15;
-	this.paddingtop = 10;
-	this.lineheight = config.fontsize + 25;
-	this.spacing = 140;
-
+function Upgrade( img, x, y ) {
 	this.entities = [];
+	this.visible = false;
 }
 
 Upgrade.prototype.createEntities = function () {
@@ -37,18 +26,11 @@ Upgrade.prototype.createEntities = function () {
 }
 
 Upgrade.prototype.draw = function( ctx ) {
-	// Outline
-	ctx.lineWidth = this.linewidth;
-	ctx.strokeStyle = this.outline;
-	ctx.strokeRect(this.x, this.y, this.width, this.height);
-	// Name
-	var texty = this.y + this.paddingtop + config.fontsize;
-	var textx = this.x + this.paddingleft;
-	ctx.fillStyle = config.fontcolor;
-	ctx.font = config.font;
-	ctx.fillText(this.name, textx, texty);
-	texty += this.lineheight + this.extra;
+	if (!this.visible) return;
 
+	ctx.drawImage( this.img, this.x, this.y );
+
+/*
 	// Upgradeable attributes
 	if (this.isgun) { // Guns have damage + rate of fire
 		ctx.fillText('Damage:', textx, texty);
@@ -72,7 +54,7 @@ Upgrade.prototype.draw = function( ctx ) {
 		ctx.fillStyle = config.fontcolor;
 		ctx.fillText(this.special, textx, texty);
 		this.entities[2].draw(ctx, this.getSpecial());
-	}
+	}*/
 };
 
 Upgrade.prototype.update = function( delta ) {
@@ -110,9 +92,13 @@ function NormalGun(x, y) {
 	this.name = 'Normal Gun';
 	this.x = x;
 	this.y = y;
+	this.img = g['img/shop_menu_plasma.png'];
+	this.width = this.img.width;
+	this.height = this.img.height;
+
 	this.isgun = true;
 	this.special = 'Triple Shot:';
-	this.createEntities();
+//	this.createEntities();
 }
 
 NormalGun.prototype = new Upgrade;
@@ -150,8 +136,9 @@ function DestroyerGun(x,y) {
 	this.name = 'Destroyer Gun';
 	this.x = x;
 	this.y = y;
+	this.img = g['img/shop_menu_rocket.png'];
 	this.isgun = true;
-	this.createEntities();
+	//this.createEntities();
 }
 
 DestroyerGun.prototype = new Upgrade;
@@ -188,7 +175,8 @@ function PushingAnomaly(x,y) {
 	this.name = 'Pushing Anomaly';
 	this.x = x;
 	this.y = y;
-	this.createEntities();
+	this.img = g['img/shop_menu_repulse.png'];
+	//this.createEntities();
 }
 
 PushingAnomaly.prototype = new Upgrade;
@@ -225,7 +213,8 @@ function SuckingAnomaly(x,y) {
 	this.name = 'Sucking Anomaly';
 	this.x = x;
 	this.y = y;
-	this.createEntities();
+	this.img = g['img/shop_menu_pull.png'];
+	//this.createEntities();
 }
 
 SuckingAnomaly.prototype = new Upgrade;
