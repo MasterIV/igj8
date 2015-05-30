@@ -7,26 +7,23 @@ function Bullet( world, position, direction ) {
 
 	velocity.Multiply(this.speed);
 	this.body.SetLinearVelocity(velocity);
+
+	var sprite = new AnimationSprite('img/_normalShot.png', 16);
+	var counter = new Framecounter(50);
+
+	this.draw = function( ctx ) {
+		var pos = this.body.GetCenterPosition();
+		sprite.center( ctx, pos.x, pos.y, counter.frame%16 );
+	};
+
+	this.update = function( delta ) {
+		counter.update(delta);
+	};
 }
-
-Bullet.prototype.draw = function( ctx ) {
-	var pos = this.body.GetCenterPosition();
-	ctx.drawImage( g['img/shot.png'], pos.x-11, pos.y-11 );
-};
-
-
-Bullet.prototype.update = function( delta ) {
-
-};
-
-
 
 Bullet.prototype.shape = new b2CircleDef();
 Bullet.prototype.shape .density = 0.1;
 Bullet.prototype.shape .radius = 10;
-//Bullet.prototype.shape .restitution = 1.0;
-//Bullet.prototype.shape .mass = 10.0;
-//Bullet.prototype.shape .friction = 0;
 
 Bullet.prototype.bodyDef = new b2BodyDef();
 Bullet.prototype.bodyDef.AddShape(Bullet.prototype.shape);

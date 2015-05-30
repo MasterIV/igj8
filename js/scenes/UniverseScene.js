@@ -21,7 +21,7 @@ function UniverseScene() {
 		this.entities.push(this.ships[i]);
 	}
 
-	this.entities.push(new debugBox2d(world));
+	//this.entities.push(new debugBox2d(world));
 
 
 	this.fire = function( origin ) {
@@ -89,7 +89,7 @@ function UniverseScene() {
 		}
 	};
 
-	this.bg = new Sprite('img/bg.png');
+	this.bg = new Sprite('img/background1.jpg');
 }
 
 UniverseScene.prototype = new Scene;
