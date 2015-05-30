@@ -4,6 +4,7 @@ function Cannon( x, y ) {
 	this.cooldown = {pull: 0, push: 0, laser: 0, rocket: 0};
 	this.weapon = 'laser';
 	this.shooting = false;
+	this.lastWeapon = 'laser';
 }
 
 Cannon.prototype.draw = function ( ctx ) {
@@ -31,8 +32,8 @@ Cannon.prototype.update = function ( delta ) {
 		this.cooldown[this.weapon] = this.getCooldown( this.weapon );
 		switch( this.weapon ) {
 			case 'rocket': game.scene.fire( this.position, true ); break;
-			case 'pull': game.scene.anomaly( 100, 1000 ); break;
-			case 'push': game.scene.anomaly( 100, -1000 ); break;
+			case 'pull': game.scene.anomaly( 100, 1000 ); this.weapon = this.lastWeapon; break;
+			case 'push': game.scene.anomaly( 100, -1000 ); this.weapon = this.lastWeapon; break;
 			default: game.scene.fire( this.position );
 		}
 	}
