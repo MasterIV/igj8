@@ -1,5 +1,5 @@
 function CarrierShip(x, y, world, speed, definition) {
-
+	this.world = world;
 	this.sprite = new Sprite(definition.sprite);
 	this.definition = definition;
 
@@ -61,4 +61,9 @@ CarrierShip.prototype.update = function ( delta ) {
 	for( var i = 0; i < this.entities.length; i++ )
 		if( this.entities[i].update )
 			this.entities[i].update( delta );
+}
+
+CarrierShip.prototype.spawnFighter = function (  ) {
+	this.entities.push(new Fighter(this.body.GetCenterPosition().x,this.body.GetCenterPosition().y,this.world,this.definition.fighter));
+
 }

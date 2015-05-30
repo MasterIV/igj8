@@ -46,7 +46,5 @@ WeakPoint.prototype.update = function ( delta ) {
 }
 
 WeakPoint.prototype.hit = function () {
-	console.log('weakpoint hit');
-
-	this.carrier.entities.push(new Fighter(this.body.GetCenterPosition().x,this.body.GetCenterPosition().y,this.world,fighter.ship1));
+	this.carrier.spawnFighter();
 }

@@ -21,7 +21,7 @@ function UniverseScene() {
 		this.entities.push(this.ships[i]);
 	}
 
-	//this.entities.push(new debugBox2d(world));
+	this.entities.push(new debugBox2d(world));
 
 
 	this.fire = function( origin ) {
