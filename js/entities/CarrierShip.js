@@ -50,7 +50,6 @@ CarrierShip.prototype = new Entity;
 
 
 CarrierShip.prototype.draw = function ( ctx ) {
-	//console.log(this.body.GetCenterPosition().x,this.body.GetCenterPosition().y);
 	this.sprite.center(ctx, this.body.GetCenterPosition().x + this.definition.offset.x,this.body.GetCenterPosition().y+ this.definition.offset.y);
 
 	for( var i = 0; i < this.entities.length; i++ )
@@ -59,6 +58,10 @@ CarrierShip.prototype.draw = function ( ctx ) {
 }
 
 CarrierShip.prototype.update = function ( delta ) {
+	if (this.entities.length == 0) {
+		this.destroy();
+	}
+
 	for( var i = 0; i < this.entities.length; i++ )
 		if( this.entities[i].update )
 			this.entities[i].update( delta );
@@ -68,4 +71,9 @@ CarrierShip.prototype.spawnFighter = function (  ) {
 	var spawnPosition = this.definition.hangar_positions[(Math.random()*this.definition.hangar_positions.length)|0];
 	var newFighter = new Fighter(spawnPosition.x + this.body.GetCenterPosition().x - 200,spawnPosition.y+ this.body.GetCenterPosition().y - 125,this.world,this.definition.fighter)
 	game.scene.entities.push(newFighter);
+}
+
+
+CarrierShip.prototype.destroy = function (  ) {
+
 }

@@ -36,3 +36,4 @@ Bullet.prototype.bodyDef = new b2BodyDef();
 Bullet.prototype.bodyDef.AddShape(Bullet.prototype.shape);
 
 Bullet.prototype.speed = 200;
+

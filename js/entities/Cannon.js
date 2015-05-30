@@ -41,7 +41,7 @@ Cannon.prototype.mouseup = function() {
 };
 
 Cannon.prototype.getNormalCooldown = function () {
-
+	return 200;
 	// - 150 for every upgrade point
 	return 1000 - upgrades.normal[UPGR_FRATE] * 150;
 }
