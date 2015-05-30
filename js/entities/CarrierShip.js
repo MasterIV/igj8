@@ -1,25 +1,34 @@
 function CarrierShip(x, y, world, definition) {
 
-	this.sprite = new Sprite('img/mothership.png');
+	this.sprite = new Sprite(definition.sprite);
 
-
-	this.polygonShape = new b2PolyDef();
-	this.points = [];
-	for(var i =0;i<definition.polygon[0].length;i++) {
-		this.points.push(new b2Vec2(definition.polygon[0][i].x,definition.polygon[0][i].y));
-	}
-
-	this.polygonShape.vertices = this.points;
-	this.polygonShape.vertexCount = this.points.length;
-	this.polygonShape.density = 1.0;
-	this.polygonShape.radius = 20;
-	this.polygonShape.restitution = 1.0;
-	this.polygonShape.friction = 0;
 
 	this.bodyDef = new b2BodyDef();
 	this.bodyDef.position.Set(x,y);
 	this.bodyDef.preventRotation = true;
-	this.bodyDef.AddShape(this.polygonShape );
+
+	this.polygonShapes = [];
+	this.polygonShape = new b2PolyDef();
+	for(var c =0;c<definition.polygon.length;c++) {
+		var points = [];
+		var polygonShape = new b2PolyDef();
+		for(var i =0;i<definition.polygon[c].length;i++) {
+			points.push(new b2Vec2(definition.polygon[c][i].x,definition.polygon[c][i].y));
+		}
+
+		polygonShape.vertices = points;
+		polygonShape.vertexCount = points.length;
+		polygonShape.density = 1.0;
+		polygonShape.radius = 20;
+		polygonShape.restitution = 1.0;
+		polygonShape.friction = 0;
+
+		this.polygonShapes.push(polygonShape);
+		this.bodyDef.AddShape(polygonShape);
+	}
+
+
+
 
 
 	this.body = world.CreateBody(this.bodyDef);
@@ -38,7 +47,7 @@ CarrierShip.prototype = new Entity;
 
 
 CarrierShip.prototype.draw = function ( ctx ) {
-
+	//console.log(this.body.GetCenterPosition().x,this.body.GetCenterPosition().y);
 	this.sprite.center(ctx, this.body.GetCenterPosition().x,this.body.GetCenterPosition().y);
 
 	for( var i = 0; i < this.entities.length; i++ )
