@@ -87,7 +87,6 @@ function CarrierShip(x, y, world, speed, definition, values) {
 	for(var i = 0; i < weakpoints.length; i++) {
 		var weakPoint = new WeakPoint(weakpointanchors[i].x + x - 15,weakpointanchors[i].y + y - 15,weakpointanchors[i].rotate, this, world, weakpoints[i]);
 		this.entities.push(weakPoint);
-		console.log('hi');
 	}
 
 }
@@ -141,6 +140,9 @@ CarrierShip.prototype.update = function ( delta ) {
 			this.sprite = null;
 			arrayRemove( game.scene.entities, this);
 			arrayRemove( game.scene.ships, this);
+
+			arrayRemove( game.scene.entities, this.destroyerShotChargeAnimation);
+			arrayRemove( game.scene.entities, this.destroyerShotAnimation);
 		}
 	} else {
 		var hp = 0;
@@ -167,20 +169,22 @@ CarrierShip.prototype.update = function ( delta ) {
 
 
 
-	var targetSpeed = this.startSpeed * (this.x < this.definition.endXPosition?0:1)
-	if (targetSpeed < 0) targetSpeed = 0;
+	var targetSpeed = this.startSpeed * (this.x < this.definition.endXPosition?0.0001:1)
+	if (targetSpeed < 0) targetSpeed = 0.01;
 	if (targetSpeed < 0.8) this.startDestroyerShot();
-	var diff = (this.y - this.startY);
+	//if (this.destroyerShotAnimation != null) targetSpeed=-100;
+
+	var yDiff = (this.y - this.startY);
 	var impulse = new b2Vec2( -targetSpeed, 0 );
-	if (diff > 10) {
+	if (yDiff > 10) {
 		impulse = new b2Vec2( -targetSpeed, -1 );
-	} else if (diff < -10){
+	} else if (yDiff < -10){
 		impulse = new b2Vec2( -targetSpeed, 1 );
 	}
-
-
-
 	this.body.SetLinearVelocity( impulse );
+
+
+
 
 	if (!hp) this.destroy();
 };
@@ -191,6 +195,7 @@ CarrierShip.prototype.spawnFighter = function ( type ) {
 		spawnPosition = this.definition.hangar_positions[Math.random()>0.5|0];
 	else
 		spawnPosition = this.definition.hangar_positions[this.spawnHangar[type]];
+
 	var newFighter = new Fighter(spawnPosition.x + this.body.GetCenterPosition().x - 200,spawnPosition.y+ this.body.GetCenterPosition().y - 125,this.world,this.definition.fighter,this.spawnSpeed[type],type);
 	game.scene.entities.push(newFighter);
 

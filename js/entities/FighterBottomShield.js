@@ -44,8 +44,5 @@ FighterBottomShield.prototype.update = function ( delta ) {
 };
 
 FighterBottomShield.prototype.hit = function (  ) {
-	var self=this;
-	setTimeout(function () {
-		self.body.SetLinearVelocity(new b2Vec2(-80,25))
-	},1000);
+
 };
