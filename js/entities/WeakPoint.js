@@ -1,6 +1,7 @@
-function WeakPoint(x, y, carrier, world) {
+function WeakPoint(x, y, carrier, world, hp) {
 	this.carrier = carrier;
 	this.world = world;
+	this.hp = hp;
 
 	this.sprite = new AnimationSprite('img/hitpoint1.png', 5);
 	this.frameCounter = 0;
@@ -18,9 +19,6 @@ function WeakPoint(x, y, carrier, world) {
 	jointDef.body1 = carrier.body
 	jointDef.body2 = this.body;
 	world.CreateJoint(jointDef);
-
-
-
 }
 
 WeakPoint.prototype = new Entity;
@@ -45,6 +43,8 @@ WeakPoint.prototype.update = function ( delta ) {
 
 }
 
-WeakPoint.prototype.hit = function () {
-	this.carrier.spawnFighter();
+WeakPoint.prototype.hit = function ( damage ) {
+	this.hp -= damage;
+	if (this.hp <= 0)
+		
 }

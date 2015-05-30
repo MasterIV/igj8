@@ -11,6 +11,8 @@ function Bullet( world, position, direction ) {
 	var sprite = new AnimationSprite('img/_normalShot.png', 16);
 	var counter = new Framecounter(50);
 
+	this.damage = getNormalDamage();
+
 	this.draw = function( ctx ) {
 		var pos = this.body.GetCenterPosition();
 		sprite.center( ctx, pos.x, pos.y, counter.frame%16 );

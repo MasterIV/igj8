@@ -17,3 +17,16 @@ var upgrades = {
 
 	points: 0
 }
+
+function getNormalDamage() {
+	switch (upgrades.normal[UPGR_DAMAGE]) {
+		case 1:
+			return 30;
+		case 2:
+			return 45;
+		case 3:
+			return 60;
+		default:
+			return 20;
+	}
+}
