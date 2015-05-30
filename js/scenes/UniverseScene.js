@@ -9,6 +9,7 @@ function UniverseScene(level) {
 
 	var world =  new b2World(worldAABB, new b2Vec2( 0, 0 ), true);
 	var cannon = new Cannon( 0, 360 );
+	var ui = new WeaponUI( cannon );
 
 	var bullets =  [];
 	var anomalies = [];
@@ -19,18 +20,10 @@ function UniverseScene(level) {
 	this.spawnTime = 0;
 	this.nextShip = 0;
 
-/*	this.ships.push(new CarrierShip(800,300, world, 10, carrier.ship1));
-	this.ships.push(new CarrierShip(1000,50, world, 10, carrier.ship2));
-	//this.ships.push(new CarrierShip(1200,200, world, 50, carrier.ship3));
-	for(var i=0;i<this.ships.length;i++) {
-		this.entities.push(this.ships[i]);
-	}*/
-
 	this.hpBar = new HpBar();
 	this.hpBar.setHp(this.hp);
 	this.entities.push(this.hpBar);
 	this.entities.push(new debugBox2d(world));
-
 
 	this.fire = function( origin ) {
 		var bullet = new Bullet( world, origin, mouse.dif( origin ));
@@ -54,6 +47,12 @@ function UniverseScene(level) {
 		var sphere = new Anomaly( mouse.x, mouse.y, r, g );
 		anomalies.push( sphere );
 		this.entities.push( sphere );
+	};
+
+	this.drawEntities = this.draw;
+	this.draw = function(ctx) {
+		this.drawEntities(ctx);
+		ui.draw(ctx);
 	};
 
 	this.updateEntities = this.update;
@@ -138,10 +137,15 @@ function UniverseScene(level) {
 		this.updateEntities(delta, world);
 	};
 
-
 	this.down = function(key) {
-		if( key == 'space' ) {
-			cannon.weapon = cannon.weapon ? 0 : 1;
+		if( cannon.weapon == 'laser' || cannon.weapon == 'rocket' )
+			cannon.lastWeapon = cannon.weapon;
+
+		switch( key ) {
+			case 1: cannon.weapon = 'laser'; break;
+			case 2: cannon.weapon = 'rocket'; break;
+			case 3: cannon.weapon = 'pull'; break;
+			case 4: cannon.weapon = 'push'; break;
 		}
 	};
 

@@ -42,7 +42,7 @@ function CarrierShip(x, y, world, speed, definition) {
 
 	this.entities = [];
 	for(var i =0;i<definition.weak_points.length && i<3;i++) {
-		var weakPoint = new WeakPoint(definition.weak_points[i].x + x - 15,definition.weak_points[i].y + y - 15, this, world, hitPoints.point2);
+		var weakPoint = new WeakPoint(definition.weak_points[i].x + x - 15,definition.weak_points[i].y + y - 15,definition.weak_points[i].rotate, this, world, hitPoints.point2);
 		this.entities.push(weakPoint);
 	}
 
@@ -56,9 +56,9 @@ CarrierShip.prototype.draw = function ( ctx ) {
 	if (this.killAnimation != null) {
 		if (this.killAnimationTime >= 2500)
 			frame = ((this.killAnimationTime - 2500) / 500) | 0;
-		this.sprite.rotatecenter(ctx, this.body.GetCenterPosition().x + this.definition.offset.x,this.body.GetCenterPosition().y+ this.definition.offset.y, frame, this.body.GetRotation(), this.definition.offset.x, this.definition.offset.y);
+		this.sprite.rotateCenter(ctx, this.x, this.y, frame, this.body.GetRotation());
 	} else {
-		this.sprite.center(ctx, this.body.GetCenterPosition().x + this.definition.offset.x,this.body.GetCenterPosition().y+ this.definition.offset.y, frame);
+		this.sprite.center(ctx, this.x, this.y, frame);
 	}
 
 	for( var i = 0; i < this.entities.length; i++ )
@@ -67,19 +67,25 @@ CarrierShip.prototype.draw = function ( ctx ) {
 };
 
 CarrierShip.prototype.update = function ( delta ) {
+	this.x = this.body.GetCenterPosition().x + this.definition.offset.x;
+	this.y = this.body.GetCenterPosition().y + this.definition.offset.y;
 
 	if (this.killAnimation != null) {
 		this.killAnimationTime += delta;
+
 		if (this.killAnimationStep < 1) {
-			game.scene.entities.push( new Animation( 'img/_mothershipDestroyed.png', 70, this.body.GetCenterPosition().x + Math.random()*200-100, this.body.GetCenterPosition().y + Math.random()*200-100, 2000 ) );
+			game.scene.entities.push( new Animation( 'img/_mothershipDestroyed.png', 70, this.x + Math.random()*200-100, this.y + Math.random()*200-100, 2000 ) );
 			this.killAnimationStep++;
 		}
+
 		if (this.killAnimationTime >= 600 && this.killAnimationStep < 2) {
-			game.scene.entities.push( new Animation( 'img/_mothershipDestroyed.png', 70, this.body.GetCenterPosition().x + Math.random()*200-100, this.body.GetCenterPosition().y + Math.random()*200-100, 2000 ) );
+			game.scene.entities.push( new Animation( 'img/_mothershipDestroyed.png', 70, this.x + Math.random()*200-100, this.y + Math.random()*200-100, 2000 ) );
 			this.killAnimationStep++;
 		}
+
 		if (this.killAnimationTime % 200 < 20)
-			game.scene.entities.push( new Animation( 'img/_fighterDestroyed.png', 16, this.body.GetCenterPosition().x + Math.random()*300-150, this.body.GetCenterPosition().y + Math.random()*200-100, 2000 ) );
+			game.scene.entities.push( new Animation( 'img/_fighterDestroyed.png', 16, this.x + Math.random()*300-150, this.y + Math.random()*200-100, 2000 ) );
+
 		if (this.killAnimationTime >= this.killAnimationDuration) {
 
 			for(var i =0;i<this.entities.length;i++) {
@@ -102,6 +108,7 @@ CarrierShip.prototype.update = function ( delta ) {
 				if ( this.entities[i].alive() )
 					hp++;
 		}
+
 		if (!hp) this.destroy();
 	}
 

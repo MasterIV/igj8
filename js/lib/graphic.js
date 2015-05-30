@@ -35,7 +35,10 @@ var g = {
 		'img/shop_menu_pull.png',
 		'img/shop_menu_hull.png',
 		'img/shop_button_big.png',
-		'img/shop_button_big_highlight.png'
+		'img/shop_button_big_highlight.png',
+		'img/main_UI_weapons.png',
+		'img/main_UI_anomalies.png',
+		'img/skill_selected.png'
 	],
 
 	add: function( url ) {
