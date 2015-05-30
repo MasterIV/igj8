@@ -10,3 +10,10 @@ HpBar.prototype.draw = function ( ctx ) {
 HpBar.prototype.setHp = function ( hp ) {
 	this.hp = hp;
 };
+
+
+HpBar.prototype.reduce = function ( ) {
+	this.hp--;
+	if( this.hp < 1 )
+		game.scene = scenes.loose;
+};

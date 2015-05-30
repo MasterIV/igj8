@@ -18,3 +18,11 @@ Animation.prototype.update = function ( delta ) {
 		arrayRemove( game.scene.entities, this);
 	}
 };
+
+function ScreenShake(duration) {
+
+}
+
+function ScreenFlash(duration) {
+
+}

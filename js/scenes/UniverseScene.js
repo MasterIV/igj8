@@ -69,6 +69,7 @@ function UniverseScene(level) {
 		bullets.each( function( b ) {
 			var bullet_position = b.body.GetCenterPosition();
 
+			// Gravitation Influence
 			anomalies.each( function(a) {
 				var anomaly_position = a.GetCenterPosition();
 

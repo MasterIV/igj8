@@ -106,6 +106,7 @@
 		<script type="text/javascript" src="js/scenes/UniverseScene.js"></script>
 		<script type="text/javascript" src="js/scenes/TestScene.js"></script>
 		<script type="text/javascript" src="js/scenes/BuyScene.js"></script>
+		<script type="text/javascript" src="js/scenes/Loose.js"></script>
 
 		<script type="text/javascript" src="js/entities/Entity.js"></script>
 		<script type="text/javascript" src="js/entities/CarrierShip.js"></script>
@@ -120,8 +121,11 @@
 		<script type="text/javascript" src="js/entities/Anomaly.js"></script>
 
 		<script type="text/javascript">
+			var scenes = {};
+
 			function init() {
 				g.load(function() {
+					scenes.loose = new LooseScene();
 					document.getElementById('loading').style.display = 'none';
 					game.scene = new UniverseScene(levels.level1);
 

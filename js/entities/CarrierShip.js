@@ -67,6 +67,7 @@ CarrierShip.prototype.draw = function ( ctx ) {
 };
 
 CarrierShip.prototype.update = function ( delta ) {
+
 	if (this.killAnimation != null) {
 		this.killAnimationTime += delta;
 		if (this.killAnimationStep < 1) {
