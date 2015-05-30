@@ -1,4 +1,4 @@
-function CarrierShip(x, y, world, speed, definition) {
+function CarrierShip(x, y, world, speed, definition, values) {
 	this.world = world;
 	this.sprite = new AnimationSprite(definition.sprite, 5);
 	this.killAnimation = null;
@@ -7,7 +7,11 @@ function CarrierShip(x, y, world, speed, definition) {
 	this.killAnimationStep = 0;
 	this.definition = definition;
 
-	this.lastSpawn = 0;
+	this.lastSpawn = [0,0,0];
+	this.spawnRate = values.fighterspawn;
+	this.spawnType = values.fightertype;
+	this.spawnSpeed = values.fighterspeed;
+	this.spawnHangar = values.hangarspawn;
 
 	this.bodyDef = new b2BodyDef();
 	this.bodyDef.position.Set(x,y);
@@ -112,17 +116,20 @@ CarrierShip.prototype.update = function ( delta ) {
 		if (!hp) this.destroy();
 	}
 
-	this.lastSpawn += delta;
-	if (this.lastSpawn > 5000) {
-		this.spawnFighter();
-		this.lastSpawn = 0;
+	for (var i = 0; i < 3; i++) {
+		if (this.spawnType[i] == 0)c continue;
+		this.lastSpawn[i] += delta;
+		if (this.lastSpawn[i] >= this.spawnSpeed[i]) {
+			this.spawnFighter(i);
+			this.lastSpawn[i] = 0;
+		}
 	}
 
 	if (!hp) this.destroy();
 };
 
-CarrierShip.prototype.spawnFighter = function (  ) {
-	var spawnPosition = this.definition.hangar_positions[(Math.random()*this.definition.hangar_positions.length)|0];
+CarrierShip.prototype.spawnFighter = function ( type ) {
+	var spawnPosition = this.definition.hangar_positions[this.definition.hangar_positions[this.spawnHangar[i]]];
 	var newFighter = new Fighter(spawnPosition.x + this.body.GetCenterPosition().x - 200,spawnPosition.y+ this.body.GetCenterPosition().y - 125,this.world,this.definition.fighter)
 	game.scene.entities.push(newFighter);
 
