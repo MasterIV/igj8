@@ -74,7 +74,12 @@ CarrierShip.prototype.spawnFighter = function (  ) {
 }
 
 CarrierShip.prototype.destroy = function (  ) {
-	game.scene.entities.push( new Animation( 'img/_mothershipDestroyed.png', 70, this.body.GetCenterPosition().x, this.body.GetCenterPosition().y, 2000 ) );
+	var x = this.body.GetCenterPosition().x;
+	var y = this.body.GetCenterPosition().y;
+	game.scene.entities.push( new Animation( 'img/_mothershipDestroyed.png', 70, x + Math.random()*200-100, y + Math.random()*200-100, 2000 ) );
+	setTimeout(function() {
+		game.scene.entities.push( new Animation( 'img/_mothershipDestroyed.png', 70, x + Math.random()*200-100, y + Math.random()*200-100, 2000 ) );
+	}, 600);
 	this.world.DestroyBody(this.body);
 	this.sprite = null;
 	arrayRemove( game.scene.entities, this);
