@@ -12,7 +12,8 @@ var carrier = {
 		],
 		hangar_positions: [
 			{x:0,y:0}
-		]
+		],
+		base_hp: 20
 
 
 	},
@@ -35,8 +36,8 @@ var carrier = {
 		],
 		hangar_positions: [
 			{x:0,y:0}
-		]
-
+		],
+		base_hp: 20
 
 	},
 	ship2: {
@@ -56,7 +57,8 @@ var carrier = {
 		],
 		hangar_positions: [
 			{x:0,y:0}
-		]
+		],
+		base_hp: 20
 
 
 	},
@@ -87,7 +89,8 @@ var carrier = {
 		],
 		hangar_positions: [
 			{x:0,y:0}
-		]
+		],
+		base_hp: 20
 	},
 	
 	
@@ -113,7 +116,8 @@ var carrier = {
 		],
 		hangar_positions: [
 			{x:0,y:0}
-		]
+		],
+		base_hp: 20
 	}
 	
 	

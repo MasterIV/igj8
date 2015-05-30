@@ -82,7 +82,7 @@ function UniverseScene() {
 					for(var i=0;i<ship.entities.length;i++) {
 						if (contactList.contact.GetShape1().GetBody() == ship.entities[i].body ||
 							contactList.contact.GetShape2().GetBody() == ship.entities[i].body) {
-							ship.entities[i].hit();
+							ship.entities[i].hit(b.damage);
 						}
 					}
 

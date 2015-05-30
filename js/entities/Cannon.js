@@ -22,11 +22,11 @@ Cannon.prototype.update = function ( delta ) {
 	} else if( this.shooting ) {
 		switch( this.weapon ) {
 			case 1:
-				this.cooldown = 500;
+				this.cooldown = this.getSuckingCooldown();
 				game.scene.anomaly( 100, 1000 );
 				break;
 			default:
-				this.cooldown = this.getnormalcooldown();
+				this.cooldown = this.getNormalCooldown();
 				game.scene.fire( this.position );
 		}
 	}
@@ -40,8 +40,13 @@ Cannon.prototype.mouseup = function() {
 	this.shooting = false;
 };
 
-Cannon.prototype.getnormalcooldown = function () {
-	// Regular cooldown 1000ms
-	// - 
-	return 100;
+Cannon.prototype.getNormalCooldown = function () {
+
+	// - 150 for every upgrade point
+	return 1000 - upgrades.normal[UPGR_FRATE] * 150;
+}
+Cannon.prototype.getSuckingCooldown = function () {
+	// Regular cooldown 2000ms
+	// - 300 for every upgrade point
+	return 2000 - upgrades.normal[UPGR_FRATE] * 300;
 }
