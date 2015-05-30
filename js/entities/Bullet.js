@@ -18,6 +18,9 @@ function Bullet( world, position, direction ) {
 
 	this.update = function( delta ) {
 		counter.update(delta);
+		var pos = this.body.GetCenterPosition();
+		if( pos.x > 1300 || pos.y < -20 || pos.y > 740 )
+			game.scene.removeBullet( this );
 	};
 }
 

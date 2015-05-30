@@ -22,6 +22,7 @@ Cannon.prototype.update = function ( delta ) {
 	} else if( this.shooting ) {
 		switch( this.weapon ) {
 			case 1:
+				this.cooldown = 500;
 				game.scene.anomaly( 100, 1000 );
 				break;
 			default:
