@@ -35,8 +35,18 @@ WeakPoint.prototype.polygonShape.categoryBits = 0x0004;
 WeakPoint.prototype.polygonShape.maskBits = 0x0002;
 
 WeakPoint.prototype.draw = function ( ctx ) {
+	var frame = 0;
+	if (this.hp == this.definition.hp) {
+		frame = ((this.frameCounter/100)|0)%5;
+	} else if (this.hp > 0) {
+		frame = 5 + ((this.frameCounter/100)|0)%5;
+	} else {
+		freame = 10;
+	}
+
+
 	if( this.sprite )
-		this.sprite.center(ctx, this.body.GetCenterPosition().x,this.body.GetCenterPosition().y, ((this.frameCounter/100)|0)%5);
+		this.sprite.center(ctx, this.body.GetCenterPosition().x,this.body.GetCenterPosition().y, );
 }
 
 WeakPoint.prototype.update = function ( delta ) {
@@ -44,12 +54,13 @@ WeakPoint.prototype.update = function ( delta ) {
 }
 
 WeakPoint.prototype.hit = function ( damage ) {
+	if ( this.hp == 0) return;
 	this.hp -= damage;
 
 	if (this.hp <= 0) {
 		game.scene.entities.push( new Animation( 'img/_weakspotDestroyed.png', 40, this.body.GetCenterPosition().x, this.body.GetCenterPosition().y, 1000 ) );
-		this.world.DestroyBody(this.body);
-		this.sprite = null;
+
+		this.hp = 0;
 	}
 }
 
