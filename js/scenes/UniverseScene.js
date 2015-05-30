@@ -1,4 +1,4 @@
-function UniverseScene() {
+function UniverseScene(level) {
 	var self = this;
 
 	var worldAABB = new b2AABB();
@@ -13,14 +13,9 @@ function UniverseScene() {
 
 	this.entities = [cannon];
 	this.ships = [];
-
-	this.ships.push(new CarrierShip(800,300, world, 10, carrier.ship1));
-	this.ships.push(new CarrierShip(1000,50, world, 10, carrier.ship2));
-	//this.ships.push(new CarrierShip(1200,200, world, 50, carrier.ship3));
-	for(var i=0;i<this.ships.length;i++) {
-		this.entities.push(this.ships[i]);
-	}
-
+	this.level = level;
+	this.spawnTime = 0;
+	this.nextShip = 0;
 
 	this.entities.push(new debugBox2d(world));
 
@@ -48,10 +43,17 @@ function UniverseScene() {
 		this.entities.push( sphere );
 	};
 
-
-
 	this.updateEntities = this.update;
 	this.update = function(delta) {
+		this.spawnTime += delta;
+		if (this.level.ships.length > this.nextShip)
+			if (this.spawnTime >= this.level.ships[this.nextShip].entry) {
+				var ship = new CarrierShip(1279, this.level.ships[this.nextShip].y, world, 10, this.level.ships[this.nextShip].type);
+				this.ships.push(ship);
+				this.entities.push(ship);
+				this.nextShip++;
+			}
+
 		bullets.each( function( b ) {
 			var bullet_position = b.body.GetCenterPosition();
 
