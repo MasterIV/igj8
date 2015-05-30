@@ -30,11 +30,24 @@ function UniverseScene() {
 		this.entities.push( bullet );
 	};
 
+	this.removeBullet = function( b ) {
+		arrayRemove( bullets, b );
+		arrayRemove( this.entities, b );
+		world.DestroyBody(b.body);
+	};
+
 	this.anomaly = function( r, g ) {
+		var maxA = 2;
+		if( anomalies.length >= maxA ) {
+			arrayRemove(this.entities, anomalies.shift());
+		}
+
 		var sphere = new Anomaly( mouse.x, mouse.y, r, g );
 		anomalies.push( sphere );
 		this.entities.push( sphere );
 	};
+
+
 
 	this.updateEntities = this.update;
 	this.update = function(delta) {

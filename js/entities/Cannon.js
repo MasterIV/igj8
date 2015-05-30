@@ -22,10 +22,11 @@ Cannon.prototype.update = function ( delta ) {
 	} else if( this.shooting ) {
 		switch( this.weapon ) {
 			case 1:
+				this.cooldown = 500;
 				game.scene.anomaly( 100, 1000 );
 				break;
 			default:
-				this.cooldown = 500;
+				this.cooldown = this.getnormalcooldown();
 				game.scene.fire( this.position );
 		}
 	}
@@ -38,3 +39,9 @@ Cannon.prototype.mousedown = function() {
 Cannon.prototype.mouseup = function() {
 	this.shooting = false;
 };
+
+Cannon.prototype.getnormalcooldown = function () {
+	// Regular cooldown 1000ms
+	// - 
+	return 1000;
+}
