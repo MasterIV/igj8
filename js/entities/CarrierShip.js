@@ -47,9 +47,43 @@ function CarrierShip(x, y, world, speed, definition, values) {
 	this.body.SetLinearVelocity( new b2Vec2( -speed, 0 ));
 
 	this.entities = [];
-	for(var i =0;i<definition.weak_points.length && i<3;i++) {
-		var weakPoint = new WeakPoint(definition.weak_points[i].x + x - 15,definition.weak_points[i].y + y - 15,definition.weak_points[i].rotate, this, world, hitPoints.point2);
+
+	var weakpoints = [];
+	var weakpointanchors = definition.weak_points.slice();
+	for (var i = 0; i < 5; i++) {
+		var count = 0;
+		var type = null;
+		switch (i) {
+			case 0:
+				count = values.hit1;
+				type = hitPoints.point1;
+				break;
+			case 1:
+				count = values.hit2;
+				type = hitPoints.point2;
+				break;
+			case 2:
+				count = values.hit3;
+				type = hitPoints.point3;
+				break;
+			case 3:
+				count = values.hit4;
+				type = hitPoints.point4;
+				break;
+			case 4:
+				count = values.hit5;
+				type = hitPoints.point5;
+				break;
+		}
+		for (var j = 0; j < count; j++)
+			weakpoints.push(type);
+	}
+	shuffle(weakpoints);
+	shuffle(weakpointanchors);
+	for(var i = 0; i < weakpoints.length; i++) {
+		var weakPoint = new WeakPoint(weakpointanchors[i].x + x - 15,weakpointanchors[i].y + y - 15,weakpointanchors[i].rotate, this, world, weakpoints[i]);
 		this.entities.push(weakPoint);
+		console.log('hi');
 	}
 
 }
