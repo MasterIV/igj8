@@ -39,3 +39,13 @@ AnimationSprite.prototype.rotatecenter = function( ctx, x, y, f, angle, ox, oy )
 	ctx.drawImage( this.img, f*this.w, 0, this.w, this.h, -this.w-ox, -this.h-oy, this.w, this.h );
 	ctx.restore();
 };
+
+function SpriteObj( img, x, y ) {
+	this.x = x;
+	this.y = y;
+	this.sprite = new Sprite( img );
+}
+
+SpriteObj.prototype.draw = function( ctx ) {
+	this.sprite.draw(ctx, this.x, this.y);
+};

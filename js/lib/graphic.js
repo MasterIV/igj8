@@ -29,6 +29,8 @@ var g = {
 		'img/_weakspotDestroyed.png',
 		'img/_mothershipDestroyed.png',
 		'img/shop_button_small.png',
+		'img/main_UI_weapons.png',
+		'img/main_UI_anomalies.png',
 	],
 
 	add: function( url ) {
