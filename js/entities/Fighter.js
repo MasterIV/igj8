@@ -1,10 +1,12 @@
-function Fighter(x, y, world, definition) {
+function Fighter(x, y, world, definition, speed, type) {
 	this.world = world;
 	this.sprite = new Sprite(definition.sprite);
 	this.killAnimation = null;
 	this.killAnimationDuration = 750;
 	this.killAnimationTime = 0;
 	this.definition = definition;
+	this.speed = speed;
+	this.type = type;
 
 	this.bodyDef = new b2BodyDef();
 	this.bodyDef.position.Set(x,y);
@@ -12,18 +14,15 @@ function Fighter(x, y, world, definition) {
 	this.bodyDef.AddShape(Fighter.prototype.polygonShape);
 
 	this.body = world.CreateBody(this.bodyDef);
-	this.body.SetLinearVelocity( new b2Vec2( -50 - Math.random()*30 , -10 + Math.random()*20));
+	this.body.SetLinearVelocity( new b2Vec2( -speed , -10 + Math.random()*20));
 
 	this.x = x;
 	this.y = y;
 
 	this.entities = [];
 
-	//if (Math.random() > 0.5) {
+	if (this.type == 1)
 		this.upgrade = new FighterTopShield(this, world);
-	//} else {
-	//	this.upgrade = new FighterTopShield(this, world);
-	//}
 
 	this.entities.push(this.upgrade);
 }
