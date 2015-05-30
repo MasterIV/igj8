@@ -139,7 +139,7 @@ var carrier = {
 			{x:0,y:0}
 		],
 		base_hp: 40
-	}
+	},
 	
 	ship5: {
 		title: 'Example',
