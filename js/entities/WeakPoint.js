@@ -1,13 +1,14 @@
 function WeakPoint(x, y, carrier, world) {
 
 
+
 	this.polygonShape = new b2PolyDef();
 	//this.polygon.SetAsBox(1,1);
 	this.points = [];
-	this.points.push(new b2Vec2(x+0,y+0));
-	this.points.push(new b2Vec2(x+30,y+0));
-	this.points.push(new b2Vec2(x+30,y+30));
-	this.points.push(new b2Vec2(x+0,y+30));
+	this.points.push(new b2Vec2(0,0));
+	this.points.push(new b2Vec2(30,0));
+	this.points.push(new b2Vec2(30,30));
+	this.points.push(new b2Vec2(0,30));
 
 	this.polygonShape.vertices = this.points;
 	this.polygonShape.vertexCount = this.points.length;
@@ -24,10 +25,12 @@ function WeakPoint(x, y, carrier, world) {
 	this.body = world.CreateBody(this.bodyDef);
 
 	var jointDef = new b2RevoluteJointDef();
-	jointDef.anchorPoint.Set(x, y);
+	jointDef.anchorPoint.Set(x+15, y+15);
 	jointDef.body1 = carrier.body
 	jointDef.body2 = this.body;
 	world.CreateJoint(jointDef);
+
+
 
 }
 

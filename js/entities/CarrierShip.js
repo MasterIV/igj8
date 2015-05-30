@@ -18,6 +18,7 @@ function CarrierShip(x, y, world, definition) {
 
 	this.bodyDef = new b2BodyDef();
 	this.bodyDef.position.Set(x,y);
+	this.bodyDef.preventRotation = true;
 	this.bodyDef.AddShape(this.polygonShape );
 
 
