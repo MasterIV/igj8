@@ -7,7 +7,7 @@ function TestScene() {
 
 
 	this.entities = [];
-	this.entities.push(new CarrierShip(800,400, this.world, carrier.ship1));
+	this.entities.push(new CarrierShip(800,300, this.world, carrier.ship1));
 	this.entities.push(new debugBox2d(this.world));
 
 };

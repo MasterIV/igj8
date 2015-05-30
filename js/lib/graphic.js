@@ -1,9 +1,14 @@
 var g = {
 	urls: [
 		'img/mothership1.png',
+		'img/mothership2.png',
+		'img/mothership3.png',
 		'img/gun.png',
+		'img/gun_overlay.png',
 		'img/shot.png',
-		'img/buyscene_bg.png'
+		'img/bg.png',
+		'img/buyscene_bg.png',
+		'img/hitpoint1.png',
 	],
 
 	add: function( url ) {

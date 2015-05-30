@@ -67,8 +67,8 @@ var game = {
 		this.displayCtx.drawImage( this.buffer, 0, 0 );
 
 		// fsps display
-		this.displayCtx.fillStyle = 'black';
-		this.displayCtx.font = '10px monospace';
+		this.displayCtx.fillStyle = 'white';
+		this.displayCtx.font = '15px monospace';
 		this.displayCtx.fillText( this.fps, 50, 50 );
 	}
 }

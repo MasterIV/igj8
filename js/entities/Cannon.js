@@ -2,6 +2,7 @@ function Cannon( x, y ) {
 	this.position = new V2(x, y);
 	this.rotation = 0;
 	this.cooldown = 0;
+	this.weapon = 0;
 }
 
 Cannon.prototype.draw = function ( ctx ) {
@@ -10,6 +11,7 @@ Cannon.prototype.draw = function ( ctx ) {
 	ctx.rotate( this.rotation - Math.PI*.5 );
 	ctx.drawImage(g['img/gun.png'], -30, -30);
 	ctx.restore();
+	ctx.drawImage(g['img/gun_overlay.png'], this.position.x-30, this.position.y-30 );
 };
 
 Cannon.prototype.update = function ( delta ) {
@@ -18,8 +20,13 @@ Cannon.prototype.update = function ( delta ) {
 };
 
 Cannon.prototype.click = function() {
-	if( this.cooldown <= 0 ) {
-		this.cooldown = 500;
-		game.scene.fire( this.position );
-	}
+	if( this.cooldown <= 0 )
+		switch( this.weapon ) {
+			case 1:
+				game.scene.anomaly( 100, 1000 );
+				break;
+			default:
+				this.cooldown = 500;
+				game.scene.fire( this.position );
+		}
 };
