@@ -46,13 +46,12 @@ WeakPoint.prototype.draw = function ( ctx ) {
 		frame = 10;
 	}
 
-	this.sprite.rotatecenter(ctx, this.body.GetCenterPosition().x,this.body.GetCenterPosition().y, frame, this.body.GetRotation(),0,0);
-	if( this.sprite );
-}
+	this.sprite.rotateCenter(ctx, this.body.GetCenterPosition().x, this.body.GetCenterPosition().y, frame, this.body.GetRotation());
+};
 
 WeakPoint.prototype.update = function ( delta ) {
 	this.frameCounter += delta;
-}
+};
 
 WeakPoint.prototype.hit = function ( damage ) {
 	if ( this.hp == 0) return;
@@ -63,8 +62,8 @@ WeakPoint.prototype.hit = function ( damage ) {
 
 		this.hp = 0;
 	}
-}
+};
 
 WeakPoint.prototype.alive = function() {
 	return this.hp > 0;
-}
+};
