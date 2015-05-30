@@ -44,7 +44,7 @@ var levels = {
 			},
 			{ // second
 				type: carrier.ship1, // ship1 - 4
-				entry: 15000, // ms
+				entry: 5000, // ms
 				y: 300, // 0-720
 				speed: 10, // 10 = langsam
 				hit1: 1, // blau
@@ -59,8 +59,9 @@ var levels = {
 			},
 			{ // third
 				type: carrier.ship1, // ship1 - 4
-				entry: 90000, // ms
+				entry: 9000, // ms
 				y: 245, // 0-720
+				speed: 45,
 				hit1: 0, // blau
 				hit2: 1, // grün
 				hit3: 0, // gelb

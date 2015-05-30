@@ -28,6 +28,7 @@ var g = {
 		'img/_repulseAnomaly.png',
 		'img/_weakspotDestroyed.png',
 		'img/_mothershipDestroyed.png',
+		'img/shop_button_small.png',
 	],
 
 	add: function( url ) {
