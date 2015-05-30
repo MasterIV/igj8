@@ -43,5 +43,5 @@ Cannon.prototype.mouseup = function() {
 Cannon.prototype.getnormalcooldown = function () {
 	// Regular cooldown 1000ms
 	// - 
-	return 1000;
+	return 100;
 }
