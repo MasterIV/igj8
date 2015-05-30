@@ -8,6 +8,8 @@ function Fighter(x, y, world, definition, speed, type) {
 	this.speed = speed;
 	this.type = type;
 
+	this.flightCorretion = 0;
+
 	this.bodyDef = new b2BodyDef();
 	this.bodyDef.position.Set(x,y);
 	this.bodyDef.preventRotation = true;
@@ -62,6 +64,18 @@ Fighter.prototype.update = function ( delta ) {
 	} else if( this.x < 0 ) {
 		game.scene.hpBar.reduce();
 		this.destroy();
+	}
+
+	 this.flightCorretion += delta;
+	if (this.y < 50 || this.y > game.display.height - 50 || (this.flightCorretion > 10000 && this.body.GetLinearVelocity().x > 0)) {
+
+		if (this.y > 360) {
+			this.body.SetLinearVelocity( new b2Vec2( -this.speed , -5 - Math.random()*10));
+		} else {
+			this.body.SetLinearVelocity( new b2Vec2( -this.speed , 5 + Math.random()*10));
+		}
+
+		this.flightCorretion = 0;
 	}
 
 
