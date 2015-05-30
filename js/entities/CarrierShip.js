@@ -128,4 +128,5 @@ CarrierShip.prototype.destroy = function (  ) {
 	this.killAnimation = true;
 	this.body.SetLinearVelocity( new b2Vec2( -2, 0 ));
 	this.body.SetAngularVelocity( Math.random() * 0.1 - 0.05 );
+	sound.play('sounds/ship_destroy/mothership_destroyed_long.ogg');
 };

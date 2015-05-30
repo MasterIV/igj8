@@ -36,6 +36,7 @@ function UniverseScene(level) {
 		var bullet = new Bullet( world, origin, mouse.dif( origin ));
 		bullets.push( bullet );
 		this.entities.push( bullet );
+		sound.play('sounds/weapon_shot/pulse_cannon_single.ogg');
 	};
 
 	this.removeBullet = function( b ) {
