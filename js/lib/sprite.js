@@ -40,15 +40,12 @@ AnimationSprite.prototype.rotatecenter = function( ctx, x, y, f, angle, ox, oy )
 	ctx.restore();
 };
 
-AnimationSprite.prototype.rotatecenter = function( ctx, x, y, f, angle, ox, oy ) { // angle in rad
-	ctx.save();
-	ctx.translate(-x+(f*this.h), -y);
-	//ctx.translate(this.w/2+ox, this.h/2+ox);
-	ctx.rotate(angle);
-	//ctx.drawImage( this.img, f*this.w, 0, this.w, this.h, -this.w-ox, -this.h-oy, this.w, this.h );
-	ctx.translate(x-(f*this.h), y);
+function SpriteObj( img, x, y ) {
+	this.x = x;
+	this.y = y;
+	this.sprite = new Sprite( img );
+}
 
-
-	ctx.drawImage( this.img, f*this.w, 0, this.w, this.h, x-this.w/2, y-this.h/2, this.w, this.h );
-	ctx.restore();
+SpriteObj.prototype.draw = function( ctx ) {
+	this.sprite.draw(ctx, this.x, this.y);
 };
