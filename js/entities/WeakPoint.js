@@ -10,6 +10,7 @@ function WeakPoint(x, y, carrier, world, definition) {
 	this.bodyDef = new b2BodyDef();
 	this.bodyDef.position.Set(x,y);
 	this.bodyDef.preventRotation = true;
+	//this.bodyDef.rotation = definition.angle*(2*Math.PI)/360;
 	this.bodyDef.AddShape(WeakPoint.prototype.polygonShape);
 
 
