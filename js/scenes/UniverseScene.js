@@ -60,7 +60,7 @@ function UniverseScene(level) {
 		this.spawnTime += delta;
 		if (this.level.ships.length > this.nextShip)
 			if (this.spawnTime >= this.level.ships[this.nextShip].entry) {
-				var ship = new CarrierShip(1279, this.level.ships[this.nextShip].y, world, 10, this.level.ships[this.nextShip].type);
+				var ship = new CarrierShip(1279, this.level.ships[this.nextShip].y, world, this.level.ships[this.nextShip].speed, this.level.ships[this.nextShip].type);
 				this.ships.push(ship);
 				this.entities.push(ship);
 				this.nextShip++;
