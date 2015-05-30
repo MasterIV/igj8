@@ -2,8 +2,8 @@ function UniverseScene() {
 	var self = this;
 
 	var worldAABB = new b2AABB();
-	worldAABB.minVertex.Set(0, 0);
-	worldAABB.maxVertex.Set(1280, 720);
+	worldAABB.minVertex.Set(0 - 1000, 0 - 1000);
+	worldAABB.maxVertex.Set(1280*2, 720*2);
 
 	var world =  new b2World(worldAABB, new b2Vec2( 0, 0 ), true);
 	var cannon = new Cannon( 0, 360 );
@@ -16,7 +16,7 @@ function UniverseScene() {
 
 	this.ships.push(new CarrierShip(800,300, world, 10, carrier.ship1));
 	this.ships.push(new CarrierShip(1000,50, world, 10, carrier.ship2));
-	this.ships.push(new CarrierShip(1300,200, world, 10, carrier.ship3));
+	this.ships.push(new CarrierShip(1200,200, world, 50, carrier.ship3));
 	for(var i=0;i<this.ships.length;i++) {
 		this.entities.push(this.ships[i]);
 	}

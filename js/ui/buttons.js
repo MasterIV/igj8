@@ -52,7 +52,7 @@ function TextButton( text, x, y, w, h, callback, colors, hover, sound ) {
 
 TextButton.prototype.draw = function( ctx ) {
 	var c = this.hover &&  this.area.inside( mouse ) ? this.hover : this.colors;
-	ctx.font = '24px monospace';
+	ctx.font = config.font;
 
 	ctx.fillStyle = c.background ? c.background : '#EEEEEE';
 	ctx.fillRect( this.area.p1.x, this.area.p1.y, this.area.width(), this.area.height());
