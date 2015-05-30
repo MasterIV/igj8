@@ -31,9 +31,6 @@ function CarrierShip(x, y, world, speed, definition, hp) {
 	}
 
 
-
-
-
 	this.body = world.CreateBody(this.bodyDef);
 	this.body.SetLinearVelocity( new b2Vec2( -speed, 0 ));
 
@@ -58,13 +55,16 @@ CarrierShip.prototype.draw = function ( ctx ) {
 }
 
 CarrierShip.prototype.update = function ( delta ) {
-	if (this.entities.length == 0) {
-		this.destroy();
-	}
+	var hp = 0;
 
-	for( var i = 0; i < this.entities.length; i++ )
+	for( var i = 0; i < this.entities.length; i++ ) {
 		if( this.entities[i].update )
 			this.entities[i].update( delta );
+		if( this.entities[i].alive )
+			if ( this.entities[i].alive() )
+				hp++;
+	}
+	if (!hp) this.destroy();
 }
 
 CarrierShip.prototype.spawnFighter = function (  ) {
@@ -73,7 +73,10 @@ CarrierShip.prototype.spawnFighter = function (  ) {
 	game.scene.entities.push(newFighter);
 }
 
-
 CarrierShip.prototype.destroy = function (  ) {
-
+	game.scene.entities.push( new Animation( 'img/_mothershipDestroyed.png', 70, this.body.GetCenterPosition().x, this.body.GetCenterPosition().y, 2000 ) );
+	this.world.DestroyBody(this.body);
+	this.sprite = null;
+	arrayRemove( game.scene.entities, this);
+	arrayRemove( game.scene.ships, this);
 }

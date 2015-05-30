@@ -90,6 +90,9 @@ function UniverseScene() {
 
 						}
 					}
+					// Verzögertes Entfernen der Weakpoints, wenn sie zerstört wurden
+					if (ship.destroyWeakpoints)
+						ship.destroyWeakpoints();
 
 					for(var i=0;i<game.scene.entities.length;i++) {
 						if (typeof game.scene.entities[i].hit != 'undefined')
