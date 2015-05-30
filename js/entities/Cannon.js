@@ -23,7 +23,7 @@ Cannon.prototype.update = function ( delta ) {
 		switch( this.weapon ) {
 			case 1:
 				this.cooldown = this.getSuckingCooldown();
-				game.scene.anomaly( 100, 1000 );
+				game.scene.anomaly( 100, Math.random()>0.5?1000:-1000 );
 				break;
 			default:
 				this.cooldown = this.getNormalCooldown();
