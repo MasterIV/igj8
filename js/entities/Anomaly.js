@@ -10,7 +10,7 @@ function Anomaly(x, y, r, g) {
 	var counter = new Framecounter(50);
 
 	this.getForce = function( distance ) {
-		var force = (g * 1000) / Math.pow(distance.Length(), 2);
+		var force = (g * 2000) / Math.pow(distance.Length(), 2);
 		var vec = distance.Negative();
 		vec.Multiply(force);
 		return vec;
