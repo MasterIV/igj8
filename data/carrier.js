@@ -17,6 +17,30 @@ var carrier = {
 
 
 	},
+		ship0: {
+		title: 'TutorialShip',
+		description: 'Designed for Tutorial',
+		sprite:'img/mothership1.png',
+		fighter:fighter.ship1,
+		offset:{x:-10,y:-10},
+		polygon: [
+			[{x:43,y:122},{x:29,y:106},{x:38,y:93},{x:137,y:94},{x:181,y:96},{x:230,y:164},{x:200,y:180},{x:104,y:180}],
+			[{x:43,y:151},{x:95,y:173},{x:42,y:184},{x:9,y:173}],
+			[{x:43,y:151},{x:43,y:122},{x:104,y:180}],
+			[{x:181,y:96},{x:188,y:86},{x:204,y:86},{x:215,y:97},{x:258,y:177},{x:230,y:164}],
+			[{x:215,y:97},{x:235,y:84},{x:262,y:77},{x:276,y:80},{x:278,y:101},{x:292,y:181},{x:258,y:177}],
+			[{x:278,y:101},{x:315,y:88},{x:342,y:84},{x:367,y:95},{x:386,y:131},{x:382,y:155},{x:370,y:179},{x:348,y:196},{x:325,y:202},{x:292,y:181}]
+		],
+		weak_points: [
+			{x:41,y:137,rotate:270}
+		],
+		hangar_positions: [
+			{x:104,y:170},
+			{x:192,y:86}
+		],
+		base_hp: 40
+
+	},
 	ship1: {
 		title: 'needsName',
 		description: 'needsDescription',
@@ -32,10 +56,12 @@ var carrier = {
 			[{x:278,y:101},{x:315,y:88},{x:342,y:84},{x:367,y:95},{x:386,y:131},{x:382,y:155},{x:370,y:179},{x:348,y:196},{x:325,y:202},{x:292,y:181}]
 		],
 		weak_points: [
-				{x:0,y:120},
+			{x:160,y:96,rotate:0}, {x:91,y:94,rotate:0}, {x:321,y:87,rotate:340},				
+			{x:236,y:168,rotate:180}, {x:96,y:175,rotate:180}, {x:304,y:191,rotate:210}	
 		],
 		hangar_positions: [
-			{x:0,y:0}
+			{x:104,y:170},
+			{x:192,y:86}
 		],
 		base_hp: 40
 
@@ -53,7 +79,7 @@ var carrier = {
 			[{x:279,y:163}, {x:279,y:218}, {x:226,y:247}, {x:200,y:246}, {x:199,y:225}]
 		],
 		weak_points: [
-				{x:10,y:10},
+				{x:10,y:10,rotate:0},
 		],
 		hangar_positions: [
 			{x:0,y:0}
@@ -68,7 +94,7 @@ var carrier = {
 		description: 'Lorem Ipsum',
 		sprite:'img/mothership3.png',
 		fighter:fighter.ship3,
-		offset:{x:-0,y:0},
+		offset:{x:-0,y:0,rotate:0},
 		polygon: [
 			[{x:169,y:188},{x:142,y:213},{x:109,y:234},{x:95,y:232},{x:57,y:198},{x:39,y:167},{x:34,y:149},{x:47,y:84},{x:71,y:51},{x:122,y:25},{x:157,y:15}],
 			[{x:157,y:15}, {x:166,y:2}, {x:174,y:3}, {x:218,y:12}, {x:248,y:21}, {x:285,y:45}, {x:169,y:188}],
@@ -99,7 +125,7 @@ var carrier = {
 		description: 'Lorem Ipsum',
 		sprite:'img/mothership4.png',
 		fighter:fighter.ship4,
-		offset:{x:-25,y:-5},
+		offset:{x:-25,y:-5,rotate:0},
 		polygon: [
 			[{x:234,y:161},{x:226,y:177},{x:159,y:230},{x:101,y:230},{x:34,y:177},{x:30,y:169},{x:29,y:81},{x:99,y:19},{x:158,y:19},{x:179,y:28},{x:232,y:87},{x:237,y:103}],
 			[{x:237,y:103}, {x:324,y:103}, {x:292,y:158}, {x:234,y:161}],
@@ -111,8 +137,8 @@ var carrier = {
 		],	
 			
 		weak_points: [
-				{x:10,y:10},
-				{x:10,y:20}
+				{x:10,y:10,rotate:0},
+				{x:10,y:20,rotate:0}
 		],
 		hangar_positions: [
 			{x:0,y:0}
