@@ -3,43 +3,33 @@ function CarrierShip(x, y, world, definition) {
 	this.sprite = new Sprite('img/mothership.png');
 
 
+	this.polygonShape = new b2PolyDef();
+	this.points = [];
+	for(var i =0;i<definition.polygon[0].length;i++) {
+		this.points.push(new b2Vec2(definition.polygon[0][i].x,definition.polygon[0][i].y));
+	}
 
-	this.bodyDef = new Box2D.b2BodyDef;
-	this.bodyDef.set_type(Box2D.b2_kinematicBody);
-	this.bodyDef.set_position(new Box2D.b2Vec2(x,y));
-	this.bodyDef.set_angle(0);
+	this.polygonShape.vertices = this.points;
+	this.polygonShape.vertexCount = this.points.length;
+	this.polygonShape.density = 1.0;
+	this.polygonShape.radius = 20;
+	this.polygonShape.restitution = 1.0;
+	this.polygonShape.friction = 0;
+
+	this.bodyDef = new b2BodyDef();
+	this.bodyDef.position.Set(x,y);
+	this.bodyDef.AddShape(this.polygonShape );
 
 
 	this.body = world.CreateBody(this.bodyDef);
+	this.body.SetLinearVelocity( new b2Vec2( -50, 0 ));
 
-	this.polygonShape = new Box2D.b2PolygonShape;
-	this.polygon.SetAsBox(1,1);
-	this.points = [];
-	for(var i =0;i<definition.polygon[0].length;i++) {
-		console.log(definition.polygon[0][i].x,definition.polygon[0][i].y);
-		this.points.push(new Box2D.b2Vec2(definition.polygon[0][i].x,definition.polygon[0][i].y));
+	this.entities = [];
+	for(var i =0;i<definition.weak_points.length;i++) {
+		var weakPoint = new WeakPoint(definition.weak_points[i].x + x,definition.weak_points[i].y + y, this, world);
+		this.entities.push(weakPoint);
 	}
 
-	console.log(this.points);
-	//this.polygonShape.Set(this.points, this.points.length);
-
-	this.fixDef = new Box2D.b2FixtureDef;
-	this.fixDef.set_shape(this.polygonShape);
-
-
-
-	//this.fixDef.set_density(1);
-	//this.fixDef.set_density(1);
-	//this.fixDef.set_mass(1);
-
-	this.body.SetLinearVelocity( new Box2D.b2Vec2( -10, 0 ));
-	//this.body.ResetMassData();
-
-	//
-	//this.body.ApplyLinearImpulse(new Box2D.b2Vec2(xspeed,yspeed));
-
-
-	this.fixture = this.body.CreateFixture(this.fixDef);
 
 }
 
@@ -48,11 +38,17 @@ CarrierShip.prototype = new Entity;
 
 CarrierShip.prototype.draw = function ( ctx ) {
 
-	this.sprite.center(ctx, this.body.GetWorldCenter().get_x(),this.body.GetWorldCenter().get_y());
+	this.sprite.center(ctx, this.body.GetCenterPosition().x,this.body.GetCenterPosition().y);
+
+	for( var i = 0; i < this.entities.length; i++ )
+		if( this.entities[i].draw )
+			this.entities[i].draw( ctx );
 }
 
 CarrierShip.prototype.update = function ( delta ) {
 	//...
-	//this.body.ApplyForce(new Box2D.b2Vec2(300,200));
-
+	//this.body.ApplyForce(new b2Vec2(300,200));
+	for( var i = 0; i < this.entities.length; i++ )
+		if( this.entities[i].update )
+			this.entities[i].update( delta );
 }
