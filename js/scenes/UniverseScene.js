@@ -58,13 +58,18 @@ function UniverseScene(level) {
 	this.updateEntities = this.update;
 	this.update = function(delta) {
 		this.spawnTime += delta;
-		if (this.level.ships.length > this.nextShip)
+		if (this.level.ships.length > this.nextShip) {
 			if (this.spawnTime >= this.level.ships[this.nextShip].entry) {
 				var ship = new CarrierShip(1279, this.level.ships[this.nextShip].y, world, this.level.ships[this.nextShip].speed, this.level.ships[this.nextShip].type);
 				this.ships.push(ship);
 				this.entities.push(ship);
 				this.nextShip++;
 			}
+		} else {
+			if (this.ships.length == 0) {
+				this.entities.push( new LevelComplete(640, 360) );
+			}
+		}
 
 		bullets.each( function( b ) {
 			var bullet_position = b.body.GetCenterPosition();
