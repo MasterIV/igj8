@@ -11,6 +11,7 @@ Cannon.prototype.draw = function ( ctx ) {
 	ctx.rotate( this.rotation - Math.PI*.5 );
 	ctx.drawImage(g['img/gun.png'], -30, -30);
 	ctx.restore();
+	ctx.drawImage(g['img/gun_overlay.png'], this.position.x-30, this.position.y-30 );
 };
 
 Cannon.prototype.update = function ( delta ) {
