@@ -87,7 +87,6 @@ function CarrierShip(x, y, world, speed, definition, values) {
 	for(var i = 0; i < weakpoints.length; i++) {
 		var weakPoint = new WeakPoint(weakpointanchors[i].x + x - 15,weakpointanchors[i].y + y - 15,weakpointanchors[i].rotate, this, world, weakpoints[i]);
 		this.entities.push(weakPoint);
-		console.log('hi');
 	}
 
 }
@@ -141,6 +140,7 @@ CarrierShip.prototype.update = function ( delta ) {
 			this.sprite = null;
 			arrayRemove( game.scene.entities, this);
 			arrayRemove( game.scene.ships, this);
+
 		}
 	} else {
 		var hp = 0;
@@ -179,8 +179,6 @@ CarrierShip.prototype.update = function ( delta ) {
 	} else if (yDiff < -10){
 		impulse = new b2Vec2( -targetSpeed, 1 );
 	}
-
-	console.log(impulse);
 	this.body.SetLinearVelocity( impulse );
 
 
@@ -195,6 +193,7 @@ CarrierShip.prototype.spawnFighter = function ( type ) {
 		spawnPosition = this.definition.hangar_positions[Math.random()>0.5|0];
 	else
 		spawnPosition = this.definition.hangar_positions[this.spawnHangar[type]];
+
 	var newFighter = new Fighter(spawnPosition.x + this.body.GetCenterPosition().x - 200,spawnPosition.y+ this.body.GetCenterPosition().y - 125,this.world,this.definition.fighter,this.spawnSpeed[type],type);
 	game.scene.entities.push(newFighter);
 
@@ -208,6 +207,9 @@ CarrierShip.prototype.destroy = function (  ) {
 	this.body.SetLinearVelocity( new b2Vec2( -2, 0 ));
 	this.body.SetAngularVelocity( Math.random() * 0.1 - 0.05 );
 	sound.play('sounds/ship_destroy/mothership_destroyed_long.ogg');
+
+	arrayRemove( game.scene.entities, this.destroyerShotChargeAnimation);
+	arrayRemove( game.scene.entities, this.destroyerShotAnimation);
 };
 
 CarrierShip.prototype.startDestroyerShot = function (  ) {

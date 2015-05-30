@@ -6,16 +6,15 @@ function Upgrade( img, x, y ) {
 }
 
 Upgrade.prototype.createEntities = function () {
-	var x = this.x + this.paddingleft + this.spacing;
-	// sorry
-	var y = this.y + this.paddingtop + config.fontsize + this.extra + this.lineheight;
+	var x = this.x + 113;
+	var y = this.y + 3;
 
 	if (this.isgun) {
-		this.entities.push( new UpgradeBar(this.outline, x, y, this.getMaxDamage()) );
-		y += this.lineheight;
+		this.entities.push( new UpgradeBar(x, y, this.getMaxDamage()) );
+/*		x += 50;
 		this.entities.push( new UpgradeBar(this.outline, x, y, this.getMaxRate()) );
-		y += this.lineheight;
-		this.entities.push( new UpgradeBar(this.outline, x, y, this.getMaxSpecial()) );
+		x += this.lineheight;
+		this.entities.push( new UpgradeBar(this.outline, x, y, this.getMaxSpecial()) );*/
 	} else {
 		this.entities.push( new UpgradeBar(this.outline, x, y, this.getMaxEffect()) );
 		y += this.lineheight;
@@ -30,17 +29,11 @@ Upgrade.prototype.draw = function( ctx ) {
 
 	ctx.drawImage( this.img, this.x, this.y );
 
-/*
+
 	// Upgradeable attributes
 	if (this.isgun) { // Guns have damage + rate of fire
-		ctx.fillText('Damage:', textx, texty);
 		this.entities[0].draw(ctx, this.getDamage());
-		texty += this.lineheight;
-		ctx.fillStyle = config.fontcolor;
-		ctx.fillText('Rate of Fire:', textx, texty);
-		this.entities[1].draw(ctx, this.getRate());
-		texty += this.lineheight;
-	} else { // Anomalies have cooldown + effect
+	}/* else { // Anomalies have cooldown + effect
 		ctx.fillText('Strength:', textx, texty);
 		this.entities[0].draw(ctx, this.getEffect());
 		texty += this.lineheight;
@@ -98,7 +91,7 @@ function NormalGun(x, y) {
 
 	this.isgun = true;
 	this.special = 'Triple Shot:';
-//	this.createEntities();
+	this.createEntities();
 }
 
 NormalGun.prototype = new Upgrade;

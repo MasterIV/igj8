@@ -8,6 +8,8 @@ function Fighter(x, y, world, definition, speed, type) {
 	this.speed = speed;
 	this.type = type;
 
+	this.flightCorretion = 0;
+
 	this.bodyDef = new b2BodyDef();
 	this.bodyDef.position.Set(x,y);
 	this.bodyDef.preventRotation = true;
@@ -21,8 +23,12 @@ function Fighter(x, y, world, definition, speed, type) {
 
 	this.entities = [];
 
+	this.upgrade = null;
 	if (this.type == 1) {
 		this.upgrade = new FighterTopShield(this, world);
+		this.entities.push(this.upgrade);
+	} else if (this.type == 2) {
+		this.upgrade = new FighterBottomShield(this, world);
 		this.entities.push(this.upgrade);
 	}
 }
@@ -60,12 +66,29 @@ Fighter.prototype.update = function ( delta ) {
 		this.destroy();
 	}
 
+	 this.flightCorretion += delta;
+	if (this.y < 50 || this.y > game.display.height - 50 || (this.flightCorretion > 10000 && this.body.GetLinearVelocity().x > 0)) {
+
+		if (this.y > 360) {
+			this.body.SetLinearVelocity( new b2Vec2( -this.speed , -5 - Math.random()*10));
+		} else {
+			this.body.SetLinearVelocity( new b2Vec2( -this.speed , 5 + Math.random()*10));
+		}
+
+		this.flightCorretion = 0;
+	}
+
 
 	if (this.killAnimationTime >= this.killAnimationDuration) {
 		game.scene.entities.push(new Animation('img/_fighterDestroyed.png', 16, this.x, this.y, 1000))
 
 		arrayRemove( game.scene.entities, this);
 		this.world.DestroyBody(this.body);
+
+		if (this.upgrade != null) {
+			arrayRemove( game.scene.entities, this.upgrade);
+			this.world.DestroyBody(this.upgrade.body);
+		}
 	}
 
 	for( var i = 0; i < this.entities.length; i++ )

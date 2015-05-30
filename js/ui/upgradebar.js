@@ -1,36 +1,24 @@
 /* click to upgrade! */
 
-function UpgradeBar(outline, x, y, boxcount) {
-	this.boxsize = 40;
+function UpgradeBar(x, y, boxcount) {
+	this.boxX = 84;
+	this.boxY = 47;
 	this.boxcount = boxcount;
+	this.boxSpacing = 51;
 	this.x = x;
-	this.y = y - this.boxsize / 1.5;
-	this.area = new Rect( new V2( this.x, this.y ), new V2( this.x+this.boxcount*this.boxsize, this.y+this.boxsize));
-
-	this.outline = outline;
-	this.outlinehover = '#ffff55';
-	this.linewidth = 2;
-	this.inlinegrey = '#cccccc';
-	this.inlinered = '#ff5555';
+	this.y = y;
+	this.area = new Rect( new V2( this.x, this.y ), new V2( this.x+this.boxcount*this.boxX+this.boxSpacing*(this.boxcount-1), this.y+this.boxY));
 }
 
 UpgradeBar.prototype.draw = function( ctx, level ) {
-	ctx.lineWidth = this.linewidth;
-
 	if (this.area.inside( mouse )) {
-		ctx.strokeStyle = this.outlinehover;
-		ctx.strokeRect(this.x - this.linewidth, this.y - this.linewidth, this.boxsize * this.boxcount + this.linewidth*2, this.boxsize + this.linewidth*2);
 		if (level < this.boxcount)
 			level++;
 	}
-	ctx.strokeStyle = this.outline;
 	for (var i = 0; i < this.boxcount; i++) {
-		if (level > i)
-			ctx.fillStyle = this.inlinered;
-		else
-			ctx.fillStyle = this.inlinegrey;
-		ctx.fillRect(this.x + i * this.boxsize, this.y, this.boxsize, this.boxsize);
-		ctx.strokeRect(this.x + i * this.boxsize, this.y, this.boxsize, this.boxsize);
+		if (i >= level) return;
+		ctx.fillStyle = 'rgba(100,255,100,.4)';
+		ctx.fillRect(this.x + i * this.boxX + i * this.boxSpacing, this.y, this.boxX, this.boxY);
 	}
 };
 

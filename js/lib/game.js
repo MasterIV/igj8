@@ -19,6 +19,14 @@ var game = {
 	buffer: null,
 	bufferCtx: null,
 
+	animation: {
+		alpha: 1,
+		x: 0,
+		y: 0
+	},
+
+	level: -1,
+
 	init: function() {
 		this.display = document.getElementById('gameframe');
 		this.displayCtx = this.display.getContext('2d');
@@ -64,11 +72,17 @@ var game = {
 		this.scene.draw( this.bufferCtx );
 
 		this.display.width = this.display.width;
-		this.displayCtx.drawImage( this.buffer, 0, 0 );
+		this.displayCtx.globalAlpha = this.animation.alpha;
+		this.displayCtx.drawImage( this.buffer, this.animation.x, this.animation.y );
 
 		// fsps display
 		this.displayCtx.fillStyle = 'white';
 		this.displayCtx.font = '15px monospace';
-		this.displayCtx.fillText( this.fps, 50, 50 );
+		this.displayCtx.fillText( this.fps, 1200, 50 );
+	},
+
+	nextLevel: function() {
+		this.level++;
+		this.scene = new UniverseScene(levels['level' + this.level]);
 	}
 }
