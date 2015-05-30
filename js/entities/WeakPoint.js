@@ -48,6 +48,7 @@ WeakPoint.prototype.hit = function ( damage ) {
 	this.hp -= damage;
 
 	if (this.hp <= 0) {
-		this.world.DestroyBody(this.body);
+		game.scene.entities.push( new Animation( 'img/_weakspotDestroyed.png', 40, this.body.GetCenterPosition().x, this.body.GetCenterPosition().y, 1000 ) );
+		//this.world.DestroyBody(this.body);
 	}
 }
