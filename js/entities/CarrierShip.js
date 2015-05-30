@@ -3,6 +3,8 @@ function CarrierShip(x, y, world, speed, definition, hp) {
 	this.sprite = new Sprite(definition.sprite);
 	this.definition = definition;
 
+	this.lastSpawn = 0;
+
 	this.bodyDef = new b2BodyDef();
 	this.bodyDef.position.Set(x,y);
 	this.bodyDef.preventRotation = true;
@@ -40,7 +42,6 @@ function CarrierShip(x, y, world, speed, definition, hp) {
 		this.entities.push(weakPoint);
 	}
 
-
 }
 
 CarrierShip.prototype = new Entity;
@@ -64,6 +65,14 @@ CarrierShip.prototype.update = function ( delta ) {
 			if ( this.entities[i].alive() )
 				hp++;
 	}
+
+	this.lastSpawn += delta;
+	if (this.lastSpawn > 5000) {
+		this.spawnFighter();
+		this.lastSpawn = 0;
+	}
+
+
 	if (!hp) this.destroy();
 }
 
