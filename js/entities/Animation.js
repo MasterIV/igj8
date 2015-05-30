@@ -1,10 +1,13 @@
-function Animation(img, frameCount, x, y, lifeTime) {
+function Animation(img, frameCount, x, y, lifeTime, callback) {
 	this.animation = new AnimationSprite(img, frameCount);
 	this.animationDuration = lifeTime;
 	this.animationTime = 0;
 	this.animationFrameCount = frameCount;
 	this.x = x;
 	this.y = y;
+	if (typeof callback == 'function') {
+		this.callback = callback;
+	}
 }
 
 Animation.prototype.draw = function ( ctx ) {
@@ -16,6 +19,7 @@ Animation.prototype.update = function ( delta ) {
 
 	if (this.animationTime >= this.animationDuration) {
 		arrayRemove( game.scene.entities, this);
+		if (typeof this.callback == 'function') this.callback();
 	}
 };
 
