@@ -39,7 +39,7 @@ var levels = {
 				hit5: 0, // fortified
 				fightertype: [1,0,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [15,0,0], // Fighter 1: schnell, Fighter 3: langsam.
-				fighterspawn: [3500,0,0], // ms
+				fighterspawn: [6500,0,0], // ms
 				hangarspawn: [0,0,0] // in welchem Hangar? 0 / 1
 			}
 		]
@@ -60,7 +60,7 @@ var levels = {
 				hit5: 0, // fortified
 				fightertype: [1,0,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [13,0,0], // Fighter 1: schnell, Fighter 3: langsam.
-				fighterspawn: [4000,0,0], // ms
+				fighterspawn: [8000,0,0], // ms
 				hangarspawn: [0,0,0] // in welchem Hangar? 0 / 1
 			},
 			{ // second
@@ -75,7 +75,7 @@ var levels = {
 				hit5: 0, // fortified
 				fightertype: [1,0,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [15,0,0], // Fighter 1: schnell, Fighter 3: langsam.
-				fighterspawn: [5000,0,0], // ms
+				fighterspawn: [8000,0,0], // ms
 				hangarspawn: [0,0,0] // in welchem Hangar? 0 / 1
 			},
 			{ // third
