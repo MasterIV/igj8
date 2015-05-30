@@ -4,6 +4,7 @@ var g = {
 		'img/mothership2.png',
 		'img/mothership3.png',
 		'img/gun.png',
+		'img/gun_overlay.png',
 		'img/shot.png',
 		'img/bg.png',
 		'img/buyscene_bg.png',
