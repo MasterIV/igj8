@@ -41,12 +41,12 @@ WeakPoint.prototype.draw = function ( ctx ) {
 	} else if (this.hp > 0) {
 		frame = 5 + ((this.frameCounter/100)|0)%5;
 	} else {
-		freame = 10;
+		frame = 10;
 	}
 
 
 	if( this.sprite )
-		this.sprite.center(ctx, this.body.GetCenterPosition().x,this.body.GetCenterPosition().y, );
+		this.sprite.center(ctx, this.body.GetCenterPosition().x,this.body.GetCenterPosition().y, frame);
 }
 
 WeakPoint.prototype.update = function ( delta ) {
