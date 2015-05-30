@@ -9,7 +9,7 @@ debugBox2d.prototype.draw = function ( ctx ) {
 
 debugBox2d.prototype.drawWorld = function(world, context) {
 	for (var j = world.m_jointList; j; j = j.m_next) {
-		this.drawJoint(j, context);
+		this.drawJoint(j, world, context);
 	}
 
 
@@ -19,7 +19,7 @@ debugBox2d.prototype.drawWorld = function(world, context) {
 		}
 	}
 }
-debugBox2d.prototype.drawJoint = function(joint, context) {
+debugBox2d.prototype.drawJoint = function(joint, world, context) {
 	var b1 = joint.m_body1;
 	var b2 = joint.m_body2;
 	var x1 = b1.m_position;
