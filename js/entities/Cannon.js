@@ -41,7 +41,7 @@ Cannon.prototype.mouseup = function() {
 };
 
 Cannon.prototype.getNormalCooldown = function () {
-	// Regular cooldown 1000ms
+
 	// - 150 for every upgrade point
 	return 1000 - upgrades.normal[UPGR_FRATE] * 150;
 }

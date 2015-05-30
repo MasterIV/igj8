@@ -21,6 +21,7 @@ function UniverseScene() {
 		this.entities.push(this.ships[i]);
 	}
 
+
 	this.entities.push(new debugBox2d(world));
 
 
@@ -83,6 +84,14 @@ function UniverseScene() {
 							contactList.contact.GetShape2().GetBody() == ship.entities[i].body) {
 							ship.entities[i].hit(b.damage);
 						}
+					}
+
+					for(var i=0;i<game.scene.entities.length;i++) {
+						if (typeof game.scene.entities[i].hit != 'undefined')
+							if (contactList.contact.GetShape1().GetBody() == game.scene.entities[i].body ||
+								contactList.contact.GetShape2().GetBody() == game.scene.entities[i].body) {
+								game.scene.entities[i].hit();
+							}
 					}
 				}
 

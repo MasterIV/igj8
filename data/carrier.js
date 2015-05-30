@@ -44,7 +44,7 @@ var carrier = {
 		title: 'Example',
 		description: 'Lorem Ipsum',
 		sprite:'img/mothership2.png',
-		fighter:fighter.ship1,
+		fighter:fighter.ship2,
 		offset:{x:-25,y:-5},
 		polygon: [
 			[{x:5,y:117},{x:47,y:89},{x:52,y:91},{x:100,y:66},{x:186,y:55},{x:92,y:193},{x:23,y:192},{x:12,y:185},{x:3,y:174},{x:3,y:136},],
@@ -67,7 +67,7 @@ var carrier = {
 		title: 'Example',
 		description: 'Lorem Ipsum',
 		sprite:'img/mothership3.png',
-		fighter:fighter.ship1,
+		fighter:fighter.ship3,
 		offset:{x:-0,y:0},
 		polygon: [
 			[{x:169,y:188},{x:142,y:213},{x:109,y:234},{x:95,y:232},{x:57,y:198},{x:39,y:167},{x:34,y:149},{x:47,y:84},{x:71,y:51},{x:122,y:25},{x:157,y:15}],
@@ -98,7 +98,7 @@ var carrier = {
 		title: 'Example',
 		description: 'Lorem Ipsum',
 		sprite:'img/mothership4.png',
-		fighter:fighter.ship1,
+		fighter:fighter.ship4,
 		offset:{x:-25,y:-5},
 		polygon: [
 			[{x:234,y:161},{x:226,y:177},{x:159,y:230},{x:101,y:230},{x:34,y:177},{x:30,y:169},{x:29,y:81},{x:99,y:19},{x:158,y:19},{x:179,y:28},{x:232,y:87},{x:237,y:103}],

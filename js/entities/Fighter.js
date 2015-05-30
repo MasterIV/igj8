@@ -1,6 +1,9 @@
 function Fighter(x, y, world, definition) {
-
+	this.world = world;
 	this.sprite = new Sprite(definition.sprite);
+	this.killAnimation = null;
+	this.killAnimationDuration = 1000;
+	this.killAnimationTime = 0;
 	this.definition = definition;
 
 
@@ -11,9 +14,6 @@ function Fighter(x, y, world, definition) {
 
 
 	this.body = world.CreateBody(this.bodyDef);
-
-
-
 }
 
 Fighter.prototype = new Entity;
@@ -31,10 +31,30 @@ console.log(Fighter.prototype.polygonShape);
 
 Fighter.prototype.draw = function ( ctx ) {
 	this.sprite.center(ctx, this.body.GetCenterPosition().x + this.definition.offset.x,this.body.GetCenterPosition().y+ this.definition.offset.y);
+
+	if (this.killAnimation != null) {
+		this.killAnimation.center(ctx, this.body.GetCenterPosition().x + this.definition.offset.x,this.body.GetCenterPosition().y+ this.definition.offset.y, ((this.killAnimationTime/this.killAnimationDuration)*20)|0)
+	}
 }
 
 Fighter.prototype.update = function ( delta ) {
+	if (this.killAnimation != null) {
+		this.killAnimationTime += delta;
+	}
+
+	if (this.killAnimationTime >= this.killAnimationDuration) {
+		game.scene.entities.push(new Animation('img/_fighterDestroyed.png',16,this.body.GetCenterPosition().x + this.definition.offset.x,this.body.GetCenterPosition().y+ this.definition.offset.y,1000))
+
+		arrayRemove( game.scene.entities, this);
+		this.world.DestroyBody(this.body);
+	}
 }
 
 Fighter.prototype.hit = function (  ) {
+	this.destroy();
+}
+
+Fighter.prototype.destroy = function (  ) {
+	this.killAnimation = new AnimationSprite('img/_fighterBurning.png', 20);
+
 }
