@@ -111,6 +111,9 @@ CarrierShip.prototype.spawnFighter = function (  ) {
 	var spawnPosition = this.definition.hangar_positions[(Math.random()*this.definition.hangar_positions.length)|0];
 	var newFighter = new Fighter(spawnPosition.x + this.body.GetCenterPosition().x - 200,spawnPosition.y+ this.body.GetCenterPosition().y - 125,this.world,this.definition.fighter)
 	game.scene.entities.push(newFighter);
+
+	var spawnAnimation = new Animation('img/_fighterSpawn.png',8,spawnPosition.x + this.body.GetCenterPosition().x - 200 - 5,spawnPosition.y+ this.body.GetCenterPosition().y - 125 +10,500);
+	game.scene.entities.push(spawnAnimation);
 }
 
 CarrierShip.prototype.destroy = function (  ) {

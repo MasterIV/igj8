@@ -22,7 +22,7 @@ function Fighter(x, y, world, definition) {
 
 Fighter.prototype = new Entity;
 Fighter.prototype.polygonShape = new b2PolyDef();
-Fighter.prototype.polygonShape.vertices = [new b2Vec2(0,0),new b2Vec2(30,0),new b2Vec2(30,30),new b2Vec2(0,30)];
+Fighter.prototype.polygonShape.vertices = [new b2Vec2(0,0),new b2Vec2(30,0),new b2Vec2(30,20),new b2Vec2(0,20)];
 Fighter.prototype.polygonShape.vertexCount = Fighter.prototype.polygonShape.vertices.length;
 Fighter.prototype.polygonShape.density = 1.0;
 Fighter.prototype.polygonShape.radius = 20;

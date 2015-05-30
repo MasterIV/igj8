@@ -9,6 +9,7 @@ var g = {
 		'img/fighter4.png',
 		'img/_fighterBurning.png',
 		'img/_fighterDestroyed.png',
+		'img/_fighterSpawn.png',
 		'img/gun.png',
 		'img/gun_overlay.png',
 		'img/shot.png',

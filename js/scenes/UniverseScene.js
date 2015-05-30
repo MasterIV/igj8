@@ -1,6 +1,8 @@
 function UniverseScene(level) {
 	var self = this;
 
+	this.hp = 10;
+
 	var worldAABB = new b2AABB();
 	worldAABB.minVertex.Set(0 - 1000, 0 - 1000);
 	worldAABB.maxVertex.Set(1280*2, 720*2);
@@ -17,6 +19,16 @@ function UniverseScene(level) {
 	this.spawnTime = 0;
 	this.nextShip = 0;
 
+/*	this.ships.push(new CarrierShip(800,300, world, 10, carrier.ship1));
+	this.ships.push(new CarrierShip(1000,50, world, 10, carrier.ship2));
+	//this.ships.push(new CarrierShip(1200,200, world, 50, carrier.ship3));
+	for(var i=0;i<this.ships.length;i++) {
+		this.entities.push(this.ships[i]);
+	}*/
+
+	this.hpBar = new HpBar();
+	this.hpBar.setHp(this.hp);
+	this.entities.push(this.hpBar);
 	this.entities.push(new debugBox2d(world));
 
 
@@ -82,14 +94,16 @@ function UniverseScene(level) {
 						arrayRemove( bullets, b );
 						arrayRemove( self.entities, b );
 						world.DestroyBody(b.body);
-
 					}
 
 					for(var i=0;i<ship.entities.length;i++) {
 						if (contactList.contact.GetShape1().GetBody() == ship.entities[i].body ||
 							contactList.contact.GetShape2().GetBody() == ship.entities[i].body) {
 							ship.entities[i].hit(b.damage);
-
+							game.scene.entities.push(new Animation('img/_shotCollision.png',16,b.body.GetCenterPosition().x,b.body.GetCenterPosition().y,500));
+							arrayRemove( bullets, b );
+							arrayRemove( self.entities, b );
+							world.DestroyBody(b.body);
 						}
 					}
 					// Verzögertes Entfernen der Weakpoints, wenn sie zerstört wurden
@@ -98,9 +112,13 @@ function UniverseScene(level) {
 
 					for(var i=0;i<game.scene.entities.length;i++) {
 						if (typeof game.scene.entities[i].hit != 'undefined')
-							if (contactList.contact.GetShape1().GetBody() == game.scene.entities[i].body ||
+							if (contactList.contact.GetShape1().GetBody() == game.scene.entities[i].body |
 								contactList.contact.GetShape2().GetBody() == game.scene.entities[i].body) {
 								game.scene.entities[i].hit();
+								game.scene.entities.push(new Animation('img/_shotCollision.png',16,b.body.GetCenterPosition().x,b.body.GetCenterPosition().y,500));
+								arrayRemove( bullets, b );
+								arrayRemove( self.entities, b );
+								world.DestroyBody(b.body);
 							}
 					}
 				}
