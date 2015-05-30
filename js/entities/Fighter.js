@@ -12,8 +12,12 @@ function Fighter(x, y, world, definition) {
 	this.bodyDef.preventRotation = true;
 	this.bodyDef.AddShape(Fighter.prototype.polygonShape);
 
-
 	this.body = world.CreateBody(this.bodyDef);
+
+
+	this.body.SetLinearVelocity( new b2Vec2( -50 - Math.random()*30 , -10 + Math.random()*20));
+
+
 }
 
 Fighter.prototype = new Entity;

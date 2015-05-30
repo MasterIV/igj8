@@ -7,6 +7,8 @@ function CarrierShip(x, y, world, speed, definition, hp) {
 	this.killAnimationStep = 0;
 	this.definition = definition;
 
+	this.lastSpawn = 0;
+
 	this.bodyDef = new b2BodyDef();
 	this.bodyDef.position.Set(x,y);
 	this.bodyDef.preventRotation = true;
@@ -43,7 +45,6 @@ function CarrierShip(x, y, world, speed, definition, hp) {
 		var weakPoint = new WeakPoint(definition.weak_points[i].x + x,definition.weak_points[i].y + y, this, world, definition.base_hp);
 		this.entities.push(weakPoint);
 	}
-
 
 }
 
@@ -93,6 +94,14 @@ CarrierShip.prototype.update = function ( delta ) {
 		}
 		if (!hp) this.destroy();
 	}
+
+	this.lastSpawn += delta;
+	if (this.lastSpawn > 5000) {
+		this.spawnFighter();
+		this.lastSpawn = 0;
+	}
+
+	if (!hp) this.destroy();
 }
 
 CarrierShip.prototype.spawnFighter = function (  ) {
