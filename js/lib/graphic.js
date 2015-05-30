@@ -3,6 +3,7 @@ var g = {
 		'img/mothership.png',
 		'img/gun.png',
 		'img/shot.png'
+		//'img/buyscene_bg.png'
 	],
 
 	add: function( url ) {

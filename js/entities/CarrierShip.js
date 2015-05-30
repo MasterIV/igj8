@@ -3,13 +3,8 @@ function CarrierShip(x, y, world, definition) {
 	this.sprite = new Sprite('img/mothership.png');
 
 
-	this.bodyDef = new b2BodyDef();
-	this.bodyDef.position.set(x,y);
 
-
-	this.body = world.CreateBody(this.bodyDef);
-
-	this.polygonShape = new b2PolygonShape;
+	this.polygonShape = new b2PolyDef();
 	//this.polygon.SetAsBox(1,1);
 	this.points = [];
 	for(var i =0;i<definition.polygon[0].length;i++) {
@@ -17,11 +12,19 @@ function CarrierShip(x, y, world, definition) {
 		this.points.push(new b2Vec2(definition.polygon[0][i].x,definition.polygon[0][i].y));
 	}
 
-	console.log(this.points);
-	this.polygonShape.Set(this.points, this.points.length);
+	this.polygonShape.vertices = this.points;
+	this.polygonShape.vertexCount = this.points.length;
 
-	this.fixDef = new b2FixtureDef;
-	this.fixDef.set_shape(this.polygonShape);
+	this.bodyDef = new b2BodyDef();
+	this.bodyDef.position.Set(x,y);
+	this.bodyDef.AddShape(this.polygonShape );
+
+
+	this.body = world.CreateBody(this.bodyDef);
+
+
+	//this.fixDef = new b2FixtureDef;
+	//this.fixDef.set_shape(this.polygonShape);
 
 
 
@@ -36,7 +39,7 @@ function CarrierShip(x, y, world, definition) {
 	//this.body.ApplyLinearImpulse(new b2Vec2(xspeed,yspeed));
 
 
-	this.fixture = this.body.CreateFixture(this.fixDef);
+	//this.fixture = this.body.CreateFixture(this.fixDef);
 
 }
 
@@ -45,7 +48,7 @@ CarrierShip.prototype = new Entity;
 
 CarrierShip.prototype.draw = function ( ctx ) {
 
-	this.sprite.center(ctx, this.body.GetWorldCenter().get_x(),this.body.GetWorldCenter().get_y());
+	this.sprite.center(ctx, this.body.GetCenterPosition().x,this.body.GetCenterPosition().y);
 }
 
 CarrierShip.prototype.update = function ( delta ) {

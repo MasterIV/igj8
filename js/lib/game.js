@@ -69,6 +69,6 @@ var game = {
 		// fsps display
 		this.displayCtx.fillStyle = 'black';
 		this.displayCtx.font = '10px monospace';
-		this.displayCtx.fillText( this.fps, 600, 460 );
+		this.displayCtx.fillText( this.fps, 50, 50 );
 	}
 }
