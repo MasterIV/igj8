@@ -2,7 +2,8 @@ var g = {
 	urls: [
 		'img/mothership.png',
 		'img/gun.png',
-		'img/shot.png'
+		'img/shot.png',
+		'img/bg.png'
 		//'img/buyscene_bg.png'
 	],
 
