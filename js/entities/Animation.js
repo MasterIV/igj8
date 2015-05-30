@@ -23,6 +23,14 @@ function ScreenShake(duration) {
 
 }
 
+ScreenShake.prototype.update = function(delta) {
+
+};
+
 function ScreenFlash(duration) {
 
 }
+
+ScreenFlash.prototype.update = function(delta) {
+
+};
