@@ -233,14 +233,9 @@ var carrier = {
 		title: 'Example',
 		description: 'Lorem Ipsum',
 		sprite:'img/ship_medium2.png',
-<<<<<<< HEAD
-		fighter:fighter.ship3,
-		offset:{x:-0,y:0,rotate:0},
-=======
 		isMothership:false,
 		fighter:fighter.ship2,
 		offset:{x:-25,y:-5},
->>>>>>> origin/master
 		polygon: [
 			[{x:11,y:105},{x:48,y:89},{x:86,y:81},{x:283,y:18},{x:288,y:22},{x:238,y:73},{x:132,y:160},{x:47,y:147},{x:20,y:134},{x:11,y:117},],
 			[{x:238,y:73}, {x:253,y:79}, {x:252,y:114}, {x:199,y:154}, {x:154,y:179}, {x:132,y:178}, {x:132,y:160}],
