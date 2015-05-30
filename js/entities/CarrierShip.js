@@ -7,6 +7,8 @@ function CarrierShip(x, y, world, speed, definition, values) {
 	this.killAnimationStep = 0;
 	this.definition = definition;
 
+	this.startY = y;
+
 	this.lastSpawn = [0,0,0];
 	this.spawnRate = values.fighterspawn;
 	this.spawnType = values.fightertype;
@@ -123,6 +125,12 @@ CarrierShip.prototype.update = function ( delta ) {
 			this.spawnFighter(i);
 			this.lastSpawn[i] = 0;
 		}
+	}
+
+	if (this.y > this.startY) {
+		this.body.ApplyForce(new b2Vec2(0,-20),new b2Vec2(0,0));
+	} else {
+		this.body.ApplyForce(new b2Vec2(0,20),new b2Vec2(0,0));
 	}
 
 	if (!hp) this.destroy();
