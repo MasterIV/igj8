@@ -7,7 +7,11 @@ function CarrierShip(x, y, world, speed, definition, values) {
 	this.killAnimationStep = 0;
 	this.definition = definition;
 
-	this.startY = y;
+	this.destroyerShotChargeAnimation = null;
+	this.destroyerShotAnimation = null;
+
+	this.startY = y + 125;
+	this.startSpeed = speed;
 
 	this.lastSpawn = [0,0,0];
 	this.spawnRate = values.fighterspawn;
@@ -127,11 +131,22 @@ CarrierShip.prototype.update = function ( delta ) {
 		}
 	}
 
-	if (this.y > this.startY) {
-		this.body.ApplyForce(new b2Vec2(0,-20),new b2Vec2(0,0));
-	} else {
-		this.body.ApplyForce(new b2Vec2(0,20),new b2Vec2(0,0));
+
+
+	var targetSpeed = this.startSpeed * (this.x < this.definition.endXPosition?0:1)
+	if (targetSpeed < 0) targetSpeed = 0;
+	if (targetSpeed < 0.8) this.startDestroyerShot();
+	var diff = (this.y - this.startY);
+	var impulse = new b2Vec2( -targetSpeed, 0 );
+	if (diff > 10) {
+		impulse = new b2Vec2( -targetSpeed, -1 );
+	} else if (diff < -10){
+		impulse = new b2Vec2( -targetSpeed, 1 );
 	}
+
+
+
+	this.body.SetLinearVelocity( impulse );
 
 	if (!hp) this.destroy();
 };
@@ -151,4 +166,20 @@ CarrierShip.prototype.destroy = function (  ) {
 	this.body.SetLinearVelocity( new b2Vec2( -2, 0 ));
 	this.body.SetAngularVelocity( Math.random() * 0.1 - 0.05 );
 	sound.play('sounds/ship_destroy/mothership_destroyed_long.ogg');
+};
+
+CarrierShip.prototype.startDestroyerShot = function (  ) {
+	if (this.destroyerShotChargeAnimation == null) {
+		var self = this;
+		this.destroyerShotChargeAnimation = new Animation('img/_destroyerCharge.png', 80, this.x - 200 + this.definition.destroyerChargeOffset.x, this.y + this.definition.destroyerChargeOffset.y, 5000, function () {
+			self.destroyerShotAnimation = new Animation('img/_destroyerShot_16fps.png', 16, self.x - 200 + self.definition.destroyerShotOffset.x, self.y + self.definition.destroyerShotOffset.y, 5000, function () {
+				game.scene.hpBar.reduce(5);
+				self.destroyerShotChargeAnimation = null;
+				self.destroyerShotAnimation = null;
+			});
+			game.scene.entities.push(self.destroyerShotAnimation);
+		});
+		game.scene.entities.push(this.destroyerShotChargeAnimation);
+	}
+
 };

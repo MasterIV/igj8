@@ -12,8 +12,9 @@ HpBar.prototype.setHp = function ( hp ) {
 };
 
 
-HpBar.prototype.reduce = function ( ) {
-	this.hp--;
+HpBar.prototype.reduce = function ( hp ) {
+	if (typeof hp == 'undefined') hp = 1
+	this.hp -= hp;
 	if( this.hp < 1 )
 		game.scene = scenes.loose;
 };
