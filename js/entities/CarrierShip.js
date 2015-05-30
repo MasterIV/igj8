@@ -1,7 +1,7 @@
 function CarrierShip(x, y, world, definition) {
 
 	this.sprite = new Sprite(definition.sprite);
-
+	this.definition = definition;
 
 	this.bodyDef = new b2BodyDef();
 	this.bodyDef.position.Set(x,y);
@@ -48,7 +48,7 @@ CarrierShip.prototype = new Entity;
 
 CarrierShip.prototype.draw = function ( ctx ) {
 	//console.log(this.body.GetCenterPosition().x,this.body.GetCenterPosition().y);
-	this.sprite.center(ctx, this.body.GetCenterPosition().x,this.body.GetCenterPosition().y);
+	this.sprite.center(ctx, this.body.GetCenterPosition().x + this.definition.offset.x,this.body.GetCenterPosition().y+ this.definition.offset.y);
 
 	for( var i = 0; i < this.entities.length; i++ )
 		if( this.entities[i].draw )
