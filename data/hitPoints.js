@@ -3,14 +3,14 @@ var hitPoints = {
 		title: 'Hitpoint1',
 		description: 'Lorem Ipsum',
 		sprite:'img/hitpoint_green.png',
-		hp:1,
+		hp:20,
 		offset:{x:-0,y:0}
 	},
 	point2: {
 		title: 'Hitpoint2',
 		description: 'Lorem Ipsum',
 		sprite:'img/hitpoint_blue.png',
-		hp:2,
+		hp:40,
 		offset:{x:-0,y:0}
 	},
 	point3: {
