@@ -80,6 +80,12 @@ CarrierShip.prototype.update = function ( delta ) {
 		if (this.killAnimationTime % 200 < 20)
 			game.scene.entities.push( new Animation( 'img/_fighterDestroyed.png', 16, this.body.GetCenterPosition().x + Math.random()*300-150, this.body.GetCenterPosition().y + Math.random()*200-100, 2000 ) );
 		if (this.killAnimationTime >= this.killAnimationDuration) {
+
+			for(var i =0;i<this.entities.length;i++) {
+				this.world.DestroyBody(this.entities[i].body);
+				arrayRemove( game.scene.entities, this.entities[i]);
+			}
+
 			this.world.DestroyBody(this.body);
 			this.sprite = null;
 			arrayRemove( game.scene.entities, this);
