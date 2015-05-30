@@ -4,6 +4,9 @@ var carrier = {
 		description: 'Lorem Ipsum',
 		sprite:'img/mothership.png',
 		fighter:fighter.ship1,
+		endXPosition: 0,
+		destroyerChargeOffset: {x:-50,y:0},
+		destroyerShotOffset: {x:-50,y:0},
 		polygon: [
 			[{x:0,y:0},{x:200,y:0},{x:250,y:60},{x:250,y:100},{x:200,y:120},{x:100,y:120}]
 		],
@@ -19,6 +22,9 @@ var carrier = {
 		description: 'Designed for Tutorial',
 		sprite:'img/mothership1.png',
 		fighter:fighter.ship1,
+		endXPosition: 400,
+		destroyerChargeOffset: {x:-50,y:0},
+		destroyerShotOffset: {x:-50,y:0},
 		offset:{x:-10,y:-10},
 		polygon: [
 			[{x:43,y:122},{x:29,y:106},{x:38,y:93},{x:137,y:94},{x:181,y:96},{x:230,y:164},{x:200,y:180},{x:104,y:180}],
@@ -41,6 +47,9 @@ var carrier = {
 		description: 'needsDescription',
 		sprite:'img/mothership1.png',
 		fighter:fighter.ship1,
+		endXPosition: 400,
+		destroyerChargeOffset: {x:-50,y:0},
+		destroyerShotOffset: {x:-83,y:10},
 		offset:{x:-10,y:-10},
 		polygon: [
 			[{x:43,y:122},{x:29,y:106},{x:38,y:93},{x:137,y:94},{x:181,y:96},{x:230,y:164},{x:200,y:180},{x:104,y:180}],
@@ -68,6 +77,9 @@ var carrier = {
 		description: 'Lorem Ipsum',
 		sprite:'img/mothership2.png',
 		fighter:fighter.ship2,
+		endXPosition: 400,
+		destroyerChargeOffset: {x:50,y:0},
+		destroyerShotOffset: {x:50,y:0},
 		offset:{x:-25,y:-5},
 		polygon: [
 			[{x:5,y:117},{x:47,y:89},{x:52,y:91},{x:100,y:66},{x:186,y:55},{x:92,y:193},{x:23,y:192},{x:12,y:185},{x:3,y:174},{x:3,y:136},],
@@ -94,6 +106,9 @@ var carrier = {
 		description: 'Lorem Ipsum',
 		sprite:'img/mothership3.png',
 		fighter:fighter.ship3,
+		endXPosition: 400,
+		destroyerChargeOffset: {x:50,y:0},
+		destroyerShotOffset: {x:50,y:0},
 		offset:{x:-0,y:0,rotate:0},
 		polygon: [
 			[{x:169,y:188},{x:142,y:213},{x:109,y:234},{x:95,y:232},{x:57,y:198},{x:39,y:167},{x:34,y:149},{x:47,y:84},{x:71,y:51},{x:122,y:25},{x:157,y:15}],
@@ -127,6 +142,9 @@ var carrier = {
 		description: 'Lorem Ipsum',
 		sprite:'img/mothership4.png',
 		fighter:fighter.ship4,
+		endXPosition: 400,
+		destroyerChargeOffset: {x:50,y:0},
+		destroyerShotOffset: {x:50,y:0},
 		offset:{x:-25,y:-5,rotate:0},
 		polygon: [
 			[{x:234,y:161},{x:226,y:177},{x:159,y:230},{x:101,y:230},{x:34,y:177},{x:30,y:169},{x:29,y:81},{x:99,y:19},{x:158,y:19},{x:179,y:28},{x:232,y:87},{x:237,y:103}],
@@ -159,6 +177,9 @@ var carrier = {
 		description: 'Lorem Ipsum',
 		sprite:'img/mothership5.png',
 		fighter:fighter.ship5,
+		endXPosition: 400,
+		destroyerChargeOffset: {x:50,y:0},
+		destroyerShotOffset: {x:50,y:0},
 		offset:{x:-25,y:-5,rotate:0},
 		polygon: [
 			[{x:15,y:172},{x:10,y:160},{x:10,y:144},{x:21,y:120},{x:56,y:85},{x:100,y:65},{x:127,y:63},{x:235,y:65},{x:278,y:70},{x:303,y:78},{x:371,y:119},{x:121,y:174}],
