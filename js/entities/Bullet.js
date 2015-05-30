@@ -39,5 +39,5 @@ Bullet.prototype.shape.maskBits = 0x0024;
 Bullet.prototype.bodyDef = new b2BodyDef();
 Bullet.prototype.bodyDef.AddShape(Bullet.prototype.shape);
 
-Bullet.prototype.speed = 600;
+Bullet.prototype.speed = 400;
 
