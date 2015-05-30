@@ -51,7 +51,7 @@ var carrier = {
 
 	}
 	
-	ship2: {
+	ship3: {
 		title: 'Example',
 		description: 'Lorem Ipsum',
 		sprite:'img/mothership3.png',
