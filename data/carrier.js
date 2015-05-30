@@ -87,7 +87,7 @@ var carrier = {
 
 
 
-	}
+	},
 	
 	
 	ship4: {
