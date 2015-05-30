@@ -13,6 +13,7 @@ var g = {
 		'img/gun.png',
 		'img/gun_overlay.png',
 		'img/shot.png',
+		'img/_rocketShot.png',
 		'img/_shotCollision.png',
 		'img/bg.png',
 		'img/buyscene_bg.png',

@@ -25,8 +25,8 @@ function UniverseScene(level) {
 	this.entities.push(this.hpBar);
 	this.entities.push(new debugBox2d(world));
 
-	this.fire = function( origin ) {
-		var bullet = new Bullet( world, origin, mouse.dif( origin ));
+	this.fire = function( origin, rocket ) {
+		var bullet = new Bullet( world, origin, mouse.dif( origin ), rocket );
 		bullets.push( bullet );
 		this.entities.push( bullet );
 		sound.play('sounds/weapon_shot/pulse_cannon_single.ogg');
