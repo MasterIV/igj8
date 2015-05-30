@@ -31,9 +31,6 @@ function CarrierShip(x, y, world, speed, definition, hp) {
 	}
 
 
-
-
-
 	this.body = world.CreateBody(this.bodyDef);
 	this.body.SetLinearVelocity( new b2Vec2( -speed, 0 ));
 
