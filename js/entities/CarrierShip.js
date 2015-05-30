@@ -1,6 +1,10 @@
 function CarrierShip(x, y, world, speed, definition, hp) {
 	this.world = world;
-	this.sprite = new Sprite(definition.sprite);
+	this.sprite = new AnimationSprite(definition.sprite, 5);
+	this.killAnimation = null;
+	this.killAnimationDuration = 5000;
+	this.killAnimationTime = 0;
+	this.killAnimationStep = 0;
 	this.definition = definition;
 
 	this.bodyDef = new b2BodyDef();
@@ -47,7 +51,11 @@ CarrierShip.prototype = new Entity;
 
 
 CarrierShip.prototype.draw = function ( ctx ) {
-	this.sprite.center(ctx, this.body.GetCenterPosition().x + this.definition.offset.x,this.body.GetCenterPosition().y+ this.definition.offset.y);
+	var frame = 0;
+	if (this.killAnimation != null)
+		if (this.killAnimationTime >= 2500)
+			frame = ((this.killAnimationTime - 2500) / 500) | 0;
+	this.sprite.center(ctx, this.body.GetCenterPosition().x + this.definition.offset.x,this.body.GetCenterPosition().y+ this.definition.offset.y, frame);
 
 	for( var i = 0; i < this.entities.length; i++ )
 		if( this.entities[i].draw )
@@ -55,16 +63,36 @@ CarrierShip.prototype.draw = function ( ctx ) {
 }
 
 CarrierShip.prototype.update = function ( delta ) {
-	var hp = 0;
+	if (this.killAnimation != null) {
+		this.killAnimationTime += delta;
+		if (this.killAnimationStep < 1) {
+			game.scene.entities.push( new Animation( 'img/_mothershipDestroyed.png', 70, this.body.GetCenterPosition().x + Math.random()*200-100, this.body.GetCenterPosition().y + Math.random()*200-100, 2000 ) );
+			this.killAnimationStep++;
+		}
+		if (this.killAnimationTime >= 600 && this.killAnimationStep < 2) {
+			game.scene.entities.push( new Animation( 'img/_mothershipDestroyed.png', 70, this.body.GetCenterPosition().x + Math.random()*200-100, this.body.GetCenterPosition().y + Math.random()*200-100, 2000 ) );
+			this.killAnimationStep++;
+		}
+		if (this.killAnimationTime % 200 < 20)
+			game.scene.entities.push( new Animation( 'img/_fighterDestroyed.png', 16, this.body.GetCenterPosition().x + Math.random()*300-150, this.body.GetCenterPosition().y + Math.random()*200-100, 2000 ) );
+		if (this.killAnimationTime >= this.killAnimationDuration) {
+			this.world.DestroyBody(this.body);
+			this.sprite = null;
+			arrayRemove( game.scene.entities, this);
+			arrayRemove( game.scene.ships, this);
+		}
+	} else {
+		var hp = 0;
 
-	for( var i = 0; i < this.entities.length; i++ ) {
-		if( this.entities[i].update )
-			this.entities[i].update( delta );
-		if( this.entities[i].alive )
-			if ( this.entities[i].alive() )
-				hp++;
+		for( var i = 0; i < this.entities.length; i++ ) {
+			if( this.entities[i].update )
+				this.entities[i].update( delta );
+			if( this.entities[i].alive )
+				if ( this.entities[i].alive() )
+					hp++;
+		}
+		if (!hp) this.destroy();
 	}
-	if (!hp) this.destroy();
 }
 
 CarrierShip.prototype.spawnFighter = function (  ) {
@@ -74,14 +102,5 @@ CarrierShip.prototype.spawnFighter = function (  ) {
 }
 
 CarrierShip.prototype.destroy = function (  ) {
-	var x = this.body.GetCenterPosition().x;
-	var y = this.body.GetCenterPosition().y;
-	game.scene.entities.push( new Animation( 'img/_mothershipDestroyed.png', 70, x + Math.random()*200-100, y + Math.random()*200-100, 2000 ) );
-	setTimeout(function() {
-		game.scene.entities.push( new Animation( 'img/_mothershipDestroyed.png', 70, x + Math.random()*200-100, y + Math.random()*200-100, 2000 ) );
-	}, 600);
-	this.world.DestroyBody(this.body);
-	this.sprite = null;
-	arrayRemove( game.scene.entities, this);
-	arrayRemove( game.scene.ships, this);
+	this.killAnimation = true;
 }
