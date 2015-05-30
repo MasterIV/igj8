@@ -75,6 +75,7 @@ var carrier = {
 
 
 	}
+	/*
 	
 	ship4: {
 		title: 'Example',
@@ -95,5 +96,6 @@ var carrier = {
 
 
 	}
+	*/
 	
 }
