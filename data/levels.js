@@ -1,5 +1,5 @@
 var levels = {
-	/*example: {
+	example: {
 		title: 'Testlevel',
 		description: 'Lorem Ipsum',
 		bigAnomaly:true,
@@ -30,7 +30,7 @@ var levels = {
 		],
 		ships: [
 			{ // first
-				type: carrier.ship1, // ship1 - 5
+				type: carrier.ship2, // ship1 - 5
 				entry: 0, // ms
 				y: 300, // 0-720
 				speed: 100, // 10 = langsam
@@ -48,7 +48,7 @@ var levels = {
 				// ...
 			}
 		]
-	},*/
+	},
 	level0: {
 		title: 'Tutorial',
 		description: 'Das Tutorial Level mit 1 Schiff',

@@ -13,6 +13,8 @@ function UniverseScene(level) {
 
 	var bullets =  [];
 	var anomalies = [];
+	var suckers = [];
+	var pushers = [];
 
 	this.entities = [cannon];
 	this.ships = [];
@@ -45,14 +47,31 @@ function UniverseScene(level) {
 	};
 
 	this.anomaly = function( r, g ) {
-		var maxA = 2;
-		if( anomalies.length >= maxA ) {
-			arrayRemove(this.entities, anomalies.shift());
+		console.log(suckers.length);
+		if (g > 0) {
+			if (suckers.length > upgrades.sucking[UPGR_SPECIAL]) {
+				var toremove = suckers[0];
+				arrayRemove(this.entities, toremove);
+				arrayRemove(anomalies, toremove);
+				arrayRemove(suckers, toremove);
+			}
+		} else {
+			if (pushers.length > upgrades.pushing[UPGR_SPECIAL]) {
+				var toremove = pushers[0];
+				arrayRemove(this.entities, toremove);
+				arrayRemove(anomalies, toremove);
+				arrayRemove(pushers, toremove);
+			}
 		}
 
 		var sphere = new Anomaly( mouse.x, mouse.y, r, g );
 		anomalies.push( sphere );
 		this.entities.push( sphere );
+		if (g > 0)
+			suckers.push(sphere);
+		else
+			pushers.push(sphere);
+		console.log(suckers.length);
 	};
 
 	this.drawEntities = this.draw;

@@ -1,9 +1,14 @@
 function FighterTopShield(fighter, world) {
 	this.world = world;
 	this.definition = fighterUpgrades.shieldTop;
+<<<<<<< HEAD
+	this.sprite = new AnimationSprite(this.definition.sprite,3);
+	this.frameCounter = new Framecounter(100);	this.fighter = fighter;
+=======
 	this.sprite = new AnimationSprite(this.definition.sprite, 3);
 	this.fighter = fighter;
 	this.counter = new Framecounter(50);
+>>>>>>> 14727df1ec92d15dc1e9838dbe99dbf0f4df84ee
 
 
 	this.x = this.fighter.body.GetCenterPosition().x + this.definition.offset.x;
@@ -40,6 +45,7 @@ FighterTopShield.prototype.draw = function ( ctx ) {
 };
 
 FighterTopShield.prototype.update = function ( delta ) {
+	this.frameCounter.update(delta);
 	this.x = this.fighter.body.GetCenterPosition().x + this.definition.offset.x;
 	this.y = this.fighter.body.GetCenterPosition().y + this.definition.offset.y;
 	this.counter.update( delta );
