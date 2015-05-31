@@ -2,12 +2,26 @@ var levels = {
 	example: {
 		title: 'Testlevel',
 		description: 'Lorem Ipsum',
+		bigAnomaly:false,
+		dialog: [
+			{
+				char: 1, // 1-6
+				side: 1,
+				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				text: 'Lorem Ipsum sit amet1111'
+			},
+			{
+				char: 2,
+				side: 0,
+				text: 'No!'
+			}
+		],
 		ships: [
 			{ // first
-				type: carrier.ship1, // ship1 - 4
+				type: carrier.ship10, // ship1 - 5
 				entry: 0, // ms
 				y: 300, // 0-720
-				speed: 10, // 10 = langsam
+				speed: 100, // 10 = langsam
 				hit1: 1, // blau
 				hit2: 0, // grün
 				hit3: 0, // gelb

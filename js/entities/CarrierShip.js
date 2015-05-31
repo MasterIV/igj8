@@ -167,19 +167,22 @@ CarrierShip.prototype.update = function ( delta ) {
 
 
 
-	var targetSpeed = this.startSpeed * (this.x < this.definition.endXPosition?0.0001:1)
-	if (targetSpeed < 0) targetSpeed = 0.01;
-	if (targetSpeed < 0.8) this.startDestroyerShot();
-	//if (this.destroyerShotAnimation != null) targetSpeed=-100;
+	if (this.killAnimation == null) {
+		var targetSpeed = this.startSpeed * (this.x < this.definition.endXPosition?0.0001:1)
+		if (targetSpeed < 0) targetSpeed = 0.01;
+		if (targetSpeed < 0.8) this.startDestroyerShot();
+		//if (this.destroyerShotAnimation != null) targetSpeed=-100;
 
-	var yDiff = (this.y - this.startY);
-	var impulse = new b2Vec2( -targetSpeed, 0 );
-	if (yDiff > 10) {
-		impulse = new b2Vec2( -targetSpeed, -1 );
-	} else if (yDiff < -10){
-		impulse = new b2Vec2( -targetSpeed, 1 );
+		var yDiff = (this.y - this.startY);
+		var impulse = new b2Vec2( -targetSpeed, 0 );
+		if (yDiff > 10) {
+			impulse = new b2Vec2( -targetSpeed, -1 );
+		} else if (yDiff < -10){
+			impulse = new b2Vec2( -targetSpeed, 1 );
+		}
+		this.body.SetLinearVelocity( impulse );
 	}
-	this.body.SetLinearVelocity( impulse );
+
 
 
 
@@ -208,6 +211,7 @@ CarrierShip.prototype.destroy = function (  ) {
 	this.body.SetAngularVelocity( Math.random() * 0.1 - 0.05 );
 	sound.play('sounds/ship_destroy/mothership_destroyed_long.ogg');
 
+	console.log('kill');
 	arrayRemove( game.scene.entities, this.destroyerShotChargeAnimation);
 	arrayRemove( game.scene.entities, this.destroyerShotAnimation);
 };

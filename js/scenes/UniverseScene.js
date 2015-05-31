@@ -20,6 +20,12 @@ function UniverseScene(level) {
 	this.spawnTime = 0;
 	this.nextShip = 0;
 
+	this.bigAnomaly = null;
+	if (level.bigAnomaly) {
+		this.bigAnomaly = new BigAnomaly(30*(2*Math.PI)/360,3000);
+		this.entities.push(this.bigAnomaly);
+	}
+
 	this.hpBar = new HpBar();
 	this.hpBar.setHp(this.hp);
 	this.entities.push(this.hpBar);
@@ -87,6 +93,11 @@ function UniverseScene(level) {
 					b.body.ApplyForce( force, bullet_position );
 				}
 			});
+
+			if (self.bigAnomaly) {
+				console.log(self.bigAnomaly.getForce());
+				b.body.ApplyForce( self.bigAnomaly.getForce(), bullet_position );
+			}
 
 			var contactList = b.body.GetContactList();
 			while (contactList && contactList.contact) {

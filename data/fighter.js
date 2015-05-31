@@ -22,5 +22,11 @@ var fighter = {
 		description: 'Lorem Ipsum',
 		sprite:'img/fighter4.png',
 		offset:{x:-0,y:0}
+	},
+	ship5: {
+		title: 'Small Fighter 5',
+		description: 'Lorem Ipsum',
+		sprite:'img/fighter5.png',
+		offset:{x:-0,y:0}
 	}
 }

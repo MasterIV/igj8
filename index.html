@@ -106,12 +106,14 @@
 
 		<script type="text/javascript" src="js/scenes/b2test.js"></script>
 
+		<script type="text/javascript" src="js/scenes/PreUniverseScene.js"></script>
 		<script type="text/javascript" src="js/scenes/UniverseScene.js"></script>
 		<script type="text/javascript" src="js/scenes/TestScene.js"></script>
 		<script type="text/javascript" src="js/scenes/BuyScene.js"></script>
 		<script type="text/javascript" src="js/scenes/Loose.js"></script>
 
 		<script type="text/javascript" src="js/entities/Entity.js"></script>
+		<script type="text/javascript" src="js/entities/Dialog.js"></script>
 		<script type="text/javascript" src="js/entities/CarrierShip.js"></script>
 		<script type="text/javascript" src="js/entities/Fighter.js"></script>
 		<script type="text/javascript" src="js/entities/FighterShield.js"></script>
@@ -125,6 +127,7 @@
 		<script type="text/javascript" src="js/entities/Cannon.js"></script>
 		<script type="text/javascript" src="js/entities/Bullet.js"></script>
 		<script type="text/javascript" src="js/entities/Anomaly.js"></script>
+		<script type="text/javascript" src="js/entities/BigAnomaly.js"></script>
 
 		<script type="text/javascript">
 			var scenes = {};
@@ -134,7 +137,7 @@
 					scenes.loose = new LooseScene();
 					document.getElementById('loading').style.display = 'none';
 					//game.scene = new UniverseScene(levels.level1);
-					game.scene = new BuyScene();
+					game.scene = new PreUniverseScene(levels.example);
 					//game.nextLevel();
 
 					mouse.init();
