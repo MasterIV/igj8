@@ -137,7 +137,7 @@ function UniverseScene(level) {
 					for(var i=0;i<ship.entities.length;i++) {
 						if (contactList.contact.GetShape1().GetBody() == ship.entities[i].body ||
 							contactList.contact.GetShape2().GetBody() == ship.entities[i].body) {
-							ship.entities[i].hit(b.damage);
+							ship.entities[i].hit(b.damage, b.rocket);
 							game.scene.entities.push(new Animation('img/_shotCollision.png',16,b.body.GetCenterPosition().x,b.body.GetCenterPosition().y,500));
 							arrayRemove( bullets, b );
 							arrayRemove( self.entities, b );

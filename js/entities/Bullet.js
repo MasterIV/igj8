@@ -13,7 +13,7 @@ function Bullet( world, position, direction, rocket, damage ) {
 	var f = rocket ? 5 : 16;
 	var sprite = rocket ? new AnimationSprite('img/_rocketShot.png', f) : new AnimationSprite('img/_normalShot.png', f);
 	var counter = new Framecounter(50);
-
+	this.rocket = rocket;
 
 	this.damage = damage;
 

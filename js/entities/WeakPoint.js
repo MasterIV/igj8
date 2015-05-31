@@ -53,7 +53,8 @@ WeakPoint.prototype.update = function ( delta ) {
 	this.frameCounter += delta;
 };
 
-WeakPoint.prototype.hit = function ( damage ) {
+WeakPoint.prototype.hit = function ( damage, rocket ) {
+	if (this.definition.armored && !rocket) return;
 	if ( this.hp == 0) return;
 	this.hp -= damage;
 
