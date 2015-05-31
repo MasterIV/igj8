@@ -83,6 +83,9 @@ var game = {
 
 	nextLevel: function() {
 		this.level++;
-		this.scene = new UniverseScene(levels['level' + this.level]);
+		if( levels['level' + this.level].dialog )
+			this.scene = new PreUniverseScene(levels['level' + this.level]);
+		else
+			this.scene = new UniverseScene(levels['level' + this.level]);
 	}
 }
