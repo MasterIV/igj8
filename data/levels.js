@@ -7,26 +7,26 @@ var levels = {
 			{
 				char: 1, // 1-6
 				side: 1,
-				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				speech: 'sounds/menu/button-clicked.mp3',
 				text: 'Lorem Ipsum sit amet1111'
 			},
 			
 			{
 				char: 1, // 1-6
 				side: 1,
-				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				speech: 'sounds/ship_destroy/fighterp_destroyed.ogg',
 				text: 'Lorem Ipsum sit amet1111'
 			},
 			{
 				char: 1, // 1-6
 				side: 1,
-				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				speech: 'sounds/ship_destroy/fighterp_destroyed.ogg',
 				text: 'sagsag sag sags ag sagsag sag ag sag'
 			},
 			{
 				char: 3, // 1-6
 				side: 1,
-				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				speech: 'sounds/ship_destroy/fighterp_destroyed.ogg',
 				text: 'sdasfasdhh fh rs ey y sre sag'
 			},
 			{
@@ -65,28 +65,28 @@ var levels = {
 			{
 				char: 6, // 1-6
 				side: 0,
-				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				speech: 'sounds/menu/button-clicked.mp3',
 				text: 'Rather soon, some ships will  ',
 				text2: 'attack the base '
 			},
 			{
 				char: 6, // 1-6
 				side: 0,
-				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				speech: 'sounds/menu/button-clicked.mp3',
 				text: 'Hitting their weak spots wont be as  ',
 				text2: 'easy asstealing candy from a child.'
 			},
 			{
 				char: 6, // 1-6
 				side: 0,
-				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				speech: 'sounds/menu/button-clicked.mp3',
 				text: 'So you will need to make use of ',
 				text2: 'our amazing anomaly generator.  '
 			},
 			{
 				char: 6, // 1-6
 				side: 0,
-				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				speech: 'sounds/menu/button-clicked.mp3',
 				text: 'That will allow you to shoot around corners. ',
 				text2: ' Fantastic! '
 			}
@@ -117,21 +117,21 @@ var levels = {
 			{
 				char: 3, // 1-6
 				side: 1,
-				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				speech: 'sounds/menu/button-clicked.mp3',
 				text: 'Quiztime! Am I man? Am I woman?',
 				text2: 'Well, I am enemy!'
 			},
 			{
 				char: 3, // 1-6
 				side: 1,
-				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				speech: 'sounds/menu/button-clicked.mp3',
 				text: 'Le rape is incoming!',
 				text2: ' '
 			},
 			{
 				char: 6, // 1-6
 				side: 0,
-				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				speech: 'sounds/menu/button-clicked.mp3',
 				text: 'Master, dont let him penetrate  ',
 				text2: 'our base!'
 			}
@@ -192,7 +192,7 @@ var levels = {
 			{
 				char: 3, // 1-6
 				side: 1,
-				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				speech: 'sounds/menu/button-clicked.mp3',
 				text: 'Uh yeah! No need to be gentle.',
 				text2: 'Harder! Faster! Stronger!'
 			}
@@ -253,21 +253,21 @@ var levels = {
 			{
 				char: 2, // 1-6
 				side: 1,
-				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				speech: 'sounds/menu/button-clicked.mp3',
 				text: 'Once we have been bees,',
 				text2: 'limited by the boundaries of air.'
 			},
 			{
 				char: 2, // 1-6
 				side: 1,
-				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				speech: 'sounds/menu/button-clicked.mp3',
 				text: 'Now we are ant humans,',
 				text2: 'only limited by your space station,'
 			},
 			{
 				char: 2, // 1-6
 				side: 1,
-				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				speech: 'sounds/menu/button-clicked.mp3',
 				text: 'which is unconveniently on the aforethought',
 				text2: 'path of our new intergalactic high way!'
 			},
@@ -335,7 +335,7 @@ var levels = {
 			{
 				char: 2, // 1-6
 				side: 1,
-				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				speech: 'sounds/menu/button-clicked.mp3',
 				text: 'All your balls are belong to us!',
 				text2: ' '
 			}
@@ -396,14 +396,14 @@ var levels = {
 			{
 				char: 1, // 1-6
 				side: 1,
-				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				speech: 'sounds/menu/button-clicked.mp3',
 				text: 'Hey, hey yo dog!',
 				text2: 'Ya know what time it is?'
 			},
 			{
 				char: 1, // 1-6
 				side: 1,
-				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				speech: 'sounds/menu/button-clicked.mp3',
 				text: 'Its pain-o-clock! Prepare for dyin, man!',
 				text2: '  '
 			}
@@ -464,7 +464,7 @@ var levels = {
 			{
 				char: 1, // 1-6
 				side: 1,
-				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				speech: 'sounds/menu/button-clicked.mp3',
 				text: 'Common dog! No crazy cheat magic!',
 				text2: ' '
 			}
@@ -525,21 +525,21 @@ var levels = {
 			{
 				char: 5, // 1-6
 				side: 1,
-				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				speech: 'sounds/menu/button-clicked.mp3',
 				text: 'Sir! I am afraid my ships can only fly',
 				text2: 'into one direction.'
 			},
 			{
 				char: 5, // 1-6
 				side: 1,
-				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				speech: 'sounds/menu/button-clicked.mp3',
 				text: 'We have to shoot our way through your ',
 				text2: 'marvellous base. Id like to beg you pardon!'
 			},
 			{
 				char: 5, // 1-6
 				side: 1,
-				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				speech: 'sounds/menu/button-clicked.mp3',
 				text: '... Shitface!',
 				text2: ' '
 			}
@@ -600,7 +600,7 @@ var levels = {
 			{
 				char: 5, // 1-6
 				side: 1,
-				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				speech: 'sounds/menu/button-clicked.mp3',
 				text: 'You dare opposing me? You are an enemy ',
 				text2: 'to democracy!'
 			}
@@ -661,14 +661,14 @@ var levels = {
 			{
 				char: 4, // 1-6
 				side: 1,
-				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				speech: 'sounds/menu/button-clicked.mp3',
 				text: 'So you beat all the other races?',
 				text2: 'Milky!'
 			},
 			{
 				char: 4, // 1-6
 				side: 1,
-				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				speech: 'sounds/menu/button-clicked.mp3',
 				text: 'Try to beat the power of dextrorotary ',
 				text2: 'lactic acid!'
 			}
@@ -729,7 +729,7 @@ var levels = {
 			{
 				char: 4, // 1-6
 				side: 1,
-				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				speech: 'sounds/menu/button-clicked.mp3',
 				text: 'I find your lack of yoguhrt disturbing.',
 				text2: ' '
 			}
