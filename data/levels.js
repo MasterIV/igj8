@@ -52,6 +52,7 @@ var levels = {
 	level0: {
 		title: 'Tutorial',
 		description: 'Das Tutorial Level mit 1 Schiff',
+		bigAnomaly:false,
 		ships: [
 			{ // first
 				type: carrier.ship0, // ship1 - 4
