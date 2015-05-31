@@ -32,8 +32,8 @@ FighterBottomShield.prototype.polygonShape.density = 1.0;
 FighterBottomShield.prototype.polygonShape.radius = 20;
 FighterBottomShield.prototype.polygonShape.restitution = 1.0;
 FighterBottomShield.prototype.polygonShape.friction = 0;
-FighterBottomShield.prototype.polygonShape.categoryBits = 0x0004;
-FighterBottomShield.prototype.polygonShape.maskBits = 0x0002;
+FighterBottomShield.prototype.polygonShape.categoryBits = 0x0204;
+FighterBottomShield.prototype.polygonShape.maskBits = 0x0402;
 
 FighterBottomShield.prototype.draw = function ( ctx ) {
 	this.sprite.center(ctx, this.x, this.y, this.counter.frame%3 );

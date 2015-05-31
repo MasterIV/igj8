@@ -159,6 +159,17 @@ function UniverseScene(level) {
 							arrayRemove( self.entities, b );
 							world.DestroyBody(b.body);
 						}
+						if (b.rocket) {
+							if ((game.scene.entities[i].upgrade &&contactList.contact.GetShape1().GetBody() == game.scene.entities[i].upgrade.body) |
+								( game.scene.entities[i].upgrade && contactList.contact.GetShape2().GetBody() == game.scene.entities[i].upgrade.body)) {
+								game.scene.entities[i].hit();
+								game.scene.entities.push(new Animation('img/_shotCollision.png',16,b.body.GetCenterPosition().x,b.body.GetCenterPosition().y,500));
+								arrayRemove( bullets, b );
+								arrayRemove( self.entities, b );
+								world.DestroyBody(b.body);
+							}
+						}
+
 				}
 				contactList = contactList.next;
 			}

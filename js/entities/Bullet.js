@@ -2,6 +2,8 @@ function Bullet( world, position, direction, rocket, damage ) {
 	var velocity = new b2Vec2( direction.x, direction.y );
 	velocity.Normalize();
 
+	this.rocket = rocket;
+
 	this.bodyDef.position.Set( position.x + velocity.x*50, position.y + velocity.y*50 );
 	this.body = world.CreateBody(this.bodyDef);
 
