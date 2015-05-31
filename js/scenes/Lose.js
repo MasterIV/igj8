@@ -7,6 +7,7 @@ function LoseScene() {
 	];
 
 	this.click = function() {
+		game.level = -1;
 		game.scene = scenes.menu;
 	}
 }

@@ -1,10 +1,11 @@
 function Cannon( x, y ) {
 	this.position = new V2(x, y);
 	this.rotation = Math.PI/2;
-	this.cooldown = {pull: 0, push: 0, laser: 0, rocket: 0};
+	this.cooldown = {pull: 0, push: 0, laser: 0, rocket: 0, triple: 0};
 	this.weapon = 'laser';
 	this.shooting = false;
 	this.lastWeapon = 'laser';
+	this.extrashots = 0;
 
 	this.pullPreviewSprite = new AnimationSprite('img/_pullAnomaly.png', 25);
 	this.pushPreviewSprite = new AnimationSprite('img/_repulseAnomaly.png', 25);
@@ -38,6 +39,13 @@ Cannon.prototype.update = function ( delta ) {
 		if( this.cooldown[w] > 0 )
 			this.cooldown[w] -= delta;
 
+	if (this.extrashots > 0)
+		if (this.cooldown.triple <= 0) {
+			this.extrashots--;
+			game.scene.fire( this.position, false, getNormalDamage() );
+			this.cooldown.triple = 100;
+		}
+
 	if( this.cooldown[this.weapon] <= 0 && this.shooting ) {
 		this.cooldown[this.weapon] = this.getCooldown( this.weapon );
 		switch( this.weapon ) {
@@ -54,6 +62,10 @@ Cannon.prototype.update = function ( delta ) {
 				break;
 			default:
 				game.scene.fire( this.position, false, getNormalDamage() );
+				if (upgrades.normal[UPGR_SPECIAL]) {
+					this.extrashots = 2;
+					this.cooldown.triple = 100;
+				}
 		}
 	}
 };
