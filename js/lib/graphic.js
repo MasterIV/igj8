@@ -76,9 +76,12 @@ var g = {
 		'img/character_name_6.png',
 		'img/shop_menu_hull.png',
 		'img/button_blank.png',
+		'img/button_back.png',
 		'img/start_screen.jpg',
 		'img/game_over.png',
-		'img/button_start_game.png'
+		'img/button_start_game.png',
+		'img/button_credits.png',
+		'img/credits.jpg'
 	],
 
 	add: function( url ) {
