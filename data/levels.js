@@ -1,5 +1,5 @@
 var levels = {
-	example: {
+	/*example: {
 		title: 'Testlevel',
 		description: 'Lorem Ipsum',
 		bigAnomaly:true,
@@ -48,7 +48,7 @@ var levels = {
 				// ...
 			}
 		]
-	},
+	},*/
 	level0: {
 		title: 'Tutorial',
 		description: 'Das Tutorial Level mit 1 Schiff',
