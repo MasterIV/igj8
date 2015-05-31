@@ -15,12 +15,12 @@ var upgrades = {
 	pushing: [0,0,0,0,0,0,0,1,3,3],
 	sucking: [0,0,0,0,0,0,0,1,3,3],
 
-	points: 0,
+	points: 110,
 	hp: 5
 }
 
 function purgeUpgrades() {
-	upgrades.points = 0;
+	upgrades.points = 110;
 	upgrades.normal = [0,0,0,0,0,3,3,1,0,0];
 	upgrades.destroyer = [0,0,0,0,0,3,3,1,0,0];
 	upgrades.pushing = [0,0,0,0,0,0,0,1,3,3];
