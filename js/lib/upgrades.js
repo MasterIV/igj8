@@ -50,7 +50,7 @@ function getSuckingEffect() {
 	var ret = [20,30,45,60];
 	return ret[upgrades.sucking[UPGR_EFFECT]];
 }
-function getPushingCooldown() {
+function getSuckingCooldown() {
 	var ret = [20000,25000,30000,35000];
 	return ret[upgrades.sucking[UPGR_COOLDOWN]];
 }
