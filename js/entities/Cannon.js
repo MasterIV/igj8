@@ -1,6 +1,6 @@
 function Cannon( x, y ) {
 	this.position = new V2(x, y);
-	this.rotation = 0;
+	this.rotation = Math.PI/2;
 	this.cooldown = {pull: 0, push: 0, laser: 0, rocket: 0};
 	this.weapon = 'laser';
 	this.shooting = false;
