@@ -29,7 +29,7 @@ function UniverseScene(level) {
 	this.hpBar = new HpBar();
 	this.hpBar.setHp(this.hp);
 	this.entities.push(this.hpBar);
-	this.entities.push(new debugBox2d(world));
+	//this.entities.push(new debugBox2d(world));
 
 	this.fire = function( origin, rocket ) {
 		var bullet = new Bullet( world, origin, mouse.dif( origin ), rocket );
