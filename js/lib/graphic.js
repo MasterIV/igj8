@@ -71,13 +71,9 @@ var g = {
 		'img/character_name_4.png',
 		'img/character_name_5.png',
 		'img/character_name_6.png',
-<<<<<<< HEAD
-		'img/shop_menu_hull.png'
-=======
+		'img/shop_menu_hull.png',
 		'img/button_blank.png',
 		'img/button_start_game.png'
-
->>>>>>> bc2981f4bb6d1443b24cd9110b2d39a02c133cde
 	],
 
 	add: function( url ) {
