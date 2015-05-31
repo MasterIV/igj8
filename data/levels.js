@@ -53,7 +53,7 @@ var levels = {
 		title: 'Tutorial',
 		description: 'Das Tutorial Level mit 1 Schiff',
 		bigAnomaly:false,
-		/*dialog: [
+		dialog: [
 			{
 				char: 6, // 1-6
 				side: 0,
@@ -67,7 +67,7 @@ var levels = {
 				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
 				text: 'Rather soon, some ships will attack the base!',
 				text2: ' '
-			},
+			}/*,
 			{
 				char: 6, // 1-6
 				side: 0,
@@ -81,8 +81,8 @@ var levels = {
 				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
 				text: 'So you will need to make use of our amazing anomaly generator',
 				text2: 'that will allow you to shoot around corners. Fantastic!'
-			},
-		],*/
+			}*/
+		],
 		ships: [
 			{ // first
 				type: carrier.ship0, // ship1 - 4
