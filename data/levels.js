@@ -324,7 +324,7 @@ var levels = {
 				hangarspawn: [2,0,1] // in welchem Hangar? 0 / 1
 			}
 		]
-	}
+	},
 	level6: {
 		title: 'Level 6',
 		description: 'Lorem Ipsum',
