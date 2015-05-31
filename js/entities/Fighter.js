@@ -44,7 +44,7 @@ Fighter.prototype.polygonShape.categoryBits = 0x0004;
 Fighter.prototype.polygonShape.maskBits = 0x0002;
 
 Fighter.prototype.draw = function ( ctx ) {
-	this.sprite.center(ctx, this.x, this.y );
+	this.sprite.rotateCenter(ctx, this.x, this.y , this.body.GetRotation());
 
 	if (this.killAnimation != null) {
 		this.killAnimation.center(ctx, this.x, this.y, ((this.killAnimationTime/this.killAnimationDuration)*20)|0)
@@ -102,4 +102,6 @@ Fighter.prototype.hit = function (  ) {
 
 Fighter.prototype.destroy = function (  ) {
 	this.killAnimation = new AnimationSprite('img/_fighterBurning.png', 15);
+	this.body.SetAngularVelocity( Math.random() * 0.2 - 0.1 );
+
 };

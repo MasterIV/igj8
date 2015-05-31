@@ -2,7 +2,7 @@ var levels = {
 	example: {
 		title: 'Testlevel',
 		description: 'Lorem Ipsum',
-		bigAnomaly:false,
+		bigAnomaly:true,
 		dialog: [
 			{
 				char: 1, // 1-6
@@ -30,7 +30,7 @@ var levels = {
 		],
 		ships: [
 			{ // first
-				type: carrier.ship10, // ship1 - 5
+				type: carrier.ship1, // ship1 - 5
 				entry: 0, // ms
 				y: 300, // 0-720
 				speed: 100, // 10 = langsam
