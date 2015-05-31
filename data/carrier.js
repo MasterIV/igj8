@@ -75,8 +75,8 @@ var carrier = {
 			{x:52,y:93,rotate:0}
 		],
 		hangar_positions: [
-			{x:83,y:185},
-			{x:63,y:22}
+			{x:104,y:189},
+			{x:49,y:0}
 		]
 	},
 	ship2: {
@@ -106,8 +106,8 @@ var carrier = {
 				{x:315,y:228,rotate:180}
 		],
 		hangar_positions: [
-			{x:269,y:14},
-			{x:178,y:221}
+			{x:88,y:14},
+			{x:91,y:223}
 		]
 	},
 	
@@ -142,8 +142,8 @@ var carrier = {
 				
 		],
 		hangar_positions: [
-			{x:382,y:121},
-			{x:148,y:0}
+			{x:343,y:213},
+			{x:148,y:236}
 		]
 	},
 	ship4: { // funktioniert noch nicht
@@ -176,8 +176,8 @@ var carrier = {
 				
 		],
 		hangar_positions: [
-			{x:182,y:0},
-			{x:196,y:218}
+			{x:274,y:0},
+			{x:280,y:230}
 		]
 	},
 	
@@ -214,8 +214,8 @@ var carrier = {
 				
 		],
 		hangar_positions: [
-			{x:326,y:30},
-			{x:31,y:213}
+			{x:250,y:240},
+			{x:6,y:6}
 		]
 	},
 	ship6: {

@@ -38,7 +38,7 @@ function getDestroyerRate() {
 }
 
 function getPushingEffect() {
-	var ret = [20,30,45,60];
+	var ret = [0,30,45,60];
 	return ret[upgrades.pushing[UPGR_EFFECT]];
 }
 function getPushingCooldown() {
@@ -47,7 +47,7 @@ function getPushingCooldown() {
 }
 
 function getSuckingEffect() {
-	var ret = [20,30,45,60];
+	var ret = [0,30,45,60];
 	return ret[upgrades.sucking[UPGR_EFFECT]];
 }
 function getSuckingCooldown() {
