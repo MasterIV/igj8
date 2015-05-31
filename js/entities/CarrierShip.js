@@ -131,10 +131,6 @@ CarrierShip.prototype.update = function ( delta ) {
 
 		if (this.killAnimationTime >= this.killAnimationDuration) {
 
-			for(var i =0;i<this.entities.length;i++) {
-				this.world.DestroyBody(this.entities[i].body);
-				arrayRemove( game.scene.entities, this.entities[i]);
-			}
 
 			this.world.DestroyBody(this.body);
 			this.sprite = null;
@@ -211,9 +207,13 @@ CarrierShip.prototype.destroy = function (  ) {
 	this.body.SetAngularVelocity( Math.random() * 0.1 - 0.05 );
 	sound.play('sounds/ship_destroy/mothership_destroyed_long.ogg');
 
-	console.log('kill');
 	arrayRemove( game.scene.entities, this.destroyerShotChargeAnimation);
 	arrayRemove( game.scene.entities, this.destroyerShotAnimation);
+
+	for(var i =0;i<this.entities.length;i++) {
+		this.world.DestroyBody(this.entities[i].body);
+		arrayRemove( game.scene.entities, this.entities[i]);
+	}
 };
 
 CarrierShip.prototype.startDestroyerShot = function (  ) {
