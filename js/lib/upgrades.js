@@ -15,7 +15,7 @@ var upgrades = {
 	pushing: [0,0,0,0,0,0,0,1,3,3],
 	sucking: [0,0,0,0,0,0,0,1,3,3],
 
-	points: 5000,
+	points: 0,
 	hp: 5
 }
 

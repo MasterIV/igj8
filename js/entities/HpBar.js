@@ -16,6 +16,7 @@ HpBar.prototype.reduce = function ( hp ) {
 	game.scene.entities.push( new ScreenFlash( 300 ));
 	if (typeof hp == 'undefined') hp = 1
 	this.hp -= hp;
-	if( this.hp < 1 )
+	if( this.hp < 1 && game.scene.won == false ) {
 		game.scene = scenes.lose;
+	}
 };
