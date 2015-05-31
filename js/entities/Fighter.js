@@ -88,6 +88,7 @@ Fighter.prototype.update = function ( delta ) {
 		if (this.upgrade != null) {
 			arrayRemove( game.scene.entities, this.upgrade);
 			this.world.DestroyBody(this.upgrade.body);
+			upgrades.points += 5;
 		}
 	}
 
@@ -103,5 +104,4 @@ Fighter.prototype.hit = function (  ) {
 Fighter.prototype.destroy = function (  ) {
 	this.killAnimation = new AnimationSprite('img/_fighterBurning.png', 15);
 	this.body.SetAngularVelocity( Math.random() * 0.2 - 0.1 );
-
 };
