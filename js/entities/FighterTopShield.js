@@ -1,8 +1,8 @@
 function FighterTopShield(fighter, world) {
 	this.world = world;
 	this.definition = fighterUpgrades.shieldTop;
-	this.sprite = new Sprite(this.definition.sprite);
-	this.fighter = fighter;
+	this.sprite = new AnimationSprite(this.definition.sprite,3);
+	this.frameCounter = new Framecounter(100);	this.fighter = fighter;
 
 
 	this.x = this.fighter.body.GetCenterPosition().x + this.definition.offset.x;
@@ -35,10 +35,11 @@ FighterTopShield.prototype.polygonShape.categoryBits = 0x0004;
 FighterTopShield.prototype.polygonShape.maskBits = 0x0002;
 
 FighterTopShield.prototype.draw = function ( ctx ) {
-	this.sprite.center(ctx, this.x, this.y );
+	this.sprite.center(ctx, this.x, this.y , this.frameCounter.frame%3);
 };
 
 FighterTopShield.prototype.update = function ( delta ) {
+	this.frameCounter.update(delta);
 	this.x = this.fighter.body.GetCenterPosition().x + this.definition.offset.x;
 	this.y = this.fighter.body.GetCenterPosition().y + this.definition.offset.y;
 };
