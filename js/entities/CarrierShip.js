@@ -1,6 +1,12 @@
 function CarrierShip(x, y, world, speed, definition, values) {
 	this.world = world;
 	this.sprite = new AnimationSprite(definition.sprite, 5);
+	this.shipPropulsion = new AnimationSprite('img/_shipPropulsion.png', 30);
+	this.shipPropulsionCounter = new Framecounter(50);
+
+	this.destroyerShotSpawnSprite = new AnimationSprite('img/_destroyerShotSpawn.png', 5);
+	this.destroyerShotSpawnSpriteCounter = new Framecounter(50);
+
 	this.killAnimation = null;
 	this.killAnimationDuration = 5000;
 	this.killAnimationTime = 0;
@@ -95,6 +101,10 @@ CarrierShip.prototype = new Entity;
 
 
 CarrierShip.prototype.draw = function ( ctx ) {
+	this.shipPropulsion.center(ctx, this.x + 250,this.y,this.shipPropulsionCounter.frame%30);
+
+
+
 	var frame = 0;
 	if (this.killAnimation != null) {
 		if (this.killAnimationTime >= 2500)
@@ -104,12 +114,19 @@ CarrierShip.prototype.draw = function ( ctx ) {
 		this.sprite.center(ctx, this.x, this.y, frame);
 	}
 
+	if (this.destroyerShotAnimation != null) {
+		this.destroyerShotSpawnSprite.center(ctx,this.x - 200 + this.definition.destroyerChargeOffset.x, this.y + this.definition.destroyerChargeOffset.y,this.destroyerShotSpawnSpriteCounter.frame%5);
+	}
+
 	for( var i = 0; i < this.entities.length; i++ )
 		if( this.entities[i].draw )
 			this.entities[i].draw( ctx );
 };
 
 CarrierShip.prototype.update = function ( delta ) {
+	this.shipPropulsionCounter.update(delta);
+	this.destroyerShotSpawnSpriteCounter.update(delta);
+
 	this.x = this.body.GetCenterPosition().x + this.definition.offset.x;
 	this.y = this.body.GetCenterPosition().y + this.definition.offset.y;
 
@@ -220,7 +237,7 @@ CarrierShip.prototype.startDestroyerShot = function (  ) {
 	if (this.destroyerShotChargeAnimation == null) {
 		var self = this;
 		this.destroyerShotChargeAnimation = new Animation('img/_destroyerCharge.png', 80, this.x - 200 + this.definition.destroyerChargeOffset.x, this.y + this.definition.destroyerChargeOffset.y, 5000, function () {
-			self.destroyerShotAnimation = new Animation('img/_destroyerShot_16fps.png', 16, self.x - 200 + self.definition.destroyerShotOffset.x, self.y + self.definition.destroyerShotOffset.y, 5000, function () {
+			self.destroyerShotAnimation = new Animation('img/_destroyerShot_16fps.png', 16, self.x - 200 + self.definition.destroyerShotOffset.x, self.y + self.definition.destroyerShotOffset.y, 2000, function () {
 				game.scene.hpBar.reduce(5);
 				self.destroyerShotChargeAnimation = null;
 				self.destroyerShotAnimation = null;
