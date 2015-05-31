@@ -224,6 +224,9 @@ var carrier = {
 		sprite:'img/ship_medium1.png',
 		isMothership:false,
 		fighter:fighter.ship1,
+		endXPosition: 400,
+		destroyerChargeOffset: {x:-50,y:0},
+		destroyerShotOffset: {x:-50,y:0},
 		offset:{x:-5,y:-8},
 		polygon: [
 			[{x:32,y:99}, {x:18,y:85}, {x:29,y:76}, {x:116,y:78}],
@@ -249,6 +252,9 @@ var carrier = {
 		sprite:'img/ship_medium2.png',
 		isMothership:false,
 		fighter:fighter.ship2,
+		endXPosition: 400,
+		destroyerChargeOffset: {x:-50,y:0},
+		destroyerShotOffset: {x:-50,y:0},
 		offset:{x:-22,y:-13},
 		polygon: [
 			[{x:11,y:105},{x:48,y:89},{x:86,y:81},{x:283,y:18},{x:288,y:22},{x:238,y:73},{x:132,y:160},{x:47,y:147},{x:20,y:134},{x:11,y:117},],
@@ -272,6 +278,9 @@ var carrier = {
 		sprite:'img/ship_medium3.png',
 		isMothership:false,
 		fighter:fighter.ship3,
+		endXPosition: 400,
+		destroyerChargeOffset: {x:-50,y:0},
+		destroyerShotOffset: {x:-50,y:0},
 		offset:{x:23,y:-22},
 		polygon: [
 			[{x:135,y:138}, {x:113,y:156}, {x:48,y:148}, {x:22,y:132}, {x:14,y:115}, {x:14,y:102}, {x:22,y:85}, {x:44,y:72}, {x:80,y:77}, {x:111,y:83}, {x:147,y:121}],
@@ -295,6 +304,9 @@ var carrier = {
 		sprite:'img/ship_medium4.png',
 		isMothership:false,
 		fighter:fighter.ship4,
+		endXPosition: 400,
+		destroyerChargeOffset: {x:-50,y:0},
+		destroyerShotOffset: {x:-50,y:0},
 		offset:{x:7,y:-5},
 		polygon: [
 			[{x:175,y:129},{x:150,y:160},{x:120,y:179},{x:76,y:179},{x:50,y:164},{x:22,y:134},{x:22,y:68},{x:73,y:20},{x:118,y:20},{x:150,y:39},{x:172,y:72},{x:177,y:83}],
@@ -319,6 +331,9 @@ var carrier = {
 		sprite:'img/ship_medium5.png',
 		isMothership:false,
 		fighter:fighter.ship5,
+		endXPosition: 400,
+		destroyerChargeOffset: {x:-50,y:0},
+		destroyerShotOffset: {x:-50,y:0},
 		offset:{x:7,y:2},
 		polygon: [
 			[{x:91,y:139},{x:37,y:161},{x:14,y:161},{x:7,y:120},{x:28,y:85},{x:59,y:59},{x:96,y:55},{x:228,y:60}],
