@@ -139,11 +139,11 @@
 					scenes.lose = new LoseScene();
 					scenes.menu = new MenuScene();
 					document.getElementById('loading').style.display = 'none';
-					game.scene = new UniverseScene(levels.example);
+					//game.scene = new UniverseScene(levels.example);
 					//game.scene = new PreUniverseScene(levels.example);
 					//game.nextLevel();
 					//game.scene = new BuyScene;
-					//game.scene = scenes.menu;
+					game.scene = scenes.menu;
 					//game.nextLevel();
 					mouse.init();
 					controls.init();
