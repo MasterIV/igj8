@@ -85,9 +85,9 @@ var levels = {
 		],
 		ships: [
 			{ // first
-				type: carrier.ship2, // ship1 - 4
+				type: carrier.ship0, // ship1 - 4
 				entry: 0, // ms
-				y: 360, // 0-720
+				y: 460, // 0-720
 				speed: 18, // 10 = langsam
 				hit1: 1, // blau
 				hit2: 0, // gelb
@@ -95,7 +95,7 @@ var levels = {
 				hit4: 0, // yellow armored
 				hit5: 0, // red armored
 				fightertype: [1,0,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
-				fighterspeed: [22,22,0], // Fighter 1: schnell, Fighter 3: langsam.
+				fighterspeed: [22,22,22], // Fighter 1: schnell, Fighter 3: langsam.
 				fighterspawn: [15000,5000,5000], // ms
 				hangarspawn: [2,0,0] // in welchem Hangar? 0 (unten) / 1 (oben) / 2(random)
 			}
@@ -139,7 +139,7 @@ var levels = {
 				type: carrier.ship6, // ship1 - 4
 				entry: 55000, // ms
 				y: 420, // 0-720
-				speed: 12, // 10 = langsam
+				speed: 10, // 10 = langsam
 				hit1: 1, // blau
 				hit2: 2, // grün
 				hit3: 0, // gelb
@@ -147,7 +147,7 @@ var levels = {
 				hit5: 0, // fortified
 				fightertype: [1,1,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [28,16,0], // Fighter 1: schnell, Fighter 3: langsam.
-				fighterspawn: [15000,30000,0], // ms
+				fighterspawn: [18000,30000,0], // ms
 				hangarspawn: [2,0,1] // in welchem Hangar? 0 / 1
 			}
 		]
@@ -166,39 +166,39 @@ var levels = {
 				hit3: 0, // gelb
 				hit4: 0, // rot
 				hit5: 0, // fortified
-				fightertype: [1,1,1], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
+				fightertype: [1,0,1], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [20,15,15], // Fighter 1: schnell, Fighter 3: langsam.
-				fighterspawn: [8500,24000,28000], // ms
+				fighterspawn: [12500,24000,28000], // ms
 				hangarspawn: [2,0,1] // in welchem Hangar? 0 / 1 / 2(random)
 			},
 			{ // second
 				type: carrier.ship6, // ship1 - 4
-				entry: 25000, // ms
+				entry: 30000, // ms
 				y: 300, // 0-720
 				speed: 14, // 10 = langsam
-				hit1: 1, // blau
-				hit2: 3, // grün
-				hit3: 0, // gelb
-				hit4: 0, // rot
-				hit5: 0, // fortified
-				fightertype: [1,1,1], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
-				fighterspeed: [25,20,20], // Fighter 1: schnell, Fighter 3: langsam.
-				fighterspawn: [9000,22000,26000], // ms
-				hangarspawn: [2,0,1] // in welchem Hangar? 0 / 1 / 2(random)
-			},
-			{ // third
-				type: carrier.ship1, // ship1 - 10
-				entry: 50000, // ms
-				y: 420, // 0-720
-				speed: 11, // 10 = langsam
-				hit1: 3, // blau
-				hit2: 3, // grün
+				hit1: 2, // blau
+				hit2: 2, // grün
 				hit3: 0, // gelb
 				hit4: 0, // rot
 				hit5: 0, // fortified
 				fightertype: [1,1,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
+				fighterspeed: [25,20,20], // Fighter 1: schnell, Fighter 3: langsam.
+				fighterspawn: [9000,26000,26000], // ms
+				hangarspawn: [2,0,1] // in welchem Hangar? 0 / 1 / 2(random)
+			},
+			{ // third
+				type: carrier.ship1, // ship1 - 10
+				entry: 55000, // ms
+				y: 420, // 0-720
+				speed: 13, // 10 = langsam
+				hit1: 4, // blau
+				hit2: 1, // grün
+				hit3: 0, // gelb
+				hit4: 0, // rot
+				hit5: 0, // fortified
+				fightertype: [1,0,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [28,16,0], // Fighter 1: schnell, Fighter 3: langsam.
-				fighterspawn: [12000,20000,0], // ms
+				fighterspawn: [15000,20000,0], // ms
 				hangarspawn: [2,0,1] // in welchem Hangar? 0 / 1
 			}
 		]
