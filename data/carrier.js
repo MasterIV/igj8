@@ -75,8 +75,8 @@ var carrier = {
 			{x:52,y:93,rotate:0}
 		],
 		hangar_positions: [
-			{x:83,y:185},
-			{x:63,y:22}
+			{x:104,y:189},
+			{x:49,y:0}
 		]
 	},
 	ship2: {
@@ -106,8 +106,8 @@ var carrier = {
 				{x:315,y:228,rotate:180}
 		],
 		hangar_positions: [
-			{x:269,y:14},
-			{x:178,y:221}
+			{x:88,y:14},
+			{x:91,y:223}
 		]
 	},
 	
@@ -142,8 +142,8 @@ var carrier = {
 				
 		],
 		hangar_positions: [
-			{x:382,y:121},
-			{x:148,y:0}
+			{x:343,y:213},
+			{x:148,y:236}
 		]
 	},
 	ship4: { // funktioniert noch nicht
@@ -155,7 +155,7 @@ var carrier = {
 		endXPosition: 400,
 		destroyerChargeOffset: {x:50,y:0},
 		destroyerShotOffset: {x:50,y:0},
-		offset:{x:-25,y:-5},
+		offset:{x:+5,y:+7},
 		polygon: [
 			[{x:0,y:86},{x:60,y:32},{x:104,y:32},{x:180,y:112},{x:111,y:212},{x:60,y:213},{x:0,y:163}],
 			[{x:180,y:112}, {x:89,y:12}, {x:93,y:7}, {x:193,y:1}, {x:229,y:1}, {x:270,y:42}, {x:272,y:118}],
@@ -167,18 +167,17 @@ var carrier = {
 		],	
 		weak_points: [
 				{x:78,y:30,rotate:0},
-				{x:0,y:120,rotate:270},
 				{x:86,y:210,rotate:180},
 				{x:211,y:247,rotate:180},
-				{x:338,y:210,rotate:210},
+				{x:338,y:215,rotate:210},
 				{x:210,y:5,rotate:0},
-				{x:322,y:32,rotate:290},
-				{x:356,y:43,rotate:160}
+				{x:322,y:32,rotate:340},
+				{x:391,y:117,rotate:90}
 				
 		],
 		hangar_positions: [
-			{x:182,y:0},
-			{x:196,y:218}
+			{x:274,y:0},
+			{x:280,y:230}
 		]
 	},
 	
@@ -191,33 +190,32 @@ var carrier = {
 		endXPosition: 400,
 		destroyerChargeOffset: {x:50,y:0},
 		destroyerShotOffset: {x:50,y:0},
-		offset:{x:-25,y:-5,rotate:0},
+		offset:{x:0,y:0,rotate:0},
 		polygon: [
-			[{x:102,y:117},{x:140,y:224},{x:130,y:230},{x:41,y:239},{x:11,y:230},{x:14,y:181},{x:27,y:158},{x:715,y:126}],
+			[{x:102,y:117},{x:140,y:224},{x:130,y:230},{x:41,y:239},{x:11,y:230},{x:14,y:181},{x:27,y:158}],
 			[{x:140,y:224}, {x:102,y:117}, {x:285,y:53}, {x:306,y:104}, {x:309,y:141}, {x:300,y:157}, {x:156,y:244}],
 			[{x:306,y:104}, {x:102,y:117}, {x:77,y:106}, {x:70,y:76}, {x:90,y:12}, {x:106,y:1}, {x:158,y:2}, {x:275,y:19}, {x:288,y:38}],
-			[{x:371,y:119}, {x:285,y:53}, {x:329,y:56}, {x:342,y:78}, {x:341,y:91}, {x:334,y:103}],			
+			[{x:306,y:104}, {x:285,y:53}, {x:329,y:56}, {x:342,y:78}, {x:341,y:91}, {x:334,y:103}],			
 			[{x:156,y:244}, {x:300,y:157}, {x:332,y:216}, {x:327,y:230}],
 			[{x:332,y:216}, {x:300,y:157}, {x:339,y:161}, {x:382,y:172}, {x:390,y:183}, {x:391,y:212}, {x:385,y:218}]
 		
 		],	
 			
 		weak_points: [
-				{x:79,y:126,rotate:330},
-				{x:49,y:238,rotate:180},
-				{x:207,y:237,rotate:170},
-				{x:281,y:230,rotate:170},
-				{x:360,y:218,rotate:180},
-				{x:359,y:162,rotate:20},
-				{x:313,y:215,rotate:90},
-				{x:312,y:53,rotate:0},
-				{x:283,y:10,rotate:20},
-				{x:145,y:8,rotate:0}
+				{x:77,y:126,rotate:330},
+				{x:49,y:247,rotate:180},
+				{x:207,y:242,rotate:170},
+				{x:281,y:235,rotate:170},
+				{x:385,y:205,rotate:100},
+				{x:352,y:162,rotate:20},
+				{x:306,y:53,rotate:0},
+				{x:243,y:14,rotate:10},
+				{x:145,y:2,rotate:0}
 				
 		],
 		hangar_positions: [
-			{x:326,y:30},
-			{x:31,y:213}
+			{x:250,y:240},
+			{x:6,y:6}
 		]
 	},
 	ship6: {

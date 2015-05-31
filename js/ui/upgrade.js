@@ -11,16 +11,18 @@ Upgrade.prototype.createEntities = function () {
 
 	if (this.isgun) {
 		this.entities.push( new UpgradeBar(x, y, this.getMaxDamage()) );
-/*		x += 50;
-		this.entities.push( new UpgradeBar(this.outline, x, y, this.getMaxRate()) );
-		x += this.lineheight;
-		this.entities.push( new UpgradeBar(this.outline, x, y, this.getMaxSpecial()) );*/
+		y += 64;
+		this.entities.push( new UpgradeBar(x, y, this.getMaxRate()) );
+		y += 63;
+		this.entities.push( new UpgradeBar(x, y, this.getMaxSpecial()) );
+	} else if (this.ishull) {
+		this.entities.push( new UpgradeBar(x, y, this.getMaxHP()) );
 	} else {
-		this.entities.push( new UpgradeBar(this.outline, x, y, this.getMaxEffect()) );
-		y += this.lineheight;
-		this.entities.push( new UpgradeBar(this.outline, x, y, this.getMaxCooldown()) );
-		y += this.lineheight;
-		this.entities.push( new UpgradeBar(this.outline, x, y, this.getMaxSpecial()) );
+		this.entities.push( new UpgradeBar(x, y, this.getMaxEffect()) );
+		y += 64;
+		this.entities.push( new UpgradeBar(x, y, this.getMaxCooldown()) );
+		y += 63;
+		this.entities.push( new UpgradeBar(x, y, this.getMaxSpecial()) );
 	}
 }
 
@@ -29,25 +31,18 @@ Upgrade.prototype.draw = function( ctx ) {
 
 	ctx.drawImage( this.img, this.x, this.y );
 
-
 	// Upgradeable attributes
 	if (this.isgun) { // Guns have damage + rate of fire
-		this.entities[0].draw(ctx, this.getDamage());
-	}/* else { // Anomalies have cooldown + effect
-		ctx.fillText('Strength:', textx, texty);
-		this.entities[0].draw(ctx, this.getEffect());
-		texty += this.lineheight;
-		ctx.fillStyle = config.fontcolor;
-		ctx.fillText('Cooldown:', textx, texty);
-		this.entities[1].draw(ctx, this.getCooldown());
-		texty += this.lineheight;
+		this.entities[0].draw(ctx, this.getDamage(), this.damagecost[this.getDamage()+1]);
+		this.entities[1].draw(ctx, this.getRate(), this.damagecost[this.getDamage()+1]);
+		this.entities[2].draw(ctx, this.getSpecial(), this.special);
+	} else if(this.ishull) {
+		this.entities[0].draw(ctx, this.getHP(), this.cost[this.getHP()+1]);
+	} else { // Anomalies have cooldown + effect
+		this.entities[0].draw(ctx, this.getEffect(), this.effectcost[this.getEffect()+1]);
+		this.entities[1].draw(ctx, this.getCooldown(), this.cdcost[this.getCooldown()+1]);
+		this.entities[2].draw(ctx, this.getSpecial(), this.special);
 	}
-	// Both have speshul abilities
-	if (this.special) {
-		ctx.fillStyle = config.fontcolor;
-		ctx.fillText(this.special, textx, texty);
-		this.entities[2].draw(ctx, this.getSpecial());
-	}*/
 };
 
 Upgrade.prototype.update = function( delta ) {
@@ -55,30 +50,44 @@ Upgrade.prototype.update = function( delta ) {
 };
 
 Upgrade.prototype.click = function( pos ) {
+	if (!this.visible) return;
+
 	for( var i = 0; i < this.entities.length; i++ )
 		if( this.entities[i].click )
 			this.entities[i].click( pos, this );
 };
 Upgrade.prototype.clicked = function( entity ) {
+	if (!this.visible) return;
+
 	if (this.isgun) {
 		if (entity == this.entities[0]) // Damage
 			if (this.getDamage() < this.getMaxDamage())
-				this.addDamage();
+				if (upgrades.points >= this.damagecost[this.getDamage()+1])
+					this.addDamage();
 		if (entity == this.entities[1]) // Rate of Fire
 			if (this.getRate() < this.getMaxRate())
-				this.addRate();
+				if (upgrades.points >= this.ratecost[this.getRate()+1])
+					this.addRate();
+	} else if(this.ishull) {
+		if (entity == this.entities[0])
+			if (this.getHP() < this.getMaxHP())
+				if (upgrades.points >= this.cost[this.getHP()+1])
+					this.addHP();
 	} else {
 		if (entity == this.entities[0]) // Effect
 			if (this.getEffect() < this.getMaxEffect())
-				this.addEffect();
+				if (upgrades.points >= this.effectcost[this.getEffect()+1])
+					this.addEffect();
 		if (entity == this.entities[1]) // Cooldown
 			if (this.getCooldown() < this.getMaxCooldown())
-				this.addCooldown();
+				if (upgrades.points >= this.cdcost[this.getCooldown()+1])
+					this.addCooldown();
 	}
 	if (this.special)
 		if (entity == this.entities[2]) // Special
 			if (this.getSpecial() < this.getMaxSpecial())
-				this.addSpecial();
+				if (upgrades.points >= this.special)
+					this.addSpecial();
 };
 
 function NormalGun(x, y) {
@@ -90,7 +99,9 @@ function NormalGun(x, y) {
 	this.height = this.img.height;
 
 	this.isgun = true;
-	this.special = 'Triple Shot:';
+	this.special = 2500;
+	this.damagecost = [0,350,600,1000,0];
+	this.ratecost = [0,350,600,1000,0];
 	this.createEntities();
 }
 
@@ -116,12 +127,15 @@ NormalGun.prototype.getMaxSpecial = function() {
 }
 NormalGun.prototype.addDamage = function() {
 	upgrades.normal[UPGR_DAMAGE]++;
+	upgrades.points -= this.damagecost[this.getDamage()];
 }
 NormalGun.prototype.addRate = function() {
 	upgrades.normal[UPGR_FRATE]++;
+	upgrades.points -= this.ratecost[this.getRate()];
 }
 NormalGun.prototype.addSpecial = function() {
 	upgrades.normal[UPGR_SPECIAL]++;
+	upgrades.points -= this.special;
 }
 
 
@@ -131,7 +145,10 @@ function DestroyerGun(x,y) {
 	this.y = y;
 	this.img = g['img/shop_menu_rocket.png'];
 	this.isgun = true;
-	//this.createEntities();
+	this.special = 2500;
+	this.damagecost = [0,350,600,1000,0];
+	this.ratecost = [0,350,600,1000,0];
+	this.createEntities();
 }
 
 DestroyerGun.prototype = new Upgrade;
@@ -156,12 +173,15 @@ DestroyerGun.prototype.getMaxSpecial = function() {
 }
 DestroyerGun.prototype.addDamage = function() {
 	upgrades.destroyer[UPGR_DAMAGE]++;
+	upgrades.points -= this.damagecost[this.getDamage()];
 }
 DestroyerGun.prototype.addRate = function() {
 	upgrades.destroyer[UPGR_FRATE]++;
+	upgrades.points -= this.ratecost[this.getRate()];
 }
 DestroyerGun.prototype.addSpecial = function() {
 	upgrades.destroyer[UPGR_SPECIAL]++;
+	upgrades.points -= this.special;
 }
 
 function PushingAnomaly(x,y) {
@@ -169,7 +189,10 @@ function PushingAnomaly(x,y) {
 	this.x = x;
 	this.y = y;
 	this.img = g['img/shop_menu_repulse.png'];
-	//this.createEntities();
+	this.special = 2500;
+	this.effectcost = [0,350,600,1000,0];
+	this.cdcost = [0,350,600,1000,0];
+	this.createEntities();
 }
 
 PushingAnomaly.prototype = new Upgrade;
@@ -194,12 +217,15 @@ PushingAnomaly.prototype.getMaxSpecial = function() {
 }
 PushingAnomaly.prototype.addEffect = function() {
 	upgrades.pushing[UPGR_EFFECT]++;
+	upgrades.points -= this.effectcost[this.getEffect()];
 }
 PushingAnomaly.prototype.addCooldown = function() {
 	upgrades.pushing[UPGR_COOLDOWN]++;
+	upgrades.points -= this.cdcost[this.getCooldown()];
 }
 PushingAnomaly.prototype.addSpecial = function() {
 	upgrades.pushing[UPGR_SPECIAL]++;
+	upgrades.points -= this.special;
 }
 
 function SuckingAnomaly(x,y) {
@@ -207,7 +233,10 @@ function SuckingAnomaly(x,y) {
 	this.x = x;
 	this.y = y;
 	this.img = g['img/shop_menu_pull.png'];
-	//this.createEntities();
+	this.special = 2500;
+	this.effectcost = [0,350,600,1000,0];
+	this.cdcost = [0,350,600,1000,0];
+	this.createEntities();
 }
 
 SuckingAnomaly.prototype = new Upgrade;
@@ -232,10 +261,36 @@ SuckingAnomaly.prototype.getMaxSpecial = function() {
 }
 SuckingAnomaly.prototype.addEffect = function() {
 	upgrades.sucking[UPGR_EFFECT]++;
+	upgrades.points -= this.effectcost[this.getEffect()];
 }
 SuckingAnomaly.prototype.addCooldown = function() {
 	upgrades.sucking[UPGR_COOLDOWN]++;
+	upgrades.points -= this.cdcost[this.getCooldown()];
 }
 SuckingAnomaly.prototype.addSpecial = function() {
 	upgrades.sucking[UPGR_SPECIAL]++;
+	upgrades.points -= this.special;
+}
+
+function Hull(x,y) {
+	this.name = 'Hull';
+	this.x = x;
+	this.y = y;
+	this.ishull = true;
+	this.img = g['img/shop_menu_hull.png'];
+	this.cost = [0,300,400,500,600,700];
+	this.createEntities();
+}
+
+Hull.prototype = new Upgrade;
+
+Hull.prototype.getHP = function() {
+	return upgrades.hp - 5;
+}
+Hull.prototype.getMaxHP = function() {
+	return 5;
+}
+Hull.prototype.addHP = function() {
+	upgrades.hp++;
+	upgrades.points -= this.cost[this.getHP()];
 }

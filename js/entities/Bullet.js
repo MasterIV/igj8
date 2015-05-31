@@ -1,4 +1,4 @@
-function Bullet( world, position, direction, rocket ) {
+function Bullet( world, position, direction, rocket, damage ) {
 	var velocity = new b2Vec2( direction.x, direction.y );
 	velocity.Normalize();
 
@@ -13,7 +13,7 @@ function Bullet( world, position, direction, rocket ) {
 	var counter = new Framecounter(50);
 
 
-	this.damage = rocket ? getNormalDamage() : getNormalDamage();
+	this.damage = damage;
 
 	this.draw = function( ctx ) {
 		var pos = this.body.GetCenterPosition();

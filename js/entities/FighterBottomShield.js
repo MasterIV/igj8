@@ -1,9 +1,14 @@
 function FighterBottomShield(fighter, world) {
 	this.world = world;
 	this.definition = fighterUpgrades.shieldBottom;
+<<<<<<< HEAD
 	this.sprite = new AnimationSprite(this.definition.sprite,3);
 	this.frameCounter = new Framecounter(100);
+=======
+	this.sprite = new AnimationSprite(this.definition.sprite, 3);
+>>>>>>> 14727df1ec92d15dc1e9838dbe99dbf0f4df84ee
 	this.fighter = fighter;
+	this.counter = new Framecounter(50);
 
 
 	this.x = this.fighter.body.GetCenterPosition().x + this.definition.offset.x;
@@ -36,13 +41,14 @@ FighterBottomShield.prototype.polygonShape.categoryBits = 0x0004;
 FighterBottomShield.prototype.polygonShape.maskBits = 0x0002;
 
 FighterBottomShield.prototype.draw = function ( ctx ) {
-	this.sprite.center(ctx, this.x, this.y , this.frameCounter.frame%3);
+	this.sprite.center(ctx, this.x, this.y, this.counter.frame%3 );
 };
 
 FighterBottomShield.prototype.update = function ( delta ) {
 	this.frameCounter.update(delta);
 	this.x = this.fighter.body.GetCenterPosition().x + this.definition.offset.x;
 	this.y = this.fighter.body.GetCenterPosition().y + this.definition.offset.y;
+	this.counter.update( delta );
 };
 
 FighterBottomShield.prototype.hit = function (  ) {

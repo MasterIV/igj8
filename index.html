@@ -111,7 +111,7 @@
 		<script type="text/javascript" src="js/scenes/UniverseScene.js"></script>
 		<script type="text/javascript" src="js/scenes/TestScene.js"></script>
 		<script type="text/javascript" src="js/scenes/BuyScene.js"></script>
-		<script type="text/javascript" src="js/scenes/Loose.js"></script>
+		<script type="text/javascript" src="js/scenes/Lose.js"></script>
 
 		<script type="text/javascript" src="js/entities/Entity.js"></script>
 		<script type="text/javascript" src="js/entities/Dialog.js"></script>
@@ -136,12 +136,15 @@
 
 			function init() {
 				g.load(function() {
-					scenes.loose = new LooseScene();
+					scenes.lose = new LoseScene();
+					scenes.menu = new MenuScene();
 					document.getElementById('loading').style.display = 'none';
 					//game.scene = new UniverseScene(levels.level1);
-					game.scene = new MenuScene();
+					//game.scene = new PreUniverseScene(levels.example);
 					//game.nextLevel();
-
+					//game.scene = new BuyScene;
+					game.scene = scenes.menu;
+					//game.nextLevel();
 					mouse.init();
 					controls.init();
 					game.init();

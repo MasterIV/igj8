@@ -15,18 +15,42 @@ var upgrades = {
 	pushing: [0,0,0,0,0,0,0,1,3,3],
 	sucking: [0,0,0,0,0,0,0,1,3,3],
 
-	points: 0
+	points: 5000,
+	hp: 5
 }
 
 function getNormalDamage() {
-	switch (upgrades.normal[UPGR_DAMAGE]) {
-		case 1:
-			return 30;
-		case 2:
-			return 45;
-		case 3:
-			return 60;
-		default:
-			return 20;
-	}
+	var ret = [20,30,45,60];
+	return ret[upgrades.normal[UPGR_DAMAGE]];
+}
+function getNormalRate() {
+	var ret = [1000,850,700,550];
+	return ret[upgrades.normal[UPGR_FRATE]];
+}
+
+function getDestroyerDamage() {
+	var ret = [40,60,80,100];
+	return ret[upgrades.destroyer[UPGR_DAMAGE]];
+}
+function getDestroyerRate() {
+	var ret = [2500,2100,1700,1300];
+	return ret[upgrades.destroyer[UPGR_FRATE]];
+}
+
+function getPushingEffect() {
+	var ret = [0,30,45,60];
+	return ret[upgrades.pushing[UPGR_EFFECT]];
+}
+function getPushingCooldown() {
+	var ret = [20000,25000,30000,35000];
+	return ret[upgrades.pushing[UPGR_COOLDOWN]];
+}
+
+function getSuckingEffect() {
+	var ret = [0,30,45,60];
+	return ret[upgrades.sucking[UPGR_EFFECT]];
+}
+function getSuckingCooldown() {
+	var ret = [20000,25000,30000,35000];
+	return ret[upgrades.sucking[UPGR_COOLDOWN]];
 }

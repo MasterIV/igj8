@@ -41,18 +41,19 @@ Cannon.prototype.update = function ( delta ) {
 	if( this.cooldown[this.weapon] <= 0 && this.shooting ) {
 		this.cooldown[this.weapon] = this.getCooldown( this.weapon );
 		switch( this.weapon ) {
-			case 'rocket': game.scene.fire( this.position, true ); break;
+			case 'rocket': game.scene.fire( this.position, true, getDestroyerDamage() ); break;
 			case 'pull':
-				game.scene.anomaly( 100, 1000 );
+				game.scene.anomaly( 100+getSuckingEffect(), 1000 );
 				this.weapon = this.lastWeapon;
 				this.shooting = false;
 				break;
 			case 'push':
-				game.scene.anomaly( 100, -1000 );
+				game.scene.anomaly( 100+getPushingEffect(), -1000 );
 				this.weapon = this.lastWeapon;
 				this.shooting = false;
 				break;
-			default: game.scene.fire( this.position );
+			default:
+				game.scene.fire( this.position, false, getNormalDamage() );
 		}
 	}
 };
@@ -67,9 +68,9 @@ Cannon.prototype.mouseup = function() {
 
 Cannon.prototype.getCooldown = function ( w ) {
 	switch( w ) {
-		case 'pull': return 2000 - upgrades.normal[UPGR_FRATE] * 300;
-		case 'push': return 2000 - upgrades.normal[UPGR_FRATE] * 300;
-		case 'rocket': return 2000 - upgrades.normal[UPGR_FRATE] * 300;
-		default: return 200; // return 1000 - upgrades.normal[UPGR_FRATE] * 150;
+		case 'pull': return getSuckingCooldown();
+		case 'push': return getPushingCooldown();
+		case 'rocket': return getDestroyerRate();
+		default: return getNormalRate();
 	}
 };

@@ -33,9 +33,10 @@ var g = {
 		'img/bg.png',
 		'img/buyscene_bg.jpg',
 		'img/hitpoint_green.png',
-		'img/hitpoint_blue.png',
+		'img/hitpoint_yellow.png',
 		'img/hitpoint_red.png',
 		'img/hitpoint_red_fortified.png',
+		'img/hitpoint_yellow_fortified.png',
 		'img/hp_spritesheet.png',
 		'img/background1.jpg',
 		'img/background2.jpg',
@@ -73,9 +74,11 @@ var g = {
 		'img/character_name_4.png',
 		'img/character_name_5.png',
 		'img/character_name_6.png',
+		'img/shop_menu_hull.png',
 		'img/button_blank.png',
+		'img/start_screen.jpg',
+		'img/game_over.png',
 		'img/button_start_game.png'
-
 	],
 
 	add: function( url ) {
