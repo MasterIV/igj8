@@ -126,15 +126,15 @@ NormalGun.prototype.getMaxSpecial = function() {
 	return upgrades.normal[UPGR_MAXSPECIAL];
 }
 NormalGun.prototype.addDamage = function() {
-	upgrades.normal[UPGR_DAMAGE]++;
+	upgrades.normal[UPGR_DAMAGE]+=1;
 	upgrades.points -= this.damagecost[this.getDamage()];
 }
 NormalGun.prototype.addRate = function() {
-	upgrades.normal[UPGR_FRATE]++;
+	upgrades.normal[UPGR_FRATE]+=1;
 	upgrades.points -= this.ratecost[this.getRate()];
 }
 NormalGun.prototype.addSpecial = function() {
-	upgrades.normal[UPGR_SPECIAL]++;
+	upgrades.normal[UPGR_SPECIAL]+=1;
 	upgrades.points -= this.special;
 }
 
@@ -172,15 +172,15 @@ DestroyerGun.prototype.getMaxSpecial = function() {
 	return upgrades.destroyer[UPGR_MAXSPECIAL];
 }
 DestroyerGun.prototype.addDamage = function() {
-	upgrades.destroyer[UPGR_DAMAGE]++;
+	upgrades.destroyer[UPGR_DAMAGE]+=1;
 	upgrades.points -= this.damagecost[this.getDamage()];
 }
 DestroyerGun.prototype.addRate = function() {
-	upgrades.destroyer[UPGR_FRATE]++;
+	upgrades.destroyer[UPGR_FRATE]+=1;
 	upgrades.points -= this.ratecost[this.getRate()];
 }
 DestroyerGun.prototype.addSpecial = function() {
-	upgrades.destroyer[UPGR_SPECIAL]++;
+	upgrades.destroyer[UPGR_SPECIAL]+=1;
 	upgrades.points -= this.special;
 }
 
@@ -216,15 +216,15 @@ PushingAnomaly.prototype.getMaxSpecial = function() {
 	return upgrades.pushing[UPGR_MAXSPECIAL];
 }
 PushingAnomaly.prototype.addEffect = function() {
-	upgrades.pushing[UPGR_EFFECT]++;
+	upgrades.pushing[UPGR_EFFECT]+=1;
 	upgrades.points -= this.effectcost[this.getEffect()];
 }
 PushingAnomaly.prototype.addCooldown = function() {
-	upgrades.pushing[UPGR_COOLDOWN]++;
+	upgrades.pushing[UPGR_COOLDOWN]+=1;
 	upgrades.points -= this.cdcost[this.getCooldown()];
 }
 PushingAnomaly.prototype.addSpecial = function() {
-	upgrades.pushing[UPGR_SPECIAL]++;
+	upgrades.pushing[UPGR_SPECIAL]+=1;
 	upgrades.points -= this.special;
 }
 
@@ -260,15 +260,15 @@ SuckingAnomaly.prototype.getMaxSpecial = function() {
 	return upgrades.sucking[UPGR_MAXSPECIAL];
 }
 SuckingAnomaly.prototype.addEffect = function() {
-	upgrades.sucking[UPGR_EFFECT]++;
+	upgrades.sucking[UPGR_EFFECT]+=1;
 	upgrades.points -= this.effectcost[this.getEffect()];
 }
 SuckingAnomaly.prototype.addCooldown = function() {
-	upgrades.sucking[UPGR_COOLDOWN]++;
+	upgrades.sucking[UPGR_COOLDOWN]+=1;
 	upgrades.points -= this.cdcost[this.getCooldown()];
 }
 SuckingAnomaly.prototype.addSpecial = function() {
-	upgrades.sucking[UPGR_SPECIAL]++;
+	upgrades.sucking[UPGR_SPECIAL]+=1;
 	upgrades.points -= this.special;
 }
 

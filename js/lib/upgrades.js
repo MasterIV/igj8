@@ -25,7 +25,10 @@ function getNormalDamage() {
 }
 function getNormalRate() {
 	var ret = [1000,850,700,550];
-	return ret[upgrades.normal[UPGR_FRATE]];
+	if (upgrades.normal[UPGR_SPECIAL])
+		return ret[upgrades.normal[UPGR_FRATE]] + 500;
+	else
+		return ret[upgrades.normal[UPGR_FRATE]];
 }
 
 function getDestroyerDamage() {
@@ -42,7 +45,7 @@ function getPushingEffect() {
 	return ret[upgrades.pushing[UPGR_EFFECT]];
 }
 function getPushingCooldown() {
-	var ret = [20000,25000,30000,35000];
+	var ret = [50000,45000,40000,35000];
 	return ret[upgrades.pushing[UPGR_COOLDOWN]];
 }
 
@@ -51,6 +54,6 @@ function getSuckingEffect() {
 	return ret[upgrades.sucking[UPGR_EFFECT]];
 }
 function getSuckingCooldown() {
-	var ret = [20000,25000,30000,35000];
+	var ret = [50000,45000,40000,35000];
 	return ret[upgrades.sucking[UPGR_COOLDOWN]];
 }
