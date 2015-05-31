@@ -6,7 +6,7 @@ function PreUniverseScene(level) {
 
 	this.dialogues = [];
 	for(var i =0;level.dialog && i<level.dialog.length;i++) {
-		this.dialogues.push(new Dialog(level.dialog[i].char,level.dialog[i].side, level.dialog[i].text, level.dialog[i].speech, i!=(level.dialog.length-1)));
+		this.dialogues.push(new Dialog(level.dialog[i].char,level.dialog[i].side, level.dialog[i].text, level.dialog[i].text2, level.dialog[i].speech, i!=(level.dialog.length-1)));
 	}
 
 	this.nextDialog();
