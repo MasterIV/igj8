@@ -70,7 +70,8 @@ var g = {
 		'img/character_name_3.png',
 		'img/character_name_4.png',
 		'img/character_name_5.png',
-		'img/character_name_6.png'
+		'img/character_name_6.png',
+		'img/shop_menu_hull.png'
 	],
 
 	add: function( url ) {

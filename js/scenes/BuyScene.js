@@ -5,6 +5,7 @@ function BuyScene() {
 	                  new DestroyerGun(441, 285),
 	                  new PushingAnomaly(441, 349),
 	                  new SuckingAnomaly(441, 413),
+	                  new Hull(441, 477),
 					  new Button('img/shop_button_big.png', 'img/shop_button_big_highlight.png', 76, 212, function() {
 						  game.scene.changeShop(0);
 					  }, 'sounds/menu/button_clicked.mp3'),
@@ -31,6 +32,16 @@ function BuyScene() {
 		this.entities[shop].visible = true;
 		this.shop = shop;
 	};
+	this.reset = function() {
+		//for (var i = 0; i )
+	};
+	this.drawBase = this.draw;
+	this.draw = function( ctx ) {
+		this.drawBase(ctx);
+		ctx.font = config.font;
+		ctx.fillStyle = config.fontcolor;
+		ctx.fillText(upgrades.points, 1050,127 + config.fontsize/2);
+	}
 };
 
 BuyScene.prototype = new Scene;
