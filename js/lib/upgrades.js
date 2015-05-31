@@ -53,7 +53,7 @@ function getPushingEffect() {
 	return ret[upgrades.pushing[UPGR_EFFECT]];
 }
 function getPushingCooldown() {
-	var ret = [50000,45000,40000,35000];
+	var ret = [5000,4500,4000,3500];
 	return ret[upgrades.pushing[UPGR_COOLDOWN]];
 }
 
@@ -62,6 +62,6 @@ function getSuckingEffect() {
 	return ret[upgrades.sucking[UPGR_EFFECT]];
 }
 function getSuckingCooldown() {
-	var ret = [50000,45000,40000,35000];
+	var ret = [5000,4500,4000,3500];
 	return ret[upgrades.sucking[UPGR_COOLDOWN]];
 }
