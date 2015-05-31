@@ -21,7 +21,7 @@ var carrier = {
 		title: 'TutorialShip',
 		description: 'Designed for Tutorial',
 		sprite:'img/ship_medium1.png',
-		isMothership:true,
+		isMothership:false,
 		fighter:fighter.ship1,
 		endXPosition: 400,
 		destroyerChargeOffset: {x:-10,y:8},

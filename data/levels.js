@@ -112,6 +112,7 @@ var levels = {
 	level1: {
 		title: 'Level 1',
 		description: 'Lorem Ipsum',
+		bigAnomaly:false,
 		dialog: [
 			{
 				char: 3, // 1-6
@@ -186,6 +187,7 @@ var levels = {
 	level2: {
 		title: 'Level 2',
 		description: 'Lorem Ipsum',
+		bigAnomaly:false,
 		dialog: [
 			{
 				char: 3, // 1-6
@@ -246,6 +248,7 @@ var levels = {
 	level3: {
 		title: 'Level 3',
 		description: 'Lorem Ipsum',
+		bigAnomaly:false,
 		dialog: [
 			{
 				char: 2, // 1-6
@@ -327,6 +330,7 @@ var levels = {
 	level4: {
 		title: 'Level 4',
 		description: 'Lorem Ipsum',
+		bigAnomaly:false,
 		dialog: [
 			{
 				char: 2, // 1-6
@@ -387,6 +391,7 @@ var levels = {
 	level5: {
 		title: 'Level 5',
 		description: 'Lorem Ipsum',
+		bigAnomaly:false,
 		dialog: [
 			{
 				char: 1, // 1-6
@@ -454,6 +459,7 @@ var levels = {
 	level6: {
 		title: 'Level 6',
 		description: 'Lorem Ipsum',
+		bigAnomaly:false,
 		dialog: [
 			{
 				char: 1, // 1-6
@@ -514,6 +520,7 @@ var levels = {
 	level7: {
 		title: 'Level 7',
 		description: 'Lorem Ipsum',
+		bigAnomaly:false,
 		dialog: [
 			{
 				char: 5, // 1-6
@@ -588,6 +595,7 @@ var levels = {
 	level8: {
 		title: 'Level 8',
 		description: 'Lorem Ipsum',
+		bigAnomaly:false,
 		dialog: [
 			{
 				char: 5, // 1-6
@@ -648,6 +656,7 @@ var levels = {
 	level9: {
 		title: 'Level 9',
 		description: 'Lorem Ipsum',
+		bigAnomaly:false,
 		dialog: [
 			{
 				char: 4, // 1-6
@@ -715,6 +724,7 @@ var levels = {
 	level10: {
 		title: 'Level 10',
 		description: 'Lorem Ipsum',
+		bigAnomaly:false,
 		dialog: [
 			{
 				char: 4, // 1-6
@@ -775,6 +785,7 @@ var levels = {
 	level11: {
 		title: 'Level 11',
 		description: 'Lorem Ipsum',
+		bigAnomaly:false,
 		ships: [
 			{ // first
 				type: carrier.ship2, // ship1 - 4
@@ -826,6 +837,7 @@ var levels = {
 	level12: {
 		title: 'Level 12',
 		description: 'Lorem Ipsum',
+		bigAnomaly:false,
 		ships: [
 			{ // first
 				type: carrier.ship5, // ship1 - 4
