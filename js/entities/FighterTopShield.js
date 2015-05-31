@@ -32,8 +32,8 @@ FighterTopShield.prototype.polygonShape.density = 1.0;
 FighterTopShield.prototype.polygonShape.radius = 20;
 FighterTopShield.prototype.polygonShape.restitution = 1.0;
 FighterTopShield.prototype.polygonShape.friction = 0;
-FighterTopShield.prototype.polygonShape.categoryBits = 0x0004;
-FighterTopShield.prototype.polygonShape.maskBits = 0x0002;
+FighterTopShield.prototype.polygonShape.categoryBits = 0x0204;
+FighterTopShield.prototype.polygonShape.maskBits = 0x0202;
 
 FighterTopShield.prototype.draw = function ( ctx ) {
 	this.sprite.center(ctx, this.x, this.y, this.counter.frame%3 );
