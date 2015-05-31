@@ -154,7 +154,7 @@ var carrier = {
 		endXPosition: 400,
 		destroyerChargeOffset: {x:50,y:0},
 		destroyerShotOffset: {x:50,y:0},
-		offset:{x:-25,y:-5,rotate:0},
+		offset:{x:-25,y:-5},
 		polygon: [
 			[{x:0,y:86},{x:60,y:32},{x:104,y:32},{x:180,y:112},{x:111,y:212},{x:60,y:213},{x:0,y:163}],
 			[{x:180,y:112}, {x:89,y:12}, {x:93,y:7}, {x:193,y:1}, {x:229,y:1}, {x:270,y:42}, {x:272,y:118}],

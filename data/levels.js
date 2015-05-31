@@ -11,6 +11,18 @@ var levels = {
 				text: 'Lorem Ipsum sit amet1111'
 			},
 			{
+				char: 1, // 1-6
+				side: 1,
+				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				text: 'sagsag sag sags ag sagsag sag ag sag'
+			},
+			{
+				char: 3, // 1-6
+				side: 1,
+				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				text: 'sdasfasdhh fh rs ey y sre sag'
+			},
+			{
 				char: 2,
 				side: 0,
 				text: 'No!'

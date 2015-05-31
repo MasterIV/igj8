@@ -43,9 +43,6 @@ Dialog.prototype.draw = function ( ctx ) {
 		ctx.font = '18px Courier New';
 		ctx.fillText( this.text, game.display.width - this.textBoxR.width - 250 + 30, game.display.height - this.textBoxR.height/2 - 10);
 	}
-
-	//this.charSprite.center(ctx, 500 , game.display.height = this);
-	//this.nameSprite.center(ctx, 500 ,this.y );
 };
 
 Dialog.prototype.update = function ( delta ) {
