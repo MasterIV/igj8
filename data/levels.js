@@ -670,10 +670,10 @@ var levels = {
 				entry: 0, // ms
 				y: 300, // 0-720
 				speed: 15, // 10 = langsam
-				hit1: 3, // blau
+				hit1: 1, // blau
 				hit2: 1, // grün
 				hit3: 0, // gelb
-				hit4: 0, // rot
+				hit4: 1, // rot
 				hit5: 0, // fortified
 				fightertype: [1,0,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [20,0,0], // Fighter 1: schnell, Fighter 3: langsam.
@@ -686,9 +686,9 @@ var levels = {
 				y: 520, // 0-720
 				speed: 15, // 10 = langsam
 				hit1: 1, // blau
-				hit2: 3, // grün
+				hit2: 1, // grün
 				hit3: 0, // gelb
-				hit4: 0, // rot
+				hit4: 2, // rot
 				hit5: 0, // fortified
 				fightertype: [1,0,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [22,0,0], // Fighter 1: schnell, Fighter 3: langsam.
@@ -702,9 +702,9 @@ var levels = {
 				speed: 15, // 10 = langsam
 				hit1: 2, // blau
 				hit2: 0, // grün
-				hit3: 2, // gelb
+				hit3: 1, // gelb
 				hit4: 0, // rot
-				hit5: 0, // fortified
+				hit5: 1, // fortified
 				fightertype: [1,0,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [22,0,0], // Fighter 1: schnell, Fighter 3: langsam.
 				fighterspawn: [20000,0,0], // ms
@@ -730,10 +730,10 @@ var levels = {
 				entry: 0, // ms
 				y: 300, // 0-720
 				speed: 15, // 10 = langsam
-				hit1: 5, // blau
-				hit2: 1, // grün
-				hit3: 0, // gelb
-				hit4: 0, // rot
+				hit1: 0, // blau
+				hit2: 0, // grün
+				hit3: 2, // gelb
+				hit4: 2, // rot
 				hit5: 0, // fortified
 				fightertype: [1,0,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [20,0,0], // Fighter 1: schnell, Fighter 3: langsam.
@@ -781,11 +781,11 @@ var levels = {
 				entry: 0, // ms
 				y: 300, // 0-720
 				speed: 15, // 10 = langsam
-				hit1: 5, // blau
+				hit1: 0, // blau
 				hit2: 1, // grün
-				hit3: 0, // gelb
-				hit4: 0, // rot
-				hit5: 0, // fortified
+				hit3: 1, // gelb
+				hit4: 1, // rot
+				hit5: 1, // fortified
 				fightertype: [1,0,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [20,0,0], // Fighter 1: schnell, Fighter 3: langsam.
 				fighterspawn: [20000,0,0], // ms
@@ -793,14 +793,14 @@ var levels = {
 			},
 			{ // second
 				type: carrier.ship1, // ship1 - 4
-				entry: 0, // ms
+				entry: 30000, // ms
 				y: 520, // 0-720
 				speed: 15, // 10 = langsam
-				hit1: 3, // blau
-				hit2: 3, // grün
+				hit1: 0, // blau
+				hit2: 0, // grün
 				hit3: 0, // gelb
-				hit4: 0, // rot
-				hit5: 0, // fortified
+				hit4: 3, // rot
+				hit5: 2, // fortified
 				fightertype: [1,0,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [22,0,0], // Fighter 1: schnell, Fighter 3: langsam.
 				fighterspawn: [22000,0,0], // ms
@@ -808,14 +808,14 @@ var levels = {
 			},
 			{ // third
 				type: carrier.ship2, // ship1 - 4
-				entry: 40000, // ms
+				entry: 50000, // ms
 				y: 440, // 0-720
 				speed: 15, // 10 = langsam
-				hit1: 2, // blau
-				hit2: 2, // grün
+				hit1: 0, // blau
+				hit2: 0, // grün
 				hit3: 2, // gelb
-				hit4: 0, // rot
-				hit5: 0, // fortified
+				hit4: 2, // rot
+				hit5: 2, // fortified
 				fightertype: [1,0,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [22,0,0], // Fighter 1: schnell, Fighter 3: langsam.
 				fighterspawn: [20000,0,0], // ms
@@ -832,11 +832,11 @@ var levels = {
 				entry: 0, // ms
 				y: 300, // 0-720
 				speed: 15, // 10 = langsam
-				hit1: 5, // blau
-				hit2: 1, // grün
-				hit3: 0, // gelb
-				hit4: 0, // rot
-				hit5: 0, // fortified
+				hit1: 0, // blau
+				hit2: 0, // grün
+				hit3: 1, // gelb
+				hit4: 1, // rot
+				hit5: 2, // fortified
 				fightertype: [1,0,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [20,0,0], // Fighter 1: schnell, Fighter 3: langsam.
 				fighterspawn: [20000,0,0], // ms
@@ -844,14 +844,14 @@ var levels = {
 			},
 			{ // second
 				type: carrier.ship3, // ship1 - 4
-				entry: 0, // ms
+				entry: 30000, // ms
 				y: 520, // 0-720
 				speed: 15, // 10 = langsam
-				hit1: 3, // blau
-				hit2: 3, // grün
+				hit1: 0, // blau
+				hit2: 2, // grün
 				hit3: 0, // gelb
 				hit4: 0, // rot
-				hit5: 0, // fortified
+				hit5: 3, // fortified
 				fightertype: [1,0,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [22,0,0], // Fighter 1: schnell, Fighter 3: langsam.
 				fighterspawn: [22000,0,0], // ms
@@ -859,14 +859,14 @@ var levels = {
 			},
 			{ // third
 				type: carrier.ship4, // ship1 - 4
-				entry: 40000, // ms
+				entry: 50000, // ms
 				y: 440, // 0-720
 				speed: 15, // 10 = langsam
-				hit1: 2, // blau
-				hit2: 2, // grün
-				hit3: 2, // gelb
-				hit4: 0, // rot
-				hit5: 0, // fortified
+				hit1: 0, // blau
+				hit2: 0, // grün
+				hit3: 1, // gelb
+				hit4: 2, // rot
+				hit5: 2, // fortified
 				fightertype: [1,0,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [22,0,0], // Fighter 1: schnell, Fighter 3: langsam.
 				fighterspawn: [20000,0,0], // ms
