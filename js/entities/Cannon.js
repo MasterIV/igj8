@@ -43,16 +43,17 @@ Cannon.prototype.update = function ( delta ) {
 		switch( this.weapon ) {
 			case 'rocket': game.scene.fire( this.position, true, getDestroyerDamage() ); break;
 			case 'pull':
-				game.scene.anomaly( 100, 1000 );
+				game.scene.anomaly( 100+getSuckingEffect(), 1000 );
 				this.weapon = this.lastWeapon;
 				this.shooting = false;
 				break;
 			case 'push':
-				game.scene.anomaly( 100, -1000 );
+				game.scene.anomaly( 100+getPushingEffect(), -1000 );
 				this.weapon = this.lastWeapon;
 				this.shooting = false;
 				break;
-			default: game.scene.fire( this.position, false, getNormalDamage() );
+			default:
+				game.scene.fire( this.position, false, getNormalDamage() );
 		}
 	}
 };
