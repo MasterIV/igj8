@@ -95,7 +95,6 @@ function UniverseScene(level) {
 			});
 
 			if (self.bigAnomaly) {
-				console.log(self.bigAnomaly.getForce());
 				b.body.ApplyForce( self.bigAnomaly.getForce(), bullet_position );
 			}
 

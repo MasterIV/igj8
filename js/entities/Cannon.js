@@ -5,6 +5,11 @@ function Cannon( x, y ) {
 	this.weapon = 'laser';
 	this.shooting = false;
 	this.lastWeapon = 'laser';
+
+	this.pullPreviewSprite = new AnimationSprite('img/_pullAnomaly.png', 25);
+	this.pushPreviewSprite = new AnimationSprite('img/_repulseAnomaly.png', 25);
+	this.counter = new Framecounter(50);
+
 }
 
 Cannon.prototype.draw = function ( ctx ) {
@@ -14,9 +19,19 @@ Cannon.prototype.draw = function ( ctx ) {
 	ctx.drawImage(g['img/gun.png'], -30, -30);
 	ctx.restore();
 	ctx.drawImage(g['img/gun_overlay.png'], this.position.x-30, this.position.y-30 );
+
+	ctx.globalAlpha = 0.5;
+	if (this.weapon == 'push') {
+		this.pushPreviewSprite.center(ctx,mouse.x,mouse.y,this.counter.frame%25);
+	}
+	if (this.weapon == 'pull') {
+		this.pullPreviewSprite.center(ctx,mouse.x,mouse.y,this.counter.frame%25);
+	}
+	ctx.globalAlpha = 1;
 };
 
 Cannon.prototype.update = function ( delta ) {
+	this.counter.update(delta);
 	this.rotation = Math.atan2( this.position.x - mouse.x, this.position.y - mouse.y) * - 1;
 
 	for( var w in this.cooldown )
