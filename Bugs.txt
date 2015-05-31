@@ -1,0 +1,15 @@
+Bug 1: Nach Schiffzerstörung - Weakpoints bleiben länger als Schiff sichtbar
+
+Bug 2: Doom Beam bei Schiff 3 korrekt platzieren
+
+Bug 3: Schiff 4 kein offset
+
+Bug 4: Schiff 5 kein offset
+
+Bug 5: Hitpoint 5 am Schiff lässt das Spiel abstürzen. 
+
+Bug 6: Bei den kleinen Schiffen den Laser implementieren
+
+Bug 7: Panzerung der Weak Points funktioniert nicht
+
+Bug 8: Weak Points haben teilweise noch nicht die richtige HP
