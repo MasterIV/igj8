@@ -34,8 +34,8 @@ var carrier = {
 			[{x:223,y:84}, {x:241,y:72}, {x:263,y:71}, {x:282,y:90}, {x:287,y:121}, {x:261,y:153}, {x:244,y:158}, {x:216,y:141}]
 		],
 		weak_points: [
-			{x:106,y:77,rotate:0}, 
-			{x:228,y:75,rotate:340}
+			{x:106,y:77,rotate:0} 
+			//{x:228,y:75,rotate:340}
 		],
 		hangar_positions: [
 			{x:158,y:142},
