@@ -19,6 +19,14 @@ var upgrades = {
 	hp: 5
 }
 
+function purgeUpgrades() {
+	upgrades.points = 0;
+	upgrades.normal = [0,0,0,0,0,3,3,1,0,0];
+	upgrades.destroyer = [0,0,0,0,0,3,3,1,0,0];
+	upgrades.pushing = [0,0,0,0,0,0,0,1,3,3];
+	upgrades.normal = [0,0,0,0,0,0,0,1,3,3];
+}
+
 function getNormalDamage() {
 	var ret = [20,30,45,60];
 	return ret[upgrades.normal[UPGR_DAMAGE]];
