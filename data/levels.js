@@ -139,31 +139,31 @@ var levels = {
 			{ // first
 				type: carrier.ship6, // ship1 - 4
 				entry: 0, // ms
-				y: 480, // 0-720
+				y: 460, // 0-720
 				speed: 12, // 10 = langsam
 				hit1: 2, // blau
-				hit2: 1, // grün
+				hit2: 0, // grün
 				hit3: 0, // gelb
 				hit4: 0, // rot
 				hit5: 0, // fortified
-				fightertype: [1,1,1], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
+				fightertype: [1,0,1], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [20,15,15], // Fighter 1: schnell, Fighter 3: langsam.
-				fighterspawn: [9000,28000,32000], // ms
+				fighterspawn: [15000,28000,32000], // ms
 				hangarspawn: [2,0,1] // in welchem Hangar? 0 / 1 / 2(random)
 			},
 			{ // second
 				type: carrier.ship6, // ship1 - 4
 				entry: 30000, // ms
-				y: 300, // 0-720
-				speed: 13, // 10 = langsam
+				y: 320, // 0-720
+				speed: 11, // 10 = langsam
 				hit1: 1, // blau
-				hit2: 2, // grün
+				hit2: 1, // grün
 				hit3: 0, // gelb
 				hit4: 0, // rot
 				hit5: 0, // fortified
-				fightertype: [1,1,1], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
+				fightertype: [1,1,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [25,20,20], // Fighter 1: schnell, Fighter 3: langsam.
-				fighterspawn: [10000,25000,35000], // ms
+				fighterspawn: [15000,25000,35000], // ms
 				hangarspawn: [2,0,1] // in welchem Hangar? 0 / 1 / 2(random)
 			},
 			{ // third
@@ -171,14 +171,14 @@ var levels = {
 				entry: 55000, // ms
 				y: 420, // 0-720
 				speed: 10, // 10 = langsam
-				hit1: 1, // blau
+				hit1: 0, // blau
 				hit2: 2, // grün
 				hit3: 0, // gelb
 				hit4: 0, // rot
 				hit5: 0, // fortified
-				fightertype: [1,1,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
+				fightertype: [0,1,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [28,16,0], // Fighter 1: schnell, Fighter 3: langsam.
-				fighterspawn: [18000,30000,0], // ms
+				fighterspawn: [18000,20000,0], // ms
 				hangarspawn: [2,0,1] // in welchem Hangar? 0 / 1
 			}
 		]
