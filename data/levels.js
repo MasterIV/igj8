@@ -10,6 +10,13 @@ var levels = {
 				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
 				text: 'Lorem Ipsum sit amet1111'
 			},
+			
+			{
+				char: 1, // 1-6
+				side: 1,
+				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				text: 'Lorem Ipsum sit amet1111'
+			},
 			{
 				char: 1, // 1-6
 				side: 1,
@@ -30,10 +37,10 @@ var levels = {
 		],
 		ships: [
 			{ // first
-				type: carrier.ship2, // ship1 - 5
+				type: carrier.ship10, // ship1 - 5
 				entry: 0, // ms
 				y: 300, // 0-720
-				speed: 100, // 10 = langsam
+				speed: 500, // 10 = langsam
 				hit1: 1, // blau
 				hit2: 0, // grün
 				hit3: 0, // gelb
@@ -53,35 +60,36 @@ var levels = {
 		title: 'Tutorial',
 		description: 'Das Tutorial Level mit 1 Schiff',
 		bigAnomaly:false,
-		dialog: [
+		dialog: [	
+		
 			{
 				char: 6, // 1-6
 				side: 0,
 				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
-				text: 'Master, we need to test our new  ',
-				text2: 'fabulous weapon systems.'
+				text: 'Rather soon, some ships will  ',
+				text2: 'attack the base '
 			},
 			{
 				char: 6, // 1-6
 				side: 0,
 				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
-				text: 'Rather soon, some ships will attack the base!',
-				text2: ' '
-			}/*,
-			{
-				char: 6, // 1-6
-				side: 0,
-				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
-				text: 'Hitting their weak spots won't be as easy as stealing candy ',
-				text2: 'from a child.'
+				text: 'Hitting their weak spots wont be as  ',
+				text2: 'easy asstealing candy from a child.'
 			},
 			{
 				char: 6, // 1-6
 				side: 0,
 				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
-				text: 'So you will need to make use of our amazing anomaly generator',
-				text2: 'that will allow you to shoot around corners. Fantastic!'
-			}*/
+				text: 'So you will need to make use of ',
+				text2: 'our amazing anomaly generator.  '
+			},
+			{
+				char: 6, // 1-6
+				side: 0,
+				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				text: 'That will allow you to shoot around corners. ',
+				text2: ' Fantastic! '
+			}
 		],
 		ships: [
 			{ // first
@@ -104,35 +112,58 @@ var levels = {
 	level1: {
 		title: 'Level 1',
 		description: 'Lorem Ipsum',
+		dialog: [
+			{
+				char: 3, // 1-6
+				side: 1,
+				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				text: 'Quiztime! Am I man? Am I woman?',
+				text2: 'Well, I am enemy!'
+			},
+			{
+				char: 3, // 1-6
+				side: 1,
+				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				text: 'Le rape is incoming!',
+				text2: ' '
+			},
+			{
+				char: 6, // 1-6
+				side: 0,
+				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				text: 'Master, dont let him penetrate  ',
+				text2: 'our base!'
+			}
+		],
 		ships: [
 			{ // first
 				type: carrier.ship6, // ship1 - 4
 				entry: 0, // ms
-				y: 480, // 0-720
+				y: 460, // 0-720
 				speed: 12, // 10 = langsam
 				hit1: 2, // blau
-				hit2: 1, // grün
+				hit2: 0, // grün
 				hit3: 0, // gelb
 				hit4: 0, // rot
 				hit5: 0, // fortified
-				fightertype: [1,1,1], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
+				fightertype: [1,0,1], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [20,15,15], // Fighter 1: schnell, Fighter 3: langsam.
-				fighterspawn: [9000,28000,32000], // ms
+				fighterspawn: [15000,28000,32000], // ms
 				hangarspawn: [2,0,1] // in welchem Hangar? 0 / 1 / 2(random)
 			},
 			{ // second
 				type: carrier.ship6, // ship1 - 4
 				entry: 30000, // ms
-				y: 300, // 0-720
-				speed: 13, // 10 = langsam
+				y: 320, // 0-720
+				speed: 11, // 10 = langsam
 				hit1: 1, // blau
-				hit2: 2, // grün
+				hit2: 1, // grün
 				hit3: 0, // gelb
 				hit4: 0, // rot
 				hit5: 0, // fortified
-				fightertype: [1,1,1], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
+				fightertype: [1,1,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [25,20,20], // Fighter 1: schnell, Fighter 3: langsam.
-				fighterspawn: [10000,25000,35000], // ms
+				fighterspawn: [15000,25000,35000], // ms
 				hangarspawn: [2,0,1] // in welchem Hangar? 0 / 1 / 2(random)
 			},
 			{ // third
@@ -140,14 +171,14 @@ var levels = {
 				entry: 55000, // ms
 				y: 420, // 0-720
 				speed: 10, // 10 = langsam
-				hit1: 1, // blau
+				hit1: 0, // blau
 				hit2: 2, // grün
 				hit3: 0, // gelb
 				hit4: 0, // rot
 				hit5: 0, // fortified
-				fightertype: [1,1,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
+				fightertype: [0,1,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [28,16,0], // Fighter 1: schnell, Fighter 3: langsam.
-				fighterspawn: [18000,30000,0], // ms
+				fighterspawn: [18000,20000,0], // ms
 				hangarspawn: [2,0,1] // in welchem Hangar? 0 / 1
 			}
 		]
@@ -155,6 +186,15 @@ var levels = {
 	level2: {
 		title: 'Level 2',
 		description: 'Lorem Ipsum',
+		dialog: [
+			{
+				char: 3, // 1-6
+				side: 1,
+				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				text: 'Uh yeah! No need to be gentle.',
+				text2: 'Harder! Faster! Stronger!'
+			}
+		],
 		ships: [
 			{ // first
 				type: carrier.ship6, // ship1 - 4
@@ -206,6 +246,36 @@ var levels = {
 	level3: {
 		title: 'Level 3',
 		description: 'Lorem Ipsum',
+		dialog: [
+			{
+				char: 2, // 1-6
+				side: 1,
+				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				text: 'Once we have been bees,',
+				text2: 'limited by the boundaries of air.'
+			},
+			{
+				char: 2, // 1-6
+				side: 1,
+				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				text: 'Now we are ant humans,',
+				text2: 'only limited by your space station,'
+			},
+			{
+				char: 2, // 1-6
+				side: 1,
+				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				text: 'which is unconveniently on the aforethought',
+				text2: 'path of our new intergalactic high way!'
+			},
+			{
+				char: 2, // 1-6
+				side: 1,
+				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				text: 'We will eat your balls!',
+				text2: 'All of them!'
+			}
+		],
 		ships: [
 			{ // first
 				type: carrier.ship7, // ship1 - 4
@@ -257,6 +327,15 @@ var levels = {
 	level4: {
 		title: 'Level 4',
 		description: 'Lorem Ipsum',
+		dialog: [
+			{
+				char: 2, // 1-6
+				side: 1,
+				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				text: 'All your balls are belong to us!',
+				text2: ' '
+			}
+		],
 		ships: [
 			{ // first
 				type: carrier.ship7, // ship1 - 4
@@ -308,6 +387,22 @@ var levels = {
 	level5: {
 		title: 'Level 5',
 		description: 'Lorem Ipsum',
+		dialog: [
+			{
+				char: 1, // 1-6
+				side: 1,
+				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				text: 'Hey, hey yo dog!',
+				text2: 'Ya know what time it is?'
+			},
+			{
+				char: 1, // 1-6
+				side: 1,
+				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				text: 'Its pain-o-clock! Prepare for dyin, man!',
+				text2: '  '
+			}
+		],
 		ships: [
 			{ // first
 				type: carrier.ship8, // ship1 - 4
@@ -359,6 +454,15 @@ var levels = {
 	level6: {
 		title: 'Level 6',
 		description: 'Lorem Ipsum',
+		dialog: [
+			{
+				char: 1, // 1-6
+				side: 1,
+				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				text: 'Common dog! No crazy cheat magic!',
+				text2: ' '
+			}
+		],
 		ships: [
 			{ // first
 				type: carrier.ship8, // ship1 - 4
@@ -410,6 +514,29 @@ var levels = {
 	level7: {
 		title: 'Level 7',
 		description: 'Lorem Ipsum',
+		dialog: [
+			{
+				char: 5, // 1-6
+				side: 1,
+				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				text: 'Sir! I am afraid my ships can only fly',
+				text2: 'into one direction.'
+			},
+			{
+				char: 5, // 1-6
+				side: 1,
+				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				text: 'We have to shoot our way through your ',
+				text2: 'marvellous base. Id like to beg you pardon!'
+			},
+			{
+				char: 5, // 1-6
+				side: 1,
+				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				text: '... Shitface!',
+				text2: ' '
+			}
+		],
 		ships: [
 			{ // first
 				type: carrier.ship9, // ship1 - 4
@@ -461,6 +588,15 @@ var levels = {
 	level8: {
 		title: 'Level 8',
 		description: 'Lorem Ipsum',
+		dialog: [
+			{
+				char: 5, // 1-6
+				side: 1,
+				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				text: 'You dare opposing me? You are an enemy ',
+				text2: 'to democracy!'
+			}
+		],
 		ships: [
 			{ // first
 				type: carrier.ship9, // ship1 - 4
@@ -512,16 +648,32 @@ var levels = {
 	level9: {
 		title: 'Level 9',
 		description: 'Lorem Ipsum',
+		dialog: [
+			{
+				char: 4, // 1-6
+				side: 1,
+				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				text: 'So you beat all the other races?',
+				text2: 'Milky!'
+			},
+			{
+				char: 4, // 1-6
+				side: 1,
+				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				text: 'Try to beat the power of dextrorotary ',
+				text2: 'lactic acid!'
+			}
+		],
 		ships: [
 			{ // first
 				type: carrier.ship10, // ship1 - 4
 				entry: 0, // ms
 				y: 300, // 0-720
 				speed: 15, // 10 = langsam
-				hit1: 3, // blau
+				hit1: 1, // blau
 				hit2: 1, // grün
 				hit3: 0, // gelb
-				hit4: 0, // rot
+				hit4: 1, // rot
 				hit5: 0, // fortified
 				fightertype: [1,0,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [20,0,0], // Fighter 1: schnell, Fighter 3: langsam.
@@ -534,9 +686,9 @@ var levels = {
 				y: 520, // 0-720
 				speed: 15, // 10 = langsam
 				hit1: 1, // blau
-				hit2: 3, // grün
+				hit2: 1, // grün
 				hit3: 0, // gelb
-				hit4: 0, // rot
+				hit4: 2, // rot
 				hit5: 0, // fortified
 				fightertype: [1,0,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [22,0,0], // Fighter 1: schnell, Fighter 3: langsam.
@@ -550,9 +702,9 @@ var levels = {
 				speed: 15, // 10 = langsam
 				hit1: 2, // blau
 				hit2: 0, // grün
-				hit3: 2, // gelb
+				hit3: 1, // gelb
 				hit4: 0, // rot
-				hit5: 0, // fortified
+				hit5: 1, // fortified
 				fightertype: [1,0,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [22,0,0], // Fighter 1: schnell, Fighter 3: langsam.
 				fighterspawn: [20000,0,0], // ms
@@ -563,16 +715,25 @@ var levels = {
 	level10: {
 		title: 'Level 10',
 		description: 'Lorem Ipsum',
+		dialog: [
+			{
+				char: 4, // 1-6
+				side: 1,
+				speech: 'sounds/ship_destroy/mothership_destroyed_long.ogg',
+				text: 'I find your lack of yoguhrt disturbing.',
+				text2: ' '
+			}
+		],
 		ships: [
 			{ // first
 				type: carrier.ship10, // ship1 - 4
 				entry: 0, // ms
 				y: 300, // 0-720
 				speed: 15, // 10 = langsam
-				hit1: 5, // blau
-				hit2: 1, // grün
-				hit3: 0, // gelb
-				hit4: 0, // rot
+				hit1: 0, // blau
+				hit2: 0, // grün
+				hit3: 2, // gelb
+				hit4: 2, // rot
 				hit5: 0, // fortified
 				fightertype: [1,0,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [20,0,0], // Fighter 1: schnell, Fighter 3: langsam.
@@ -620,11 +781,11 @@ var levels = {
 				entry: 0, // ms
 				y: 300, // 0-720
 				speed: 15, // 10 = langsam
-				hit1: 5, // blau
+				hit1: 0, // blau
 				hit2: 1, // grün
-				hit3: 0, // gelb
-				hit4: 0, // rot
-				hit5: 0, // fortified
+				hit3: 1, // gelb
+				hit4: 1, // rot
+				hit5: 1, // fortified
 				fightertype: [1,0,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [20,0,0], // Fighter 1: schnell, Fighter 3: langsam.
 				fighterspawn: [20000,0,0], // ms
@@ -632,14 +793,14 @@ var levels = {
 			},
 			{ // second
 				type: carrier.ship1, // ship1 - 4
-				entry: 0, // ms
+				entry: 30000, // ms
 				y: 520, // 0-720
 				speed: 15, // 10 = langsam
-				hit1: 3, // blau
-				hit2: 3, // grün
+				hit1: 0, // blau
+				hit2: 0, // grün
 				hit3: 0, // gelb
-				hit4: 0, // rot
-				hit5: 0, // fortified
+				hit4: 3, // rot
+				hit5: 2, // fortified
 				fightertype: [1,0,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [22,0,0], // Fighter 1: schnell, Fighter 3: langsam.
 				fighterspawn: [22000,0,0], // ms
@@ -647,14 +808,14 @@ var levels = {
 			},
 			{ // third
 				type: carrier.ship2, // ship1 - 4
-				entry: 40000, // ms
+				entry: 50000, // ms
 				y: 440, // 0-720
 				speed: 15, // 10 = langsam
-				hit1: 2, // blau
-				hit2: 2, // grün
+				hit1: 0, // blau
+				hit2: 0, // grün
 				hit3: 2, // gelb
-				hit4: 0, // rot
-				hit5: 0, // fortified
+				hit4: 2, // rot
+				hit5: 2, // fortified
 				fightertype: [1,0,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [22,0,0], // Fighter 1: schnell, Fighter 3: langsam.
 				fighterspawn: [20000,0,0], // ms
@@ -671,11 +832,11 @@ var levels = {
 				entry: 0, // ms
 				y: 300, // 0-720
 				speed: 15, // 10 = langsam
-				hit1: 5, // blau
-				hit2: 1, // grün
-				hit3: 0, // gelb
-				hit4: 0, // rot
-				hit5: 0, // fortified
+				hit1: 0, // blau
+				hit2: 0, // grün
+				hit3: 1, // gelb
+				hit4: 1, // rot
+				hit5: 2, // fortified
 				fightertype: [1,0,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [20,0,0], // Fighter 1: schnell, Fighter 3: langsam.
 				fighterspawn: [20000,0,0], // ms
@@ -683,14 +844,14 @@ var levels = {
 			},
 			{ // second
 				type: carrier.ship3, // ship1 - 4
-				entry: 0, // ms
+				entry: 30000, // ms
 				y: 520, // 0-720
 				speed: 15, // 10 = langsam
-				hit1: 3, // blau
-				hit2: 3, // grün
+				hit1: 0, // blau
+				hit2: 2, // grün
 				hit3: 0, // gelb
 				hit4: 0, // rot
-				hit5: 0, // fortified
+				hit5: 3, // fortified
 				fightertype: [1,0,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [22,0,0], // Fighter 1: schnell, Fighter 3: langsam.
 				fighterspawn: [22000,0,0], // ms
@@ -698,14 +859,14 @@ var levels = {
 			},
 			{ // third
 				type: carrier.ship4, // ship1 - 4
-				entry: 40000, // ms
+				entry: 50000, // ms
 				y: 440, // 0-720
 				speed: 15, // 10 = langsam
-				hit1: 2, // blau
-				hit2: 2, // grün
-				hit3: 2, // gelb
-				hit4: 0, // rot
-				hit5: 0, // fortified
+				hit1: 0, // blau
+				hit2: 0, // grün
+				hit3: 1, // gelb
+				hit4: 2, // rot
+				hit5: 2, // fortified
 				fightertype: [1,0,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [22,0,0], // Fighter 1: schnell, Fighter 3: langsam.
 				fighterspawn: [20000,0,0], // ms

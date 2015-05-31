@@ -115,7 +115,7 @@ CarrierShip.prototype.draw = function ( ctx ) {
 	}
 
 	if (this.destroyerShotAnimation != null) {
-		this.destroyerShotSpawnSprite.center(ctx,this.x - 200 + this.definition.destroyerChargeOffset.x, this.y + this.definition.destroyerChargeOffset.y,this.destroyerShotSpawnSpriteCounter.frame%5);
+		this.destroyerShotSpawnSprite.center(ctx,this.x - 200 + this.definition.destroyerChargeOffset.x + 0, this.y + this.definition.destroyerChargeOffset.y + 0,this.destroyerShotSpawnSpriteCounter.frame%5);
 	}
 
 	for( var i = 0; i < this.entities.length; i++ )
