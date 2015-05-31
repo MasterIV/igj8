@@ -1,5 +1,6 @@
-function Dialog(char, side, text, speech, nextDialog) {
+function Dialog(char, side, text,text2, speech, nextDialog) {
 	this.text = text;
+	this.text2 = text2;
 	this.nextDialog = nextDialog;
 	this.charSprite = new Sprite('img/character_'+char+'.png');
 	this.nameSprite = new Sprite('img/character_name_'+char+'.png');
@@ -29,6 +30,9 @@ Dialog.prototype.draw = function ( ctx ) {
 		ctx.fillStyle = 'white';
 		ctx.font = '18px Courier New';
 		ctx.fillText( this.text, game.display.width - this.textBoxL.width - 250 + 30, game.display.height - this.textBoxL.height/2 - 10);
+		ctx.fillStyle = 'white';
+		ctx.font = '18px Courier New';
+		ctx.fillText( this.text2, game.display.width - this.textBoxL.width - 250 + 30, game.display.height - this.textBoxL.height/2 + 5);
 	}
 	if (this.textBoxR) {
 		this.textBoxR.center(ctx, game.display.width - this.textBoxR.width/2 - 250, game.display.height - this.textBoxR.height/2 - 10);
@@ -42,6 +46,10 @@ Dialog.prototype.draw = function ( ctx ) {
 		ctx.fillStyle = 'white';
 		ctx.font = '18px Courier New';
 		ctx.fillText( this.text, game.display.width - this.textBoxR.width - 250 + 30, game.display.height - this.textBoxR.height/2 - 10);
+
+		ctx.fillStyle = 'white';
+		ctx.font = '18px Courier New';
+		ctx.fillText( this.text2, game.display.width - this.textBoxR.width - 250 + 30, game.display.height - this.textBoxR.height/2 + 5);
 	}
 };
 

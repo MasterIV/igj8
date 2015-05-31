@@ -8,6 +8,7 @@ function LoseScene() {
 
 	this.click = function() {
 		game.level = -1;
+		purgeUpgrades();
 		game.scene = scenes.menu;
 	}
 }
