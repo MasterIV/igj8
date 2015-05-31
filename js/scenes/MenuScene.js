@@ -1,5 +1,5 @@
 function MenuScene() {
-	this.bg = new Sprite('img/background1.jpg');
+	this.bg = new Sprite('img/start_screen.jpg');
 
 	this.entities = [ new Button('img/button_blank.png', 'img/button_blank.png', 1280/2 - 374/2, 720/2 -70/2, function() {
 						  game.nextLevel();

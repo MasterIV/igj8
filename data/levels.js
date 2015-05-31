@@ -58,15 +58,15 @@ var levels = {
 				type: carrier.ship0, // ship1 - 4
 				entry: 0, // ms
 				y: 360, // 0-720
-				speed: 17, // 10 = langsam
+				speed: 18, // 10 = langsam
 				hit1: 1, // blau
-				hit2: 1, // grün
-				hit3: 0, // gelb
-				hit4: 0, // rot
-				hit5: 0, // fortified
+				hit2: 0, // gelb
+				hit3: 0, // rot
+				hit4: 0, // yellow armored
+				hit5: 0, // red armored
 				fightertype: [1,0,0], // Fighter 1: ja, Fighter 2: nein, Fighter 3: ja.
 				fighterspeed: [22,22,0], // Fighter 1: schnell, Fighter 3: langsam.
-				fighterspawn: [7500,5000,5000], // ms
+				fighterspawn: [15000,5000,5000], // ms
 				hangarspawn: [2,0,0] // in welchem Hangar? 0 (unten) / 1 (oben) / 2(random)
 			}
 		]
