@@ -85,7 +85,7 @@ var levels = {
 		],
 		ships: [
 			{ // first
-				type: carrier.ship0, // ship1 - 4
+				type: carrier.ship2, // ship1 - 4
 				entry: 0, // ms
 				y: 360, // 0-720
 				speed: 18, // 10 = langsam
