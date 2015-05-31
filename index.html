@@ -106,6 +106,7 @@
 
 		<script type="text/javascript" src="js/scenes/b2test.js"></script>
 
+		<script type="text/javascript" src="js/scenes/MenuScene.js"></script>
 		<script type="text/javascript" src="js/scenes/PreUniverseScene.js"></script>
 		<script type="text/javascript" src="js/scenes/UniverseScene.js"></script>
 		<script type="text/javascript" src="js/scenes/TestScene.js"></script>
@@ -114,6 +115,7 @@
 
 		<script type="text/javascript" src="js/entities/Entity.js"></script>
 		<script type="text/javascript" src="js/entities/Dialog.js"></script>
+		<script type="text/javascript" src="js/entities/StaticSprite.js"></script>
 		<script type="text/javascript" src="js/entities/CarrierShip.js"></script>
 		<script type="text/javascript" src="js/entities/Fighter.js"></script>
 		<script type="text/javascript" src="js/entities/FighterShield.js"></script>
@@ -137,7 +139,7 @@
 					scenes.loose = new LooseScene();
 					document.getElementById('loading').style.display = 'none';
 					//game.scene = new UniverseScene(levels.level1);
-					game.scene = new PreUniverseScene(levels.example);
+					game.scene = new MenuScene();
 					//game.nextLevel();
 
 					mouse.init();

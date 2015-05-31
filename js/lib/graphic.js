@@ -70,7 +70,10 @@ var g = {
 		'img/character_name_3.png',
 		'img/character_name_4.png',
 		'img/character_name_5.png',
-		'img/character_name_6.png'
+		'img/character_name_6.png',
+		'img/button_blank.png',
+		'img/button_start_game.png'
+
 	],
 
 	add: function( url ) {
