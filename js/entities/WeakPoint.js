@@ -61,6 +61,7 @@ WeakPoint.prototype.hit = function ( damage ) {
 		game.scene.entities.push( new Animation( 'img/_weakspotDestroyed.png', 40, this.body.GetCenterPosition().x, this.body.GetCenterPosition().y, 1000 ) );
 
 		this.hp = 0;
+		upgrades.points += this.definition.points;
 	}
 };
 

@@ -1,7 +1,7 @@
 function UniverseScene(level) {
 	var self = this;
 
-	this.hp = 10;
+	//this.hp = 10;
 
 	var worldAABB = new b2AABB();
 	worldAABB.minVertex.Set(0 - 1000, 0 - 1000);
@@ -21,6 +21,7 @@ function UniverseScene(level) {
 	this.level = level;
 	this.spawnTime = 0;
 	this.nextShip = 0;
+	this.won = false;
 
 	this.bigAnomaly = null;
 	if (level.bigAnomaly) {
@@ -29,7 +30,7 @@ function UniverseScene(level) {
 	}
 
 	this.hpBar = new HpBar();
-	this.hpBar.setHp(this.hp);
+	this.hpBar.setHp(upgrades.hp);
 	this.entities.push(this.hpBar);
 	//this.entities.push(new debugBox2d(world));
 
@@ -47,7 +48,6 @@ function UniverseScene(level) {
 	};
 
 	this.anomaly = function( r, g ) {
-		console.log(suckers.length);
 		if (g > 0) {
 			if (suckers.length > upgrades.sucking[UPGR_SPECIAL]) {
 				var toremove = suckers[0];
@@ -71,7 +71,6 @@ function UniverseScene(level) {
 			suckers.push(sphere);
 		else
 			pushers.push(sphere);
-		console.log(suckers.length);
 	};
 
 	this.drawEntities = this.draw;
@@ -93,6 +92,10 @@ function UniverseScene(level) {
 		} else {
 			if (this.ships.length == 0) {
 				this.entities.push( new LevelComplete(640, 360) );
+				if (!this.won) {
+					this.won = true;
+					upgrades.points += 200;
+				}
 			}
 		}
 
