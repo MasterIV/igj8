@@ -14,7 +14,7 @@ Upgrade.prototype.createEntities = function () {
 		y += 64;
 		this.entities.push( new UpgradeBar(x, y, this.getMaxRate()) );
 		y += 63;
-		this.entities.push( new UpgradeBar(x, y, this.getMaxSpecial()) );
+		if (this.special) this.entities.push( new UpgradeBar(x, y, this.getMaxSpecial()) );
 	} else if (this.ishull) {
 		this.entities.push( new UpgradeBar(x, y, this.getMaxHP()) );
 	} else {
@@ -35,7 +35,7 @@ Upgrade.prototype.draw = function( ctx ) {
 	if (this.isgun) { // Guns have damage + rate of fire
 		this.entities[0].draw(ctx, this.getDamage(), this.damagecost[this.getDamage()+1]);
 		this.entities[1].draw(ctx, this.getRate(), this.damagecost[this.getDamage()+1]);
-		this.entities[2].draw(ctx, this.getSpecial(), this.special);
+		if (this.special) this.entities[2].draw(ctx, this.getSpecial(), this.special);
 	} else if(this.ishull) {
 		this.entities[0].draw(ctx, this.getHP(), this.cost[this.getHP()+1]);
 	} else { // Anomalies have cooldown + effect
@@ -145,7 +145,7 @@ function DestroyerGun(x,y) {
 	this.y = y;
 	this.img = g['img/shop_menu_rocket.png'];
 	this.isgun = true;
-	this.special = 2500;
+//	this.special = 2500;
 	this.damagecost = [0,350,600,1000,0];
 	this.ratecost = [0,350,600,1000,0];
 	this.createEntities();
