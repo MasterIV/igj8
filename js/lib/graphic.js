@@ -81,6 +81,8 @@ var g = {
 		'img/game_over.png',
 		'img/button_start_game.png',
 		'img/button_credits.png',
+		'img/button_main_menu.png',
+		'img/button_try_again.png',
 		'img/credits.jpg'
 	],
 

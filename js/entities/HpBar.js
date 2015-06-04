@@ -32,18 +32,18 @@ HpBar.prototype.reduce = function ( hp ) {
 						  else
 							game.nextLevel();
 					  });
-			var retryfg = new StaticSprite('img/button_back.png',1280/2, 484);
+			var retryfg = new StaticSprite('img/button_try_again.png',1280/2, 484);
 
 			var menubg = new StaticSprite('img/button_blank.png',1280/2, 555);
 			var menubutton = new Button('img/button_blank.png', 'img/shop_button_big_highlight.png', 1280/2 - 374/2, 521, function() {
-						  // Retry
+						  // Main Menu
 						  purgeUpgrades();
 						  game.level = -1;
 						  game.animation.x = 0;
 						  game.animation.y = 0;
 						  game.scene = scenes.menu;
 					  });
-			var menufg = new StaticSprite('img/button_back.png',1280/2, 555);
+			var menufg = new StaticSprite('img/button_main_menu.png',1280/2, 555);
 
 			game.scene.entities.push( retrybg );
 			game.scene.entities.push( retrybutton );
