@@ -22,6 +22,8 @@ function UniverseScene(level) {
 	this.spawnTime = 0;
 	this.nextShip = 0;
 	this.won = false;
+	this.lost = false;
+	this.gameover = false;
 
 	this.bigAnomaly = null;
 	if (level.bigAnomaly) {
@@ -81,6 +83,8 @@ function UniverseScene(level) {
 
 	this.updateEntities = this.update;
 	this.update = function(delta) {
+		if (this.gameover) return;
+
 		this.spawnTime += delta;
 		if (this.level.ships.length > this.nextShip) {
 			if (this.spawnTime >= this.level.ships[this.nextShip].entry) {
@@ -90,11 +94,11 @@ function UniverseScene(level) {
 				this.nextShip++;
 			}
 		} else {
-			if (this.ships.length == 0) {
-				this.entities.push( new LevelComplete(640, 360) );
+			if (this.ships.length == 0 && game.scene.lost == false) {
 				if (!this.won) {
+					this.entities.push( new LevelComplete(640, 360) );
 					this.won = true;
-					upgrades.points += 200;
+					upgrades.pointbuffer += 200;
 				}
 			}
 		}

@@ -32,6 +32,12 @@ Cannon.prototype.draw = function ( ctx ) {
 };
 
 Cannon.prototype.update = function ( delta ) {
+	if (game.scene.lost) {
+		if (this.shooting)
+			this.shooting = false;
+		return;
+	}
+
 	this.counter.update(delta);
 	this.rotation = Math.atan2( this.position.x - mouse.x, this.position.y - mouse.y) * - 1;
 
@@ -71,6 +77,8 @@ Cannon.prototype.update = function ( delta ) {
 };
 
 Cannon.prototype.mousedown = function() {
+	if (game.scene.lost) return;
+
 	this.shooting = true;
 };
 

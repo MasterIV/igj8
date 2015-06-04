@@ -88,7 +88,7 @@ Fighter.prototype.update = function ( delta ) {
 		if (this.upgrade != null) {
 			arrayRemove( game.scene.entities, this.upgrade);
 			this.world.DestroyBody(this.upgrade.body);
-			upgrades.points += 5;
+			upgrades.pointbuffer += 5;
 		}
 	}
 

@@ -1,5 +1,5 @@
-function LevelComplete() {
-	this.img = g['img/win.png'];
+function LevelFailed() {
+	this.img = g['img/game_over.png'];
 	this.width = this.img.width;
 	this.height = this.img.height;
 	this.lifetime = 0;
@@ -8,11 +8,13 @@ function LevelComplete() {
 		ctx.drawImage( this.img, 640-this.img.width/2, 360-this.img.height/2 );
 	}
 	this.update = function ( delta ) {
+		if (game.scene.gameover) return;
+
 		this.lifetime += delta;
-		if (this.lifetime >= 3000) {
-			upgrades.points += upgrades.pointbuffer;
-			upgrades.pointbuffer = 0;
-			game.scene = new BuyScene();
+		if (this.lifetime >= 5000) {
+			game.scene.gameover = true;
+			game.animation.x = 0;
+			game.animation.y = 0;
 		}
 	}
 }
